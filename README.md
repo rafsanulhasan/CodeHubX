@@ -22,7 +22,7 @@ CodeHubX is an x-plat GitHub client that helps you keep up with the open source 
 
 |               |                   |
 |:-------------:| :----------------:|
-| ![screenshot](https://raw.githubusercontent.com/sicsbd/CodeHubX/blob/dev/Screenshots/repoView.PNG)  | ![screenshot](https://raw.githubusercontent.com/sicsbd/CodeHubX/blob/dev/Screenshots/trending.PNG) |
+| ![screenshot](https://raw.githubusercontent.com/sicsbd/CodeHubX/dev/ScreenShots/repoView.PNG)  | ![screenshot](https://raw.githubusercontent.com/sicsbd/CodeHubX/dev/ScreenShots/trending.PNG) |
 
 
 ## Contributing
