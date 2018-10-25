@@ -54,7 +54,7 @@ I thank the makers of these libraries
 * [LocalNotifications](https://github.com/RavinduL/LocalNotifications)
 * [UWP-Animated-SplashScreen](https://github.com/XamlBrewer/UWP-Animated-SplashScreen)
 * [QueryString.Net](https://www.github.com/WindowsNotifications/QueryString.Net)
-[Xamarin](https://visualstudio.microsoft.com/xamarin/)
+* [Xamarin](https://visualstudio.microsoft.com/xamarin/)
 
 ## Gitter chat
 * https://gitter.im/SynergyCodeHubX/Bugs
