@@ -1,6 +1,6 @@
-# CodeHub
+# CodeHubX
 <span class="badge-patreon"><a href="https://www.patreon.com/aalok05" title="Donate to this project using Patreon"><img src="https://img.shields.io/badge/patreon-donate-yellow.svg" alt="Patreon donate button" /></a></span>
-[![Twitter URL](https://img.shields.io/badge/tweet-%40devaalok-blue.svg?style=social&style=flat-square)](https://twitter.com/rafsanulhasan)
+[![Twitter URL](https://img.shields.io/badge/tweet-%40rafsanulhasan-blue.svg?style=social&style=flat-square)](https://twitter.com/rafsanulhasan)
 
 CodeHubX is an x-plat GitHub client that helps you keep up with the open source world.
 
@@ -22,7 +22,7 @@ CodeHubX is an x-plat GitHub client that helps you keep up with the open source 
 
 |               |                   |
 |:-------------:| :----------------:|
-| ![screenshot](https://raw.githubusercontent.com/sicsbd/CodeHubX/master/Screenshots/repoView.PNG)  | ![screenshot](https://raw.githubusercontent.com/sicsbd/CodeHubX/master/Screenshots/trending.PNG) |
+| ![screenshot](https://raw.githubusercontent.com/sicsbd/CodeHubX/dev/Screenshots/repoView.PNG)  | ![screenshot](https://raw.githubusercontent.com/sicsbd/CodeHubX/dev/Screenshots/trending.PNG) |
 
 
 ## Contributing
