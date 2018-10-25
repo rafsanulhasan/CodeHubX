@@ -22,7 +22,7 @@ CodeHubX is an x-plat GitHub client that helps you keep up with the open source 
 
 |               |                   |
 |:-------------:| :----------------:|
-| ![screenshot](https://raw.githubusercontent.com/sicsbd/CodeHubX/dev/Screenshots/repoView.PNG)  | ![screenshot](https://raw.githubusercontent.com/sicsbd/CodeHubX/dev/Screenshots/trending.PNG) |
+| ![screenshot](https://raw.githubusercontent.com/sicsbd/CodeHubX/tree/dev/Screenshots/repoView.PNG)  | ![screenshot](https://raw.githubusercontent.com/sicsbd/CodeHubX/tree/dev/Screenshots/trending.PNG) |
 
 
 ## Contributing
@@ -42,7 +42,7 @@ Examples:
 
 ### I Can't Find My Organization
 
-CodeHub can see all organizations *if they are granted access*. GitHub, by default, disables [third-party access](https://help.github.com/articles/about-third-party-application-restrictions/) for new organizations. Because of this, CodeHub has no knowledge that those organizations even exist. GitHub keeps that information from the app. There are several ways to correct this. If you own the organization follow [these instructions](https://help.github.com/articles/enabling-third-party-application-restrictions-for-your-organization/). If you do not own the organization you can request access for CodeHub by following [these instructions](https://help.github.com/articles/requesting-organization-approval-for-third-party-applications/).
+CodeHubX can see all organizations *if they are granted access*. GitHub, by default, disables [third-party access](https://help.github.com/articles/about-third-party-application-restrictions/) for new organizations. Because of this, CodeHub has no knowledge that those organizations even exist. GitHub keeps that information from the app. There are several ways to correct this. If you own the organization follow [these instructions](https://help.github.com/articles/enabling-third-party-application-restrictions-for-your-organization/). If you do not own the organization you can request access for CodeHub by following [these instructions](https://help.github.com/articles/requesting-organization-approval-for-third-party-applications/).
 
 ## Dependencies
 I thank the makers of these libraries
