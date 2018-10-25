@@ -1,0 +1,245 @@
+﻿<Page x:Class="CodeHubX.UWP.Views.TrendingView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:converters="using:CodeHubX.UWP.Converters"
+      xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:i="using:Microsoft.Xaml.Interactivity"
+      xmlns:local="using:CodeHubX.UWP.Views"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:octo="using:Octokit"
+      xmlns:toolkitControl="using:Microsoft.Toolkit.Uwp.UI.Controls"
+      xmlns:userControls="using:CodeHubX.UWP.Controls"
+      mc:Ignorable="d">
+    <i:Interaction.Behaviors>
+        <core:EventTriggerBehavior EventName="Loaded">
+            <core:InvokeCommandAction Command="{x:Bind ViewModel.LoadCommand}" />
+        </core:EventTriggerBehavior>
+    </i:Interaction.Behaviors>
+    <Page.Resources>
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" x:Name="BooleanToVisibilityConverter" />
+        <converters:ReverseBooleanToVisibilityConverter x:Key="ReverseBooleanToVisibilityConverter" x:Name="ReverseBooleanToVisibilityConverter" />
+    </Page.Resources>
+
+    <Grid Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--  Empty grid to provide grey background to pivot headers  -->
+        <Grid Grid.Row="1"
+              Height="48"
+              VerticalAlignment="Top"
+              Background="{ThemeResource SystemChromeLowColor}" />
+        <Pivot Grid.Row="1"
+               SelectionChanged="{x:Bind ViewModel.Pivot_SelectionChanged}"
+               Style="{StaticResource CustomPivotStyle}">
+            <Pivot.Resources>
+                <Style BasedOn="{StaticResource CustomPivotHeaderItemStyle}" TargetType="PivotHeaderItem" />
+            </Pivot.Resources>
+            <PivotItem Margin="0">
+                <PivotItem.Header>
+                    <TextBlock x:Uid="today"
+                               FontSize="15"
+                               FontWeight="Normal" />
+                </PivotItem.Header>
+                <Grid>
+                    <toolkitControl:PullToRefreshListView x:Name="todayListView"
+                                                          IsItemClickEnabled="True"
+                                                          ItemClick="{x:Bind ViewModel.RepoDetailNavigateCommand}"
+                                                          ItemContainerStyle="{StaticResource CustomListViewItemStyle}"
+                                                          ItemsSource="{x:Bind ViewModel.TrendingReposToday, Mode=OneWay}"
+                                                          Loaded="TodayListView_Loaded"
+                                                          OverscrollLimit="0.4"
+                                                          PullProgressChanged="Today_PullProgressChanged"
+                                                          PullThreshold="100"
+                                                          RefreshRequested="{x:Bind ViewModel.RefreshTodayCommand}"
+                                                          ScrollViewer.HorizontalScrollMode="Disabled">
+
+                        <toolkitControl:PullToRefreshListView.Header>
+                            <toolkitControl:ScrollHeader Mode="Fade">
+                                <Button Style="{StaticResource ActionButtonStyle}"
+                                        Padding="0"
+                                        HorizontalContentAlignment="Stretch"
+                                        HorizontalAlignment="Stretch"
+                                        Tapped="{x:Bind ViewModel.FirstRepoTodayNavigate}"
+                                        Visibility="{x:Bind ViewModel.IsLoadingToday, Converter={StaticResource ReverseBooleanToVisibilityConverter}, Mode=OneWay}">
+                                    <userControls:FirstTrendingRepoControl Repository="{x:Bind ViewModel.FirstTrendingReposToday,Mode=OneWay}"
+                                                                           Visibility="{x:Bind ViewModel.ZeroTodayCount, Converter={StaticResource ReverseBooleanToVisibilityConverter}, Mode=OneWay}" />
+                                </Button>
+                            </toolkitControl:ScrollHeader>
+                        </toolkitControl:PullToRefreshListView.Header>
+
+                        <toolkitControl:PullToRefreshListView.ItemTemplate>
+                            <DataTemplate x:DataType="octo:Repository">
+                                <userControls:RepoListItem />
+                            </DataTemplate>
+                        </toolkitControl:PullToRefreshListView.ItemTemplate>
+
+                        <toolkitControl:PullToRefreshListView.RefreshIndicatorContent>
+
+                            <Border x:Name="refreshindicator"
+                                    Width="20"
+                                    Height="20"
+                                    HorizontalAlignment="Center"
+                                    CornerRadius="30" />
+                        </toolkitControl:PullToRefreshListView.RefreshIndicatorContent>
+                    </toolkitControl:PullToRefreshListView>
+
+                    <ProgressBar MaxWidth="2000"
+                                 MaxHeight="5"
+                                 Margin="0,0,0,10"
+                                 HorizontalAlignment="Stretch"
+                                 VerticalAlignment="Bottom"
+                                 Foreground="{StaticResource SystemControlBackgroundAccentBrush}"
+                                 IsIndeterminate="True"
+                                 Visibility="{x:Bind ViewModel.IsIncrementalLoadingToday, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}" />
+
+                    <TextBlock x:Uid="trendingUpdatePlaceholder"
+                               Style="{StaticResource ZeroItemsTextBoxStyle}"
+                               Visibility="{x:Bind ViewModel.ZeroTodayCount, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}" />
+
+                    <ProgressRing Width="40"
+                                  Height="40"
+                                  FontSize="40"
+                                  Foreground="{StaticResource SystemControlBackgroundAccentBrush}"
+                                  IsActive="{x:Bind ViewModel.IsLoadingToday, Mode=OneWay}" />
+                </Grid>
+            </PivotItem>
+            <PivotItem Margin="0">
+                <PivotItem.Header>
+                    <TextBlock x:Uid="thisWeek"
+                               FontSize="15"
+                               FontWeight="Normal" />
+                </PivotItem.Header>
+                <Grid>
+                    <toolkitControl:PullToRefreshListView x:Name="weekListView"
+                                                          IsItemClickEnabled="True"
+                                                          ItemClick="{x:Bind ViewModel.RepoDetailNavigateCommand}"
+                                                          ItemContainerStyle="{StaticResource CustomListViewItemStyle}"
+                                                          ItemsSource="{x:Bind ViewModel.TrendingReposWeek, Mode=OneWay}"
+                                                          Loaded="WeekListView_Loaded"
+                                                          OverscrollLimit="0.4"
+                                                          PullProgressChanged="Week_PullProgressChanged"
+                                                          PullThreshold="100"
+                                                          RefreshRequested="{x:Bind ViewModel.RefreshWeekCommand}"
+                                                          ScrollViewer.HorizontalScrollMode="Disabled">
+                        <toolkitControl:PullToRefreshListView.Header>
+                            <toolkitControl:ScrollHeader Mode="Fade">
+                                <Button Style="{StaticResource ActionButtonStyle}"
+                                        Padding="0"
+                                        Tapped="{x:Bind ViewModel.FirstRepoWeekNavigate}"
+                                        HorizontalContentAlignment="Stretch"
+                                        HorizontalAlignment="Stretch"
+                                        Visibility="{x:Bind ViewModel.IsLoadingWeek, Converter={StaticResource ReverseBooleanToVisibilityConverter}, Mode=OneWay}">
+                                    <userControls:FirstTrendingRepoControl Repository="{x:Bind ViewModel.FirstTrendingReposWeek,Mode=OneWay}"
+                                                                           Visibility="{x:Bind ViewModel.ZeroWeeklyCount, Converter={StaticResource ReverseBooleanToVisibilityConverter}, Mode=OneWay}" />
+                                </Button>
+                            </toolkitControl:ScrollHeader>
+                        </toolkitControl:PullToRefreshListView.Header>
+                        <toolkitControl:PullToRefreshListView.ItemTemplate>
+                            <DataTemplate x:DataType="octo:Repository">
+                                <userControls:RepoListItem />
+                            </DataTemplate>
+                        </toolkitControl:PullToRefreshListView.ItemTemplate>
+
+                        <toolkitControl:PullToRefreshListView.RefreshIndicatorContent>
+
+                            <Border x:Name="refreshindicator2"
+                                    Width="20"
+                                    Height="20"
+                                    HorizontalAlignment="Center"
+                                    CornerRadius="30" />
+                        </toolkitControl:PullToRefreshListView.RefreshIndicatorContent>
+                    </toolkitControl:PullToRefreshListView>
+
+                    <ProgressBar MaxWidth="2000"
+                                 MaxHeight="5"
+                                 Margin="0,0,0,10"
+                                 HorizontalAlignment="Stretch"
+                                 VerticalAlignment="Bottom"
+                                 Foreground="{StaticResource SystemControlBackgroundAccentBrush}"
+                                 IsIndeterminate="True"
+                                 Visibility="{x:Bind ViewModel.IsIncrementalLoadingWeek, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}" />
+
+                    <TextBlock x:Uid="trendingUpdatePlaceholder"
+                               Style="{StaticResource ZeroItemsTextBoxStyle}"
+                               Visibility="{x:Bind ViewModel.ZeroWeeklyCount, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}" />
+                    <ProgressRing Width="40"
+                                  Height="40"
+                                  Foreground="{StaticResource SystemControlBackgroundAccentBrush}"
+                                  IsActive="{x:Bind ViewModel.IsLoadingWeek, Mode=OneWay}" />
+                </Grid>
+
+            </PivotItem>
+            <PivotItem Margin="0">
+                <PivotItem.Header>
+                    <TextBlock x:Uid="thisMonth"
+                               FontSize="15"
+                               FontWeight="Normal" />
+                </PivotItem.Header>
+                <Grid>
+                    <toolkitControl:PullToRefreshListView x:Name="monthListView"
+                                                          IsItemClickEnabled="True"
+                                                          ItemClick="{x:Bind ViewModel.RepoDetailNavigateCommand}"
+                                                          ItemContainerStyle="{StaticResource CustomListViewItemStyle}"
+                                                          ItemsSource="{x:Bind ViewModel.TrendingReposMonth, Mode=OneWay}"
+                                                          Loaded="MonthListView_Loaded"
+                                                          OverscrollLimit="0.4"
+                                                          PullProgressChanged="Month_PullProgressChanged"
+                                                          PullThreshold="100"
+                                                          RefreshRequested="{x:Bind ViewModel.RefreshMonthCommand}"
+                                                          ScrollViewer.HorizontalScrollMode="Disabled">
+
+                        <toolkitControl:PullToRefreshListView.Header>
+                            <toolkitControl:ScrollHeader Mode="Fade">
+                                <Button Style="{StaticResource ActionButtonStyle}"
+                                        Padding="0"
+                                        Tapped="{x:Bind ViewModel.FirstRepoMonthNavigate}"
+                                        HorizontalContentAlignment="Stretch"
+                                        HorizontalAlignment="Stretch"
+                                        Visibility="{x:Bind ViewModel.IsLoadingMonth, Converter={StaticResource ReverseBooleanToVisibilityConverter}, Mode=OneWay}">
+                                    <userControls:FirstTrendingRepoControl Repository="{x:Bind ViewModel.FirstTrendingReposMonth,Mode=OneWay}"
+                                                                           Visibility="{x:Bind ViewModel.ZeroMonthlyCount, Converter={StaticResource ReverseBooleanToVisibilityConverter}, Mode=OneWay}" />
+                                </Button>
+                            </toolkitControl:ScrollHeader>
+                        </toolkitControl:PullToRefreshListView.Header>
+                        <toolkitControl:PullToRefreshListView.ItemTemplate>
+                            <DataTemplate x:DataType="octo:Repository">
+                                <userControls:RepoListItem />
+                            </DataTemplate>
+                        </toolkitControl:PullToRefreshListView.ItemTemplate>
+
+                        <toolkitControl:PullToRefreshListView.RefreshIndicatorContent>
+
+                            <Border x:Name="refreshindicator3"
+                                    Width="20"
+                                    Height="20"
+                                    HorizontalAlignment="Center"
+                                    CornerRadius="30" />
+                        </toolkitControl:PullToRefreshListView.RefreshIndicatorContent>
+                    </toolkitControl:PullToRefreshListView>
+
+                    <ProgressBar MaxWidth="800"
+                                 MaxHeight="5"
+                                 Margin="0,0,0,10"
+                                 HorizontalAlignment="Stretch"
+                                 VerticalAlignment="Bottom"
+                                 Foreground="{StaticResource SystemControlBackgroundAccentBrush}"
+                                 IsIndeterminate="True"
+                                 Visibility="{x:Bind ViewModel.IsIncrementalLoadingMonth, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}" />
+
+                    <TextBlock x:Uid="trendingUpdatePlaceholder"
+                               Style="{StaticResource ZeroItemsTextBoxStyle}"
+                               Visibility="{x:Bind ViewModel.ZeroMonthlyCount, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}" />
+                    <ProgressRing Width="40"
+                                  Height="40"
+                                  Foreground="{StaticResource SystemControlBackgroundAccentBrush}"
+                                  IsActive="{x:Bind ViewModel.IsLoadingMonth, Mode=OneWay}" />
+                </Grid>
+
+            </PivotItem>
+        </Pivot>
+    </Grid>
+</Page>

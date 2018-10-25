@@ -1,8 +1,8 @@
 # CodeHub
 <span class="badge-patreon"><a href="https://www.patreon.com/aalok05" title="Donate to this project using Patreon"><img src="https://img.shields.io/badge/patreon-donate-yellow.svg" alt="Patreon donate button" /></a></span>
-[![Twitter URL](https://img.shields.io/badge/tweet-%40devaalok-blue.svg?style=social&style=flat-square)](https://twitter.com/devaalok)
+[![Twitter URL](https://img.shields.io/badge/tweet-%40devaalok-blue.svg?style=social&style=flat-square)](https://twitter.com/rafsanulhasan)
 
-CodeHub is a Universal Windows GitHub client that helps you keep up with the open source world.
+CodeHubX is an x-plat GitHub client that helps you keep up with the open source world.
 
 <p align="center"><a href="https://www.microsoft.com/store/apps/9nblggh52tbd?ocid=badge"><img src="https://assets.windowsphone.com/85864462-9c82-451e-9355-a3d5f874397a/English_get-it-from-MS_InvariantCulture_Default.png" alt="Get it from Microsoft" width='200' /></a></p>
 
@@ -22,11 +22,11 @@ CodeHub is a Universal Windows GitHub client that helps you keep up with the ope
 
 |               |                   |
 |:-------------:| :----------------:|
-| ![screenshot](https://raw.githubusercontent.com/aalok05/CodeHub/master/Screenshots/repoView.PNG)  | ![screenshot](https://raw.githubusercontent.com/aalok05/CodeHub/master/Screenshots/trending.PNG) |
+| ![screenshot](https://raw.githubusercontent.com/sicsbd/CodeHubX/master/Screenshots/repoView.PNG)  | ![screenshot](https://raw.githubusercontent.com/sicsbd/CodeHubX/master/Screenshots/trending.PNG) |
 
 
 ## Contributing
-Do you want to contribute? Here are our [contribution guidelines](https://github.com/aalok05/CodeHub/blob/master/CONTRIBUTING.md).
+Do you want to contribute? Here are our [contribution guidelines](https://github.com/sicsbd/CodeHubX/blob/master/CONTRIBUTING.md).
 
 ## Setting up the project
 * [Register](https://github.com/settings/developers) your OAuth application and paste your key and secret in the `app.config` file in the root of the project.
@@ -35,8 +35,8 @@ Do you want to contribute? Here are our [contribution guidelines](https://github
 You can launch CodeHub and navigate to repositories and user profiles using custom URI schemes
 
 Examples:
-- _codehub://repository/aalok05/codehub_
-- _codehub://user/aalok05_
+- _codehubx://repository/sicsbd/codehubx_
+- _codehubx://user/rafsanulhasan_
 
 ## Troubleshooting
 
@@ -54,13 +54,10 @@ I thank the makers of these libraries
 * [LocalNotifications](https://github.com/RavinduL/LocalNotifications)
 * [UWP-Animated-SplashScreen](https://github.com/XamlBrewer/UWP-Animated-SplashScreen)
 * [QueryString.Net](https://www.github.com/WindowsNotifications/QueryString.Net)
+[Xamarin](https://visualstudio.microsoft.com/xamarin/)
 
 ## Gitter chat
-* https://gitter.im/CodehubUWP/Bugs
-* https://gitter.im/CodehubUWP/FeatureRequests
-
-## Patrons
-* Ian Rasmussen
-
-Special thanks to my patrons for supporting me in making UWP apps :)
-You can also become a patron [here](https://www.patreon.com/aalok05).
+* https://gitter.im/SynergyCodeHubX/Bugs
+* https://gitter.im/CodehubUWP/Features
+* https://gitter.im/CodehubUWP/Discussion
+* https://gitter.im/CodehubUWP/CrashReports

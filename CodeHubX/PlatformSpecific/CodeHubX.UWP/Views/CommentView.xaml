@@ -1,0 +1,12 @@
+﻿<Page x:Class="CodeHubX.UWP.Views.CommentView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:userControl="using:CodeHubX.UWP.Controls"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d">
+
+    <userControl:CommentListItem DataContext="{x:Bind ViewModel.Comment}"
+                                 Margin="8"
+                                 VerticalAlignment="Top"/>
+</Page>
