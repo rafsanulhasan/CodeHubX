@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView x:Class="CodeHubX.Controls.RepoListItem"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DesignHeight="300"
+             d:DesignWidth="400"
+             mc:Ignorable="d">
+    <VisualStateManager.VisualStateGroups>
+        <VisualStateGroup>
+        </VisualStateGroup>
+    </VisualStateManager.VisualStateGroups>
+    <RelativeLayout Padding="12">
+
+        <Image x:Name="OwnerAvatarEllipse"
+               Width="60"
+               Height="60"
+               Margin="0,0,0,8"
+               Source="{Binding Owner.AvatarUrl, Mode=OneWay}" />
+
+        <StackLayout x:Name="RepoNamePanel"
+                        Margin="12,0,0,4"
+                        Orientation="Horizontal">
+            <StackLayout Padding="2"
+                            BackgroundColor="{StaticResource SystemChromeLowColor}"
+                            Orientation="Horizontal"
+                            IsVisible="{Binding Fork, Mode=OneWay}">
+                <Label Margin="0 0 4 0"
+                               FontSize="14"
+                               VerticalTextAlignment="Center"
+                               FontAttributes="Bold"
+                               Text="Forked" />
+            </StackLayout>
+            <Label x:Name="OwnernameTextBlock"
+                           Margin="4,0,0,0"
+                           FontAttributes="Bold"
+                           VerticalTextAlignment="Center"
+                           Style="{StaticResource RepoNameTextBlockStyle}"
+                           Text="{Binding Owner.Login, Mode=OneWay}" />
+            <Label x:Name="slash"
+                           FontAttributes="Bold"
+                           VerticalTextAlignment="Center"
+                           Style="{StaticResource RepoNameTextBlockStyle}"
+                           Text="/" />
+            <Label x:Name="RepoNameTextBlock"
+                           FontAttributes="Bold"
+                           VerticalTextAlignment="Center"
+                           Style="{StaticResource RepoNameTextBlockStyle}"
+                           Text="{Binding Name}" />
+            <StackLayout Margin="4 0 0 0"
+                         Orientation="Vertical"
+                         IsVisible="{Binding Private, Mode=OneWay}">
+                <Label HorizontalTextAlignment="Center"
+                       FontFamily="Segoe MDL2 Assets"
+                       FontSize="14"
+                       TextColor="Brown"
+                       Text="&#xE72E;" />
+                <Label FontSize="10"
+                       TextColor="Brown"
+                       Text="Private" />
+            </StackLayout>
+        </StackLayout>
+
+        <Label x:Name="description"
+                       Margin="16,12,4,8"
+                       FontSize="13"
+                       TextColor="Gray"
+                       MaxLines="1"
+                       Text="{Binding Description}"
+                       IsVisible="{Binding Description}" />
+
+        <Label x:Name="StarCount"
+                       Margin="0 8 0 0"
+                       FontSize="14"
+                       TextColor="{StaticResource ApplicationForegroundThemeBrush}"
+                       Text="{Binding StargazersCount}" />
+
+        <Label x:Name="ForkCount"
+                       Margin="0 8 12 0"
+                       FontSize="14"
+                       TextColor="{StaticResource ApplicationForegroundThemeBrush}"
+                       Text="{Binding ForksCount}" />
+
+        <Label Margin="0,8,0,0"
+                       FontSize="15"
+                       TextColor="Gray"
+                       Text="{Binding Language}" />
+    </RelativeLayout>
+
+</ContentView>

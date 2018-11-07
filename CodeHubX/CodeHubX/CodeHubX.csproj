@@ -1,0 +1,259 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <LangVersion>7.3</LangVersion>
+        <AssemblyName>CodeHubX</AssemblyName>
+        <EnableDefaultCompileItems>False</EnableDefaultCompileItems>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <DebugType>pdbonly</DebugType>
+        <DebugSymbols>true</DebugSymbols>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Remove="Controls\ActivityListItem.xaml" />
+        <EmbeddedResource Remove="Controls\BusyScreen.xaml" />
+        <EmbeddedResource Remove="Controls\CodeListItem.xaml" />
+        <EmbeddedResource Remove="Controls\CommentListItem.xaml" />
+        <EmbeddedResource Remove="Controls\CommitFileListItem.xaml" />
+        <EmbeddedResource Remove="Controls\CommitListItem.xaml" />
+        <EmbeddedResource Remove="Controls\FirstTrendingRepoControl.xaml" />
+        <EmbeddedResource Remove="Controls\HamMenuListItem.xaml" />
+        <EmbeddedResource Remove="Controls\IssueListItem.xaml" />
+        <EmbeddedResource Remove="Controls\LabelListItem.xaml" />
+        <EmbeddedResource Remove="Controls\MarkdownControl.xaml" />
+        <EmbeddedResource Remove="Controls\OrganizationListItem.xaml" />
+        <EmbeddedResource Remove="Controls\PullRequestListItem.xaml" />
+        <EmbeddedResource Remove="Controls\ReleaseListItem.xaml" />
+        <EmbeddedResource Remove="Controls\RepoListItem.xaml" />
+        <EmbeddedResource Remove="Controls\SignInPage.xaml" />
+        <EmbeddedResource Remove="Controls\SyntaxHighlightPreviewControl.xaml" />
+        <EmbeddedResource Remove="Controls\TopScrollerControl.xaml" />
+        <EmbeddedResource Remove="Controls\UserListItem.xaml" />
+        <EmbeddedResource Remove="Controls\WhatsNewPopupControl.xaml" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Include="App.xaml.cs" />
+        <Compile Include="Controls\ActivityListItem.xaml.cs" />
+        <Compile Include="Controls\BusyScreen.xaml.cs" />
+        <Compile Include="Controls\CodeListItem.xaml.cs" />
+        <Compile Include="Controls\CommentListItem.xaml.cs" />
+        <Compile Include="Controls\CommitFileListItem.xaml.cs" />
+        <Compile Include="Controls\CommitListItem.xaml.cs" />
+        <Compile Include="Controls\CustomFrame.cs" />
+        <Compile Include="Controls\FirstTrendingRepoControl.xaml.cs" />
+        <Compile Include="Controls\HamMenuListItem.xaml.cs" />
+        <Compile Include="Controls\HtmlToRtfConverter.cs" />
+        <Compile Include="Controls\IssueListItem.xaml.cs" />
+        <Compile Include="Controls\LabelListItem.xaml.cs" />
+        <Compile Include="Controls\MarkdownControl.xaml.cs" />
+        <Compile Include="Controls\OrganizationListItem.xaml.cs" />
+        <Compile Include="Controls\PullRequestListItem.xaml.cs" />
+        <Compile Include="Controls\ReleaseListItem.xaml.cs" />
+        <Compile Include="Controls\RepoListItem.xaml.cs" />
+        <Compile Include="Controls\SignInPage.xaml.cs" />
+        <Compile Include="Controls\SyntaxHighlightPreviewControl.xaml.cs" />
+        <Compile Include="Controls\TopScrollerControl.xaml.cs" />
+        <Compile Include="Controls\UserListItem.xaml.cs" />
+        <Compile Include="Controls\WhatsNewPopupControl.xaml.cs" />
+        <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+        <Compile Include="Converters\ColorStringToColorBrushConverter.cs" />
+        <Compile Include="Converters\EventTypeToActionStringConverter.cs" />
+        <Compile Include="Converters\EventTypeToCommentStringConverter.cs" />
+        <Compile Include="Converters\EventTypeToSymbolConverter.cs" />
+        <Compile Include="Converters\ForegroundFromBackgroundConverter.cs" />
+        <Compile Include="Converters\InverseBooleanConverter.cs" />
+        <Compile Include="Converters\IssueDetailStringConverter.cs" />
+        <Compile Include="Converters\IssueStateToColorConverter.cs" />
+        <Compile Include="Converters\IssueToSymbolConverter.cs" />
+        <Compile Include="Converters\L10nConverter.cs" />
+        <Compile Include="Converters\NotifTypeToSymbolConverter.cs" />
+        <Compile Include="Converters\ObjectToStringConverter.cs" />
+        <Compile Include="Converters\PullRequestDetailStringConverter.cs" />
+        <Compile Include="Converters\PullRequestStateToColorConverter.cs" />
+        <Compile Include="Converters\RepositoryContentToFileIconConverter.cs" />
+        <Compile Include="Converters\RepositoryCreationTimeConverter.cs" />
+        <Compile Include="Converters\TimeAgoConverter.cs" />
+        <Compile Include="Helpers\CollectionHelper.cs" />
+        <Compile Include="Helpers\Extensions.cs" />
+        <Compile Include="Helpers\GlobalHelper.cs" />
+        <Compile Include="Helpers\OctokitNotificationHelper.cs" />
+        <Compile Include="Helpers\ParseHelper.cs" />
+        <Compile Include="Helpers\PlatformCulture.cs" />
+        <Compile Include="Helpers\StringHelper.cs" />
+        <Compile Include="Helpers\TranslateExtension.cs" />
+        <Compile Include="Helpers\XamlReader.cs" />
+        <Compile Include="Models\Account.cs" />
+        <Compile Include="Models\BackgroundTaskArgument.cs" />
+        <Compile Include="Models\BackgroundTaskBuilderModel.cs" />
+        <Compile Include="Models\BackgroundTaskType.cs" />
+        <Compile Include="Models\HomeMenuItem.cs" />
+        <Compile Include="Models\Item.cs" />
+        <Compile Include="Models\LocalizedResourceModel.cs" />
+        <Compile Include="Models\RepositoryContentWithCommitInfo.cs" />
+        <Compile Include="Models\SettingsItem.cs" />
+        <Compile Include="Models\SyntaxHighlightStyle.cs" />
+        <Compile Include="Models\WrappedWebResult.cs" />
+        <Compile Include="Services\AccountsService.cs" />
+        <Compile Include="Services\ActivityService.cs" />
+        <Compile Include="Services\AppCredentials.cs" />
+        <Compile Include="Services\AzureDataStore.cs" />
+        <Compile Include="Services\CommitService.cs" />
+        <Compile Include="Services\GistUtility.cs" />
+        <Compile Include="Services\Hilite-me\SyntaxHighlightStyle.cs" />
+        <Compile Include="Services\IAsyncNavigationService.cs" />
+        <Compile Include="Services\IBacktoundTaskService.cs" />
+        <Compile Include="Services\IDataStore.cs" />
+        <Compile Include="Services\ILocalizer.cs" />
+        <Compile Include="Services\IssueUtility.cs" />
+        <Compile Include="Services\L10n.cs" />
+        <Compile Include="Services\MockDataStore.cs" />
+        <Compile Include="Services\NotificationsService.cs" />
+        <Compile Include="Services\OrganizationsUtility.cs" />
+        <Compile Include="Services\PullRequestUtility.cs" />
+        <Compile Include="Services\SearchUtility.cs" />
+        <Compile Include="Services\SettingsService.cs" />
+        <Compile Include="Services\UserService.cs" />
+        <Compile Include="Controls\SvgIcon.cs" />
+        <Compile Include="Strings\LangResource.Designer.cs">
+          <DesignTime>True</DesignTime>
+          <AutoGen>True</AutoGen>
+          <DependentUpon>LangResource.resx</DependentUpon>
+        </Compile>
+        <Compile Include="ViewModels\AboutViewModel.cs" />
+        <Compile Include="ViewModels\AppViewmodel.cs" />
+        <Compile Include="ViewModels\BaseViewModel.cs" />
+        <Compile Include="ViewModels\FeedViewmodel.cs" />
+        <Compile Include="ViewModels\ItemDetailViewModel.cs" />
+        <Compile Include="ViewModels\ItemsViewModel.cs" />
+        <Compile Include="ViewModels\NotificationsViewmodel.cs" />
+        <Compile Include="Views\AboutPage.xaml.cs" />
+        <Compile Include="Views\FeedsPage.xaml.cs" />
+        <Compile Include="Views\ItemDetailPage.xaml.cs" />
+        <Compile Include="Views\ItemsPage.xaml.cs" />
+        <Compile Include="Views\MainPage.xaml.cs" />
+        <Compile Include="Views\MenuPage.xaml.cs" />
+        <Compile Include="Views\NewItemPage.xaml.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="CaveBirdLabs.Xamarin.Essentials" Version="1.0.2" />
+        <PackageReference Include="CommonMark.NET" Version="0.15.1" />
+        <PackageReference Include="ExpandableView" Version="1.0.1" />
+        <PackageReference Include="HtmlAgilityPack" Version="1.8.9" />
+        <PackageReference Include="JetBrains.Annotations" Version="2018.2.1" />
+        <PackageReference Include="MvvmLightStd10" Version="5.4.1.2" />
+        <PackageReference Include="Octokit" Version="0.32.0" />
+        <PackageReference Include="SkiaSharp" Version="1.60.3" />
+        <PackageReference Include="SkiaSharp.Extended" Version="1.60.0" />
+        <PackageReference Include="SkiaSharp.Svg" Version="1.60.0" />
+        <PackageReference Include="SkiaSharp.Views.Forms" Version="1.60.3" />
+        <PackageReference Include="System.Numerics.Vectors" Version="4.5.0" />
+        <PackageReference Include="Xam.Plugins.Forms.MarkdownView" Version="1.0.1-beta" />
+        <PackageReference Include="Xamarin.Auth" Version="1.6.0.2" />
+        <PackageReference Include="Xamarin.Auth.XamarinForms" Version="1.6.0.2" />
+        <PackageReference Include="Xamarin.Forms" Version="3.3.0.967583" />
+        <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+        <PackageReference Include="Xamarin.Forms.XAML.Utils.Converters" Version="1.1.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Page Include="Controls\ActivityListItem.xaml">
+            <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+        </Page>
+        <Page Include="Controls\BusyScreen.xaml">
+            <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+        </Page>
+        <Page Include="Controls\CodeListItem.xaml">
+            <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+        </Page>
+        <Page Include="Controls\CommentListItem.xaml">
+            <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+        </Page>
+        <Page Include="Controls\CommitFileListItem.xaml">
+            <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+        </Page>
+        <Page Include="Controls\CommitListItem.xaml">
+            <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+        </Page>
+        <Page Include="Controls\FirstTrendingRepoControl.xaml">
+            <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+        </Page>
+        <Page Include="Controls\HamMenuListItem.xaml">
+            <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+        </Page>
+        <Page Include="Controls\IssueListItem.xaml">
+            <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+        </Page>
+        <Page Include="Controls\LabelListItem.xaml">
+            <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+        </Page>
+        <Page Include="Controls\MarkdownControl.xaml">
+            <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+        </Page>
+        <Page Include="Controls\OrganizationListItem.xaml">
+            <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+        </Page>
+        <Page Include="Controls\PullRequestListItem.xaml">
+            <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+        </Page>
+        <Page Include="Controls\ReleaseListItem.xaml">
+            <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+        </Page>
+        <Page Include="Controls\RepoListItem.xaml">
+            <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+        </Page>
+        <Page Include="Controls\SignInPage.xaml">
+            <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+        </Page>
+        <Page Include="Controls\SyntaxHighlightPreviewControl.xaml">
+            <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+        </Page>
+        <Page Include="Controls\TopScrollerControl.xaml">
+            <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+        </Page>
+        <Page Include="Controls\UserListItem.xaml">
+            <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+        </Page>
+        <Page Include="Controls\WhatsNewPopupControl.xaml">
+            <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+        </Page>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Reference Include="Newtonsoft.Json">
+            <HintPath>Newtonsoft.Json</HintPath>
+        </Reference>
+        <Reference Include="System.Spatial">
+            <HintPath>C:\Program Files\dotnet\sdk\NuGetFallbackFolder\system.spatial\5.8.2\lib\netstandard1.1\System.Spatial.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Update="Views\MainPageMenuItem.cs">
+            <SubType>Code</SubType>
+        </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Update="Strings\LangResource.hu-HU.resx">
+          <Generator></Generator>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Strings\LangResource.en-US.resx">
+          <Generator></Generator>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Strings\LangResource.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>LangResource.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Views\FeedsPage.xaml">
+          <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Views\MainPage.xaml">
+            <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+        </EmbeddedResource>
+    </ItemGroup>
+</Project>

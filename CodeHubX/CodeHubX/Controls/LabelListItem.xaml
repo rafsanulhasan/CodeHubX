@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView
+    x:Class="CodeHubX.Controls.LabelListItem"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="using:CodeHubX.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converter="clr-namespace:CodeHubX.Converters"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+    <ContentView.Resources>
+        <converter:ColorStringToColorBrushConverter x:Key="ColorStringToColorBrushConverter" x:Name="ColorStringToColorBrushConverter"/>
+        <converter:ForegroundFromBackgroundConverter x:Key="ForegroundFromBackgroundConverter" x:Name="ForegroundFromBackgroundConverter"/>
+    </ContentView.Resources>
+    <Grid BackgroundColor="{Binding Color, Converter={StaticResource ColorStringToColorBrushConverter},Mode=OneWay}">
+        <Label Text="{Binding Name,Mode=OneWay}"
+               TextColor="{Binding Color, Converter={StaticResource ForegroundFromBackgroundConverter},Mode=OneWay}"
+               FontSize="15"
+               HorizontalTextAlignment="Center"
+               VerticalOptions="Center"
+               FontAttributes="Bold"/>
+    </Grid>
+
+</ContentView>

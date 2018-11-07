@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView x:Class="CodeHubX.Controls.WhatsNewPopupControl"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DesignHeight="300"
+             d:DesignWidth="400"
+             mc:Ignorable="d">
+
+    <Grid BackgroundColor="Transparent">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Grid>
+        </Grid>
+
+        <Grid x:Name="WhatsNewPopupGrid"
+              Height="600"
+              BackgroundColor="{StaticResource ApplicationPageBackgroundThemeBrush}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="48" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Label Margin="8" VerticalOptions="Center">
+                <!--<Run FontFamily="Segoe MDL2 Assets"
+                         FontSize="18"
+                         FontWeight="SemiBold"
+                         Foreground="{StaticResource SystemControlBackgroundAccentBrush}"
+                         Text="&#xE8BD; " />
+                <Run x:Uid="menu_Settings_SubMenu_About_WhatsNew"
+                         FontSize="20"
+                         FontWeight="SemiBold" />-->
+            </Label>
+            <Button x:Name="CloseWhatsNew"
+                        MinimumWidthRequest="50"
+                        HorizontalOptions="End"
+                        VerticalOptions="FillAndExpand"
+                        Style="{StaticResource ActionButtonStyle}"
+                        Clicked="CloseWhatsNew_Tapped">
+                <!--<SymbolIcon Symbol="Clear" />-->
+            </Button>
+            <ScrollView Grid.Row="1"
+                        BackgroundColor="{StaticResource SystemChromeLowColor}"
+                        HorizontalScrollBarVisibility="Default"
+                        VerticalScrollBarVisibility="Default">
+                <Label Margin="12"
+                       Opacity="0.8">
+                    <!--<Run Text="{x:Bind WhatsNewText, Mode=OneWay}" />
+                    <Run FontFamily="Segoe MDL2 Assets"
+                             FontSize="17"
+                             Foreground="Green"
+                             Text="&#x0a;&#x0a;&#xE775; " />
+                    <Run x:Uid="menu_Settings_SubMenu_About_WhatsNew_TranslateApp" />
+                    <Run FontFamily="Segoe MDL2 Assets"
+                             FontSize="17"
+                             Foreground="Yellow"
+                             Text="&#x0a;&#x0a;&#xE170; " />
+                    <Run x:Uid="menu_Settings_SubMenu_About_WhatsNew_Donate" />-->
+                </Label>
+            </ScrollView>
+        </Grid>
+    </Grid>
+</ContentView>

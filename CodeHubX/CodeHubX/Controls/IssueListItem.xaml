@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView
+    x:Class="CodeHubX.Controls.IssueListItem"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="using:CodeHubX.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:converters="clr-namespace:CodeHubX.Converters"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+    <ContentView.Resources>
+        <converters:TimeAgoConverter x:Key="TimeAgoConverter" x:Name="TimeAgoConverter"/>
+        <converters:IssueDetailStringConverter x:Key="IssueDetailStringConverter" x:Name="IssueDetailStringConverter"/>
+    </ContentView.Resources>
+    <RelativeLayout Margin="8">
+        <Label x:Name="TitleBlock"
+                   Margin="4,0,0,4"
+                   FontSize="16"
+                   Style="{StaticResource RepoNameTextBlockStyle}"
+                   Text="{Binding Title}" />
+
+        <StackLayout x:Name="CommentsBlock"
+                    Margin="4,0,4,0"
+                    Orientation="Horizontal">
+            <!--<Viewbox MaxWidth="16"
+                     MaxHeight="16"
+                     Margin="0,0,4,0">
+                <SymbolIcon Foreground="Gray" Symbol="Message" />
+            </Viewbox>-->
+            <Label FontSize="18"
+                       TextColor="Gray"
+                       Text="{Binding Comments}"
+                       HorizontalTextAlignment="Start" />
+        </StackLayout>
+        <Label x:Name="DetailTextblock"
+                   Margin="4 4 0 0"
+                   FontSize="13"
+                   TextColor="Gray"
+                   Text="{Binding Converter={StaticResource IssueDetailStringConverter}, Mode=OneWay}"/>
+    </RelativeLayout>
+</ContentView>

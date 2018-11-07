@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout
+            x:Class="CodeHubX.Controls.CodeListItem"
+            xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:local="using:CodeHub.Controls"
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            mc:Ignorable="d"
+            d:DesignHeight="300"
+            d:DesignWidth="400"
+            Margin="7 0 0 0">
+    
+    <Image Source="{Binding Repository.Owner.AvatarUrl,FallbackValue='/Assets/Images/placeholder.jpg',Mode=OneWay}"/>    
+
+    <Label x:Name="RepoNameTextBlock" 
+                   Text="{Binding Repository.Name}"
+                   Style="{StaticResource RepoNameTextBlockStyle}"
+                   Margin="5 10 0 5"
+                   Grid.Row="0"/>
+    <Label x:Name="OwnernameTextBlock"
+                   Margin="5 5 0 5"
+                   FontSize="12"
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"
+                   TextColor="Gray"
+                   Text="{Binding Repository.Owner.Login,Mode=OneWay}"/>
+
+    <Label 
+                Margin="3 5 5 5"
+                FontSize="15"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                TextColor="Gray"
+                Text="{Binding Path}"/>
+
+</RelativeLayout>
+

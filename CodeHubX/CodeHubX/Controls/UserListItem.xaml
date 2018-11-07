@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView x:Class="CodeHubX.Controls.UserListItem"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="using:CodeHubX.Controls"
+             xmlns:toolkitControl="using:Microsoft.Toolkit.Uwp.UI.Controls"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DesignHeight="300"
+             d:DesignWidth="400"
+             mc:Ignorable="d">
+
+    <StackLayout Margin="8,4,0,4" Orientation="Horizontal">
+        <Image Width="40"
+               Height="40"
+               Margin="0,0,8,0"
+               Source="{Binding AvatarUrl, Mode=OneWay}" />
+
+        <Label VerticalOptions="Center"
+                   FontSize="14"
+                   Text="{Binding Login, Mode=OneWay}" />
+    </StackLayout>
+</ContentView>

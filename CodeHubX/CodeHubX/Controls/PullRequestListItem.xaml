@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView x:Class="CodeHubX.Controls.PullRequestListItem"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:CodeHubX.Converters"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="using:CodeHubX.Controls"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DesignHeight="300"
+             d:DesignWidth="400"
+             mc:Ignorable="d">
+    <ContentView.Resources>
+        <converters:TimeAgoConverter x:Key="TimeAgoConverter" x:Name="TimeAgoConverter" />
+        <converters:PullRequestDetailStringConverter x:Key="PullRequestDetailStringConverter" x:Name="PullRequestDetailStringConverter"/>
+    </ContentView.Resources>
+    <RelativeLayout Margin="8">
+        <Label x:Name="TitleBlock"
+                   Margin="4 0 0 4"
+                   FontSize="16"
+                   RelativePanel.AlignLeftWithPanel="True"
+                   RelativePanel.AlignRightWithPanel="True"
+                   Style="{StaticResource RepoNameTextBlockStyle}"
+                   Text="{Binding Title}" 
+                   TextWrapping="Wrap"/>
+
+        <Label Margin="4 4 0 0"
+                   FontSize="13"
+                   Foreground="Gray"
+                   RelativePanel.Below="TitleBlock"
+                   RelativePanel.AlignLeftWith="TitleBlock"
+                   Text="{Binding Converter={StaticResource PullRequestDetailStringConverter}, Mode=OneWay}"/>
+
+    </RelativeLayout>
+</ContentView>

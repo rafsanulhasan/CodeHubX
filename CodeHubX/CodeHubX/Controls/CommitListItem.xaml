@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView x:Class="CodeHubX.Controls.CommitListItem"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converter="clr-namespace:CodeHubX.Converters"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DesignHeight="300"
+             d:DesignWidth="400"
+             mc:Ignorable="d">
+
+    <ContentView.Resources>
+        <converter:TimeAgoConverter x:Key="TimeAgoConverter" x:Name="TimeAgoConverter" />
+    </ContentView.Resources>
+    <StackLayout Padding="8,8,0,8"
+                 BackgroundColor="{StaticResource SystemChromeLowColor}"
+                 Orientation="Vertical">
+        <Label FontSize="16"
+               Text="{Binding Commit.Message, Mode=OneWay}" />
+        <StackLayout Margin="0,8,0,8" Orientation="Horizontal">
+            <Label Margin="0,0,4,0"
+                   FontSize="13"
+                   Text="{Binding Commit.Author.Name, Mode=OneWay}" />
+            <Label x:Uid="commited"
+                   Margin="0,0,4,0"
+                   FontSize="13" />
+            <Label FontSize="13" 
+                   Text="{Binding Commit.Author.Date, Converter={StaticResource TimeAgoConverter}, Mode=OneWay}" />
+
+        </StackLayout>
+
+    </StackLayout>
+
+</ContentView>

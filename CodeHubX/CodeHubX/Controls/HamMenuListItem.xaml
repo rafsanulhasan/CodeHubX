@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView x:Class="CodeHubX.Controls.HamMenuListItem"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="using:CodeHubX.Controls"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DesignHeight="300"
+             d:DesignWidth="400"
+             mc:Ignorable="d">
+
+    <Grid BackgroundColor="Transparent">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="48" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <!--<Rectangle Width="4"
+                   Height="45"
+                   Margin="-12,0,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   Fill="{StaticResource SystemControlBackgroundAccentBrush}"
+                   Visibility="{Binding SelectedVisual, Mode=TwoWay}" />-->
+
+        <!--<Viewbox Grid.Column="0"
+                 MaxWidth="18"
+                 MaxHeight="18">
+            <Path Data="{Binding Symbol}"
+                  Opacity="0.7"
+                  Fill="{ThemeResource ApplicationForegroundThemeBrush}"
+                  StrokeThickness="0" />
+
+        </Viewbox>-->
+
+        <Label Grid.Column="1"
+               Margin="24,0,0,0"
+               VerticalTextAlignment="Center"
+               FontSize="13"
+               TextColor="{StaticResource ApplicationForegroundThemeBrush}"
+               Text="{Binding Label}" />
+
+    </Grid>
+</ContentView>

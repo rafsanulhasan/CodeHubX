@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView
+    x:Class="CodeHubX.Controls.ReleaseListItem"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:CodeHubX.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converter="clr-namespace:CodeHubX.Converters"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+    <ContentView.Resources>
+        <converter:TimeAgoConverter x:Key="TimeAgoConverter" x:Name="TimeAgoConverter"/>
+    </ContentView.Resources>
+    <StackLayout Orientation="Vertical"
+                Margin="8 8 0 4">
+        <Label Text="{Binding Name,Mode=OneWay}"
+                   FontSize="18"
+                   FontAttributes="Bold"/>
+        <StackLayout Orientation="Horizontal"
+                    Margin="0 4 0 0">
+            <!--  TODO: Translation of 'Released by'  -->
+            <Label Text="Released by"
+                       FontSize="13"
+                       Margin="0 0 4 0"/>
+            <Label FontSize="13"
+                       Margin="0 0 4 0"
+                       Text="{Binding Author.Login,Mode=OneWay}" />
+            <Label FontSize="13"
+                       Text="{Binding PublishedAt, Converter={StaticResource TimeAgoConverter}, Mode=OneWay}" />
+        </StackLayout>
+
+    </StackLayout>
+</ContentView>
