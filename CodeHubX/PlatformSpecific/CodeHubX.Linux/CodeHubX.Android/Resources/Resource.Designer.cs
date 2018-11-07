@@ -6471,6 +6471,9 @@ namespace CodeHubX.Droid
 			// aapt resource value: 0x7f080028
 			public const int abc_toolbar_collapse_description = 2131230760;
 			
+			// aapt resource value: 0x7f08003f
+			public const int appName = 2131230783;
+			
 			// aapt resource value: 0x7f080036
 			public const int appbar_scrolling_view_behavior = 2131230774;
 			
