@@ -304,3 +304,4 @@ $RECYCLE.BIN/
 CodeHub/Package.xml
 CodeHub/app.config
 CodeHub/Package.appxmanifest
+/.paket
