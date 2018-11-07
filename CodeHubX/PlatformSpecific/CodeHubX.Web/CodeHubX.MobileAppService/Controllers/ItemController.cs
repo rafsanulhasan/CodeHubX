@@ -25,7 +25,7 @@ namespace CodeHubX.Controllers
 		[HttpGet("{id}")]
 		public Item GetItem(string id)
 		{
-			Item item = ItemRepository.Get(id);
+			var item = ItemRepository.Get(id);
 			return item;
 		}
 
