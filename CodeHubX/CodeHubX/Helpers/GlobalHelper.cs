@@ -1,8 +1,9 @@
-﻿using Octokit;
+﻿using CodeHubX.Strings;
+using CodeHubX.Views;
+using Octokit;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
-using CodeHubX.Strings;
+using Xamarin.Forms;
 
 namespace CodeHubX.Helpers
 {
@@ -35,8 +36,8 @@ namespace CodeHubX.Helpers
 		public partial class NoInternet
 			: MessageTypeBase
 		{
-			public LocalNotificationMessageType SendMessage() 
-				=>new LocalNotificationMessageType()
+			public LocalNotificationMessageType SendMessage()
+				=> new LocalNotificationMessageType()
 				{
 					Message = LangResource.notification_NoInternetConnection,
 					Glyph = "\uE704",
@@ -75,6 +76,139 @@ namespace CodeHubX.Helpers
 		#endregion
 
 		#region Properties
+
+		public static string CurrentDevicefamily
+		{
+			get
+			{
+				var idiom = Device.Idiom;
+				var result = $"{idiom.ToString()}";
+				switch (Device.RuntimePlatform)
+				{
+					case Device.GTK:
+						return $"Linux.{Device.GTK}.{result}";
+					case Device.UWP:
+					case Device.WPF:
+						return $"Windows.{Device.RuntimePlatform}.{result}";
+					default:
+						return $"{Device.RuntimePlatform}.{result}";
+				}
+			}
+		}
+
+		private static readonly IList<string> _DeviceFamilies;
+		public static IReadOnlyCollection<string> DeviceFamilies
+		{
+			get
+			{
+				if (_DeviceFamilies is null || _DeviceFamilies.Count == 0)
+				{
+					IEnumerable<KeyValuePair<string, string>> plaformOSs = new List<KeyValuePair<string, string>>();
+					_PlatformVendorsOS.ForEach((KeyValuePair<string, string> vendorOS) =>
+					{
+						var vendor = vendorOS.Key;
+						var osCategories = vendorOS.Value.Split('.');
+						var os = osCategories[0];
+						var osType = osCategories[1];
+						switch (vendor)
+						{
+							case "Apple":
+								if (os == Device.macOS)
+									_DeviceFamilies.Add($"{vendorOS.Value}.{TargetIdiom.Desktop}");
+								else if (os == Device.iOS)
+								{
+									_DeviceFamilies.Add($"{vendorOS.Value}.{TargetIdiom.Phone}");
+									_DeviceFamilies.Add($"{vendorOS.Value}.{TargetIdiom.Tablet}");
+									_DeviceFamilies.Add($"{vendorOS.Value}.{TargetIdiom.TV}");
+									_DeviceFamilies.Add($"{vendorOS.Value}.{TargetIdiom.Watch}");
+								}
+								break;
+							case "Google":
+								_DeviceFamilies.Add($"{vendorOS.Value}.{TargetIdiom.Phone}");
+								_DeviceFamilies.Add($"{vendorOS.Value}.{TargetIdiom.Tablet}");
+								_DeviceFamilies.Add($"{vendorOS.Value}.{TargetIdiom.TV}");
+								_DeviceFamilies.Add($"{vendorOS.Value}.{TargetIdiom.Watch}");
+								break;
+							case "Microsoft":
+								if (osType == Device.WPF || osType == Device.UWP)
+									_DeviceFamilies.Add($"{vendorOS.Value}.{TargetIdiom.Desktop}");
+								_DeviceFamilies.Add($"{vendorOS.Value}.{TargetIdiom.Phone}");
+								_DeviceFamilies.Add($"{vendorOS.Value}.{TargetIdiom.Tablet}");
+								_DeviceFamilies.Add($"{vendorOS.Value}.{TargetIdiom.TV}");
+								_DeviceFamilies.Add($"{vendorOS.Value}.{TargetIdiom.Watch}");
+								break;
+							case "RedHat":
+								_DeviceFamilies.Add($"{vendorOS.Value}.{TargetIdiom.Desktop}");
+								break;
+							case "Samsung":
+								_DeviceFamilies.Add($"{vendorOS.Value}.{TargetIdiom.Phone}");
+								_DeviceFamilies.Add($"{vendorOS.Value}.{TargetIdiom.Tablet}");
+								_DeviceFamilies.Add($"{vendorOS.Value}.{TargetIdiom.TV}");
+								_DeviceFamilies.Add($"{vendorOS.Value}.{TargetIdiom.Watch}");
+								break;
+						}
+					});
+				}
+				return _DeviceFamilies.ToReadOnlyCollection();
+			}
+		}
+
+		private static IList<string> _PlatformVendors;
+		public static IReadOnlyList<string> PlatformsVendors
+		{
+			get
+			{
+				if (_PlatformVendors is null)
+					_PlatformVendors = new List<string>
+					{
+						"Apple",
+						"Google",
+						"Microsoft",
+						"RedHat",
+						"Samsung"
+					};
+				return _PlatformVendors.ToReadOnlyList();
+			}
+		}
+
+		private static IDictionary<string, string> _PlatformVendorsOS;
+		public static IReadOnlyDictionary<string, string> PlatformVendorsOS
+		{
+			get
+			{
+				if (_PlatformVendorsOS is null || _PlatformVendorsOS.Count == 0)
+				{
+					_PlatformVendorsOS = new Dictionary<string, string>();
+					_PlatformVendors.ForEach((string vendor) =>
+					{
+						switch (vendor)
+						{
+							case "Apple":
+								_PlatformVendorsOS.Add(vendor, Device.iOS);
+								_PlatformVendorsOS.Add(vendor, Device.macOS);
+								break;
+							case "Google":
+								_PlatformVendorsOS.Add(vendor, Device.Android);
+								break;
+							case "Microsoft":
+								_PlatformVendorsOS.Add(vendor, $"Windows.{Device.UWP}");
+								_PlatformVendorsOS.Add(vendor, $"Windows.{Device.WPF}");
+								break;
+							case "RedHat":
+								_PlatformVendorsOS.Add(vendor, $"Linux.{Device.GTK}");
+								break;
+							case "Samsung":
+								_PlatformVendorsOS.Add(vendor, Device.Tizen);
+								break;
+						}
+					});
+				}
+
+				return _PlatformVendorsOS.ToReadOnlyDictionary();
+			}
+		}
+
+
 		/// <summary>
 		/// Client for GitHub client
 		/// </summary>
@@ -84,6 +218,13 @@ namespace CodeHubX.Helpers
 		/// Indicates if Ads are visible
 		/// </summary>
 		public static bool HasAlreadyDonated { get; set; }
+
+		public static IReadOnlyDictionary<int, NavigationPage> MenuPages
+			=> new Dictionary<int, NavigationPage>()
+			{
+				{0, new NavigationPage(new NavigationPage(new FeedsPage())) },
+				{1, new NavigationPage(new NavigationPage(new AboutPage())) }
+			};
 
 		/// <summary>
 		/// Maintains a stack of page titles
@@ -148,7 +289,7 @@ namespace CodeHubX.Helpers
 		{
 			var ts = new TimeSpan(DateTime.Now.Ticks - dt.Ticks);
 			var delta = Math.Abs(ts.TotalSeconds);
-			
+
 			if (delta < 60)
 			{
 				if (ts.Seconds == 1)

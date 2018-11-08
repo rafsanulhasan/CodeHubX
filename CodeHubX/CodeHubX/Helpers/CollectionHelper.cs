@@ -229,5 +229,8 @@ namespace CodeHubX.Helpers
 
 		static partial void GenerateDefault<T>(this ICollection<object> tasks, ref T[] values);
 
+		public static IReadOnlyCollection<T> ToReadOnlyCollection<T>(this ICollection<T> collection) 
+			=> new ReadOnlyCollection<T>(collection.ToList());
+
 	}
 }
