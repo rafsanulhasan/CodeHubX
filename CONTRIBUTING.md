@@ -9,5 +9,8 @@ Please note we have a code of conduct, please follow it in all your interactions
 
 1. Always keep `dev` as the base branch of your PR.
 2. Name the head branch of your PR in the following convention : 
-If the PR adds a new feature: `feature-Feature_Name`. If the PR adds a fix: `fix-Fix_Description` and so on.
+If the PR adds a new feature: `{Platform}/{Idiom}/feature-Feature_Name` or `{Platform}/{Lib}/{Idiom}/feature-Feature_Name`. 
+If the PR adds a fix: `{Platform}/{Idiom}/fix-Fix_Description` or `{Platform}/{Lib}/{Idiom}/feature-Feature_Name`. 
+{Platform} = Shared, Windows, Apple, Linux, Tizen
+{Idiom} = Shared, Desktop, Phone, Tablet, Watch, TV
 3. Keep the code simple and add comments wherever necessary.
