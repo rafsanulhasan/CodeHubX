@@ -2,6 +2,8 @@
 <span class="badge-patreon"><a href="https://www.patreon.com/aalok05" title="Donate to this project using Patreon"><img src="https://img.shields.io/badge/patreon-donate-yellow.svg" alt="Patreon donate button" /></a></span>
 [![Twitter URL](https://img.shields.io/badge/tweet-%40rafsanulhasan-blue.svg?style=social&style=flat-square)](https://twitter.com/rafsanulhasan)
 
+[![Build Status](https://dev.azure.com/SymbiosisICTSolutions/CodeHubX/_apis/build/status/Build%20UWP)](https://dev.azure.com/SymbiosisICTSolutions/CodeHubX/_build/latest?definitionId=2)
+
 CodeHubX is an x-plat GitHub client that helps you keep up with the open source world.
 
 <p align="center"><a href="https://www.microsoft.com/store/apps/9nblggh52tbd?ocid=badge"><img src="https://assets.windowsphone.com/85864462-9c82-451e-9355-a3d5f874397a/English_get-it-from-MS_InvariantCulture_Default.png" alt="Get it from Microsoft" width='200' /></a></p>
