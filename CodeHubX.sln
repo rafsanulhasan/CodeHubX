@@ -49,6 +49,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeHubX", "CodeHubX\CodeHu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeHubX.Apple.WatchOSApp", "CodeHubX\PlatformSpecific\CodeHubX.Apple\CodeHubX.Apple.WatchOSApp\CodeHubX.Apple.WatchOSApp.csproj", "{A0E9284B-B8EE-4A26-A98D-33C26D29CAAD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6D968105-2CD9-41E2-A970-66D9DF99E072}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		Directory.Build.props = Directory.Build.props
+		NuGet.Config = NuGet.Config
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -230,9 +237,9 @@ Global
 		{46F2EDE4-2ED1-4C4E-B4E9-432B2BBE7A91}.Release|x64.ActiveCfg = Release|x64
 		{46F2EDE4-2ED1-4C4E-B4E9-432B2BBE7A91}.Release|x64.Build.0 = Release|x64
 		{46F2EDE4-2ED1-4C4E-B4E9-432B2BBE7A91}.Release|x64.Deploy.0 = Release|x64
-		{46F2EDE4-2ED1-4C4E-B4E9-432B2BBE7A91}.Release|x86.ActiveCfg = Release|x86
-		{46F2EDE4-2ED1-4C4E-B4E9-432B2BBE7A91}.Release|x86.Build.0 = Release|x86
-		{46F2EDE4-2ED1-4C4E-B4E9-432B2BBE7A91}.Release|x86.Deploy.0 = Release|x86
+		{46F2EDE4-2ED1-4C4E-B4E9-432B2BBE7A91}.Release|x86.ActiveCfg = Release|x64
+		{46F2EDE4-2ED1-4C4E-B4E9-432B2BBE7A91}.Release|x86.Build.0 = Release|x64
+		{46F2EDE4-2ED1-4C4E-B4E9-432B2BBE7A91}.Release|x86.Deploy.0 = Release|x64
 		{2D18DE1F-EFC4-43E7-A566-44E82EDE67C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2D18DE1F-EFC4-43E7-A566-44E82EDE67C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D18DE1F-EFC4-43E7-A566-44E82EDE67C0}.Debug|ARM.ActiveCfg = Debug|Any CPU
