@@ -20,7 +20,7 @@ steps:
   inputs:
     restoreProject: '$(solution)'
 
-- task: CodeHubX.UWP@1
+- task: CodeHubX.UWP@2
   inputs:
     projectFile: '**/*UWP*.csproj'
     configuration: '$(buildConfiguration)'
