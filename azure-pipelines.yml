@@ -18,17 +18,9 @@ steps:
 
 - task: NuGetCommand@2
   inputs:
-    restoreProject: '$(project)'
+    restoreProject: '$(solution)'
 
-- task: CodeHubX@1.0.0.0
-  inputs:
-    projectFile: '**/*CodeHubX.csproj'
-    configuration: '$(buildConfiguration)'
 - task: CodeHubX.UWP@1.0.0.0
   inputs:
     projectFile: '**/*UWP*.csproj'
-    configuration: '$(buildConfiguration)'
-- task: CodeHubX.WPF@1.0.0.0
-  inputs:
-    projectFile: '**/*WPF*.csproj'
     configuration: '$(buildConfiguration)'
