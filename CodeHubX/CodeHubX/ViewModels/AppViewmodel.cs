@@ -1,7 +1,7 @@
 ﻿using CodeHubX.Helpers;
 using CodeHubX.Services;
+using CodeHubX.Views;
 using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Ioc;
 using Octokit;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ using Xamarin.Forms;
 
 namespace CodeHubX.ViewModels
 {
-	public class AppViewmodel : ViewModelBase
+	public partial class AppViewmodel : ViewModelBase
 	{
 		#region properties
 		private bool _isLoggedin;
@@ -113,6 +113,10 @@ namespace CodeHubX.ViewModels
 		private const string donateFourthAddOnId = "9nsmgzx3p43x";
 		private const string donateFifthAddOnId = "9phrhpvhscdv";
 		private const string donateSixthAddOnId = "9nnqdq0kq21j";
+		private readonly MainPage _RootPage = Xamarin.Forms.Application.Current.MainPage as MainPage;
+		private readonly NavigationPage _CurrentPage = NavigationService.CurrentSourcePage;
+
+		partial void HasAlreadyDonated(ref bool result);
 
 		public AppViewmodel()
 		{
@@ -124,9 +128,11 @@ namespace CodeHubX.ViewModels
 			};
 		}
 
-		public async Task ConfigureAdsVisibility()
+		public void ConfigureAdsVisibility()
 		{
-			if (await HasAlreadyDonated())
+			var hasAlreadyDonated = false;
+			HasAlreadyDonated(ref hasAlreadyDonated);
+			if (hasAlreadyDonated)
 			{
 				GlobalHelper.HasAlreadyDonated = true;
 				ToggleAdsVisiblity();
@@ -134,84 +140,70 @@ namespace CodeHubX.ViewModels
 			else
 			{
 				SettingsService.Save(SettingsKeys.IsAdsEnabled, true);
-
-				//if (AnalyticsInfo.VersionInfo.DeviceFamily == "Windows.Mobile")
-				//{
-				//	IsMobileAdsVisible = true;
-				//	IsDesktopAdsVisible = false;
-				//}
-				//else
-				//{
-				//	IsDesktopAdsVisible = true;
-				//	IsMobileAdsVisible = false;
-				//}
-			}
-		}
-		//public async void Error(Exception ex) 
-		//	=> await new MessageDialog(ex.ToString(), ex.Message).ShowAsync();
-		//public async void Error(string message, string title = "Unknown Error") 
-		//	=> await new MessageDialog(message, title).ShowAsync();
-
-		//public async void MarkdownTextBlock_LinkClicked(object sender, Microsoft.Toolkit.Uwp.UI.Controls.LinkClickedEventArgs e)
-		//{
-		//try
-		//{
-		//	await Windows.System.Launcher.LaunchUriAsync(new Uri(e.Link));
-		//}
-		//catch (UriFormatException) { await new MessageDialog("Incorrect URI Format").ShowAsync(); }
-		//}
-
-		public async Task Navigate(Type pageType)
-			=> await DependencyService.Resolve<IAsyncNavigationService>().NavigateAsync(pageType, User);
-
-		public async Task Navigate<TType, TViewModel>(TType pageType, TViewModel viewModel)
-		    where TType : Xamarin.Forms.Page
-		    where TViewModel : AppViewmodel
-			=> await Navigate(typeof(TType), viewModel);
-
-		public async Task Navigate<TViewModel>(Type pageType, TViewModel viewModel)
-		    where TViewModel : AppViewmodel
-			=> await SimpleIoc.Default.GetInstance<IAsyncNavigationService>().NavigateAsync(pageType, viewModel);
-
-		public async Task GoBack()
-			=> await SimpleIoc.Default.GetInstance<IAsyncNavigationService>().GoBackAsync();
-
-		public async Task<bool> HasAlreadyDonated()
-		{
-			try
-			{
-				if (SettingsService.Get<bool>(SettingsKeys.HasUserDonated))
-					return true;
+				
+				if (GlobalHelper.CurrentDevicefamily.Contains("Phone"))
+				{
+					IsMobileAdsVisible = true;
+					IsDesktopAdsVisible = false;
+				}
 				else
 				{
-					//var WindowsStore = StoreContext.GetDefault();
-
-					//var productKinds = new[] { "Durable" };
-					//var filterList = new List<string>(productKinds);
-
-					//var queryResult = await WindowsStore.GetUserCollectionAsync(filterList);
-
-					//if (queryResult.ExtendedError != null)
-					//	return false;
-
-					//foreach (var item in queryResult.Products)
-					//{
-					//	if (item.Value != null)
-					//	{
-					//		if (item.Value.IsInUserCollection)
-					//		{
-					//			SettingsService.Save(SettingsKeys.HasUserDonated, true, true);
-					//			return true;
-					//		}
-					//	}
-					//	return false;
-					//}
+					IsDesktopAdsVisible = true;
+					IsMobileAdsVisible = false;
 				}
-
-				return false;
 			}
-			catch { return false; }
 		}
+		public void Error(Exception ex, bool showInCurrentPage = true)
+		{
+			string title = $"Error {ex.HResult}",
+				  msg = string.Empty;
+
+			if (ex is null)
+				msg = "Unknown error";
+			else
+			{
+				if (StringHelper.IsNullOrEmptyOrWhiteSpace(ex.Message))
+					msg = ex.StackTrace;
+				else
+					msg = ex.Message;
+			}
+
+			Error(msg, title, showInCurrentPage);
+		}
+
+		public async void Error(string message, string title = "Unknown Error", bool showInCurrentPage = true)
+		{
+			if (showInCurrentPage)
+				await _CurrentPage.DisplayAlert(title, message, "Close");
+			else
+				await _RootPage.DisplayAlert(title, message, "Close");
+		}
+
+		//public void MarkdownTextBlock_LinkClicked(object sender, ClickedEventArgs e)
+		//{
+		//	try
+		//	{
+		//		Device.OpenUri(MarkdownTextBlock)
+		//	}
+		//	catch (UriFormatException ufEx)
+		//	{
+		//		Error(ufEx.Message, "Incorrect URI Format");
+		//	}
+		//}
+
+		public Task Navigate(CustomContentPage page)
+			=> NavigationService.NavigateAsync(page, null);
+
+		public Task Navigate<TViewModel>(CustomContentPage<TViewModel> page, TViewModel viewModel)
+		    where TViewModel : AppViewmodel, new()
+			=> Navigate(page, viewModel);
+
+		public Task Navigate<TViewModel>(CustomContentPage<TViewModel> pageType, TViewModel viewModel, string title)
+		    where TViewModel : AppViewmodel, new()
+			=> Navigate(pageType, viewModel);
+
+		public Task GoBack()
+			=> NavigationService.GoBackAsync();
 
 		public void UpdateAllNotificationIndicator(int count)
 		{
@@ -236,16 +228,16 @@ namespace CodeHubX.ViewModels
 		{
 			if (SettingsService.Get<bool>(SettingsKeys.IsAdsEnabled))
 			{
-				//if (AnalyticsInfo.VersionInfo.DeviceFamily == "Windows.Mobile")
-				//{
-				//	IsMobileAdsVisible = true;
-				//	IsDesktopAdsVisible = false;
-				//}
-				//else
-				//{
-				//	IsDesktopAdsVisible = true;
-				//	IsMobileAdsVisible = false;
-				//}
+				if (GlobalHelper.CurrentDevicefamily.Contains("Phone"))
+				{
+					IsMobileAdsVisible = true;
+					IsDesktopAdsVisible = false;
+				}
+				else
+				{
+					IsDesktopAdsVisible = true;
+					IsMobileAdsVisible = false;
+				}
 			}
 			else
 				IsMobileAdsVisible = IsDesktopAdsVisible = false;
