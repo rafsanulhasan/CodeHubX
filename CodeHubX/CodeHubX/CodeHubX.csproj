@@ -78,8 +78,10 @@
         <Compile Include="Converters\RepositoryCreationTimeConverter.cs" />
         <Compile Include="Converters\TimeAgoConverter.cs" />
         <Compile Include="Helpers\CollectionHelper.cs" />
+        <Compile Include="Helpers\DictionaryHelper.cs" />
         <Compile Include="Helpers\Extensions.cs" />
         <Compile Include="Helpers\GlobalHelper.cs" />
+        <Compile Include="Helpers\ListHelper.cs" />
         <Compile Include="Helpers\OctokitNotificationHelper.cs" />
         <Compile Include="Helpers\ParseHelper.cs" />
         <Compile Include="Helpers\PlatformCulture.cs" />
@@ -104,16 +106,19 @@
         <Compile Include="Services\CommitService.cs" />
         <Compile Include="Services\GistUtility.cs" />
         <Compile Include="Services\Hilite-me\SyntaxHighlightStyle.cs" />
-        <Compile Include="Services\IAsyncNavigationService.cs" />
+        <Compile Include="Services\HtmlParseService.cs" />
         <Compile Include="Services\IBacktoundTaskService.cs" />
         <Compile Include="Services\IDataStore.cs" />
         <Compile Include="Services\ILocalizer.cs" />
         <Compile Include="Services\IssueUtility.cs" />
         <Compile Include="Services\L10n.cs" />
+        <Compile Include="Services\MenuService.cs" />
         <Compile Include="Services\MockDataStore.cs" />
+        <Compile Include="Services\NavigationService.cs" />
         <Compile Include="Services\NotificationsService.cs" />
         <Compile Include="Services\OrganizationsUtility.cs" />
         <Compile Include="Services\PullRequestUtility.cs" />
+        <Compile Include="Services\RepositoryUtility.cs" />
         <Compile Include="Services\SearchUtility.cs" />
         <Compile Include="Services\SettingsService.cs" />
         <Compile Include="Services\UserService.cs" />
@@ -130,13 +135,16 @@
         <Compile Include="ViewModels\ItemDetailViewModel.cs" />
         <Compile Include="ViewModels\ItemsViewModel.cs" />
         <Compile Include="ViewModels\NotificationsViewmodel.cs" />
+        <Compile Include="ViewModels\TrendingViewmodel.cs" />
         <Compile Include="Views\AboutPage.xaml.cs" />
+        <Compile Include="Views\CustomPages.cs" />
         <Compile Include="Views\FeedsPage.xaml.cs" />
         <Compile Include="Views\ItemDetailPage.xaml.cs" />
         <Compile Include="Views\ItemsPage.xaml.cs" />
         <Compile Include="Views\MainPage.xaml.cs" />
         <Compile Include="Views\MenuPage.xaml.cs" />
         <Compile Include="Views\NewItemPage.xaml.cs" />
+        <Compile Include="Views\TrendingView.xaml.cs" />
     </ItemGroup>
 
     <ItemGroup>
@@ -145,6 +153,8 @@
         <PackageReference Include="ExpandableView" Version="1.0.1" />
         <PackageReference Include="HtmlAgilityPack" Version="1.8.9" />
         <PackageReference Include="JetBrains.Annotations" Version="2018.2.1" />
+        <PackageReference Include="Microsoft.AppCenter.Analytics" Version="1.10.0" />
+        <PackageReference Include="Microsoft.AppCenter.Crashes" Version="1.10.0" />
         <PackageReference Include="MvvmLightStd10" Version="5.4.1.2" />
         <PackageReference Include="Octokit" Version="0.32.0" />
         <PackageReference Include="SkiaSharp" Version="1.60.3" />
@@ -152,9 +162,11 @@
         <PackageReference Include="SkiaSharp.Svg" Version="1.60.0" />
         <PackageReference Include="SkiaSharp.Views.Forms" Version="1.60.3" />
         <PackageReference Include="System.Numerics.Vectors" Version="4.5.0" />
+        <PackageReference Include="System.Runtime" Version="4.3.0" />
         <PackageReference Include="Xam.Plugins.Forms.MarkdownView" Version="1.0.1-beta" />
         <PackageReference Include="Xamarin.Auth" Version="1.6.0.2" />
-        <PackageReference Include="Xamarin.Auth.XamarinForms" Version="1.6.0.2" />
+        <PackageReference Include="Xamarin.Auth.XamarinForms" Version="1.6.0.3" />
+        <PackageReference Include="Xamarin.Essentials" Version="0.11.0-preview" />
         <PackageReference Include="Xamarin.Forms" Version="3.3.0.967583" />
         <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
         <PackageReference Include="Xamarin.Forms.XAML.Utils.Converters" Version="1.1.2" />
