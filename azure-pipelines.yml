@@ -18,11 +18,9 @@ steps:
 
 - task: NuGetCommand@2
   inputs:
-    restoreProject: '$(project)'
+    restoreProject: '$(solution)'
 
-- task: VSBuild@1
+- task: CodeHubX.UWP@2
   inputs:
-    platform: '$(buildPlatform)'
     projectFile: '**/*UWP*.csproj'
     configuration: '$(buildConfiguration)'
-    msbuildArgs: '/p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=StoreUpload'
