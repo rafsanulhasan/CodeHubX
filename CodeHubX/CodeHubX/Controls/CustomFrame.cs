@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace CodeHub.Controls
+namespace CodeHubX.Controls
 {
 	/// <summary>
 	/// A custom Frame that animates its content during the navigation process

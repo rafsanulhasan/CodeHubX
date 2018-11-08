@@ -3,10 +3,14 @@ using Xamarin.Forms.Xaml;
 
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
-namespace CodeHub.Controls
+namespace CodeHubX.Controls
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public sealed partial class IssueListItem : ContentView
 	{
+		public IssueListItem()
+		{
+			//InitializeComponent();
+		}
 	}
 }
