@@ -26,7 +26,7 @@ namespace CodeHubX
 
 			var ci = DependencyService.Get<ILocalizer>().GetCurrentCultureInfo();
 			LangResource.Culture = ci;
-			L10n.SetLocale(ci);			
+			L10n.SetLocale(ci);
 			Resources = L10n.LocalizeResource(Resources);
 
 			MainPage = new MainPage();
@@ -35,6 +35,7 @@ namespace CodeHubX
 		protected override void OnStart()
 		{
 			// Handle when your app starts
+			//AppCenter.Start("ios={Your App Secret};android={Your App Secret};uwp={Your App Secret}", typeof(Analytics), typeof(Crashes));
 		}
 
 		protected override void OnSleep()
