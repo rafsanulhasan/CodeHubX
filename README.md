@@ -2,7 +2,7 @@
 <span class="badge-patreon"><a href="https://www.patreon.com/aalok05" title="Donate to this project using Patreon"><img src="https://img.shields.io/badge/patreon-donate-yellow.svg" alt="Patreon donate button" /></a></span>
 [![Twitter URL](https://img.shields.io/badge/tweet-%40rafsanulhasan-blue.svg?style=social&style=flat-square)](https://twitter.com/rafsanulhasan)
 
-[![Build Status](https://dev.azure.com/SymbiosisICTSolutions/CodeHubX/_apis/build/status/Build%20UWP)](https://dev.azure.com/SymbiosisICTSolutions/CodeHubX/_build/latest?definitionId=2)
+[![Build Status](https://dev.azure.com/SymbiosisICTSolutions/CodeHubX/_apis/build/status/CodeHubX%20.NET%20Core%20CI)](https://dev.azure.com/SymbiosisICTSolutions/CodeHubX/_build/latest?definitionId=3)
 
 CodeHubX is an x-plat GitHub client that helps you keep up with the open source world.
 
