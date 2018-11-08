@@ -20,11 +20,15 @@ steps:
   inputs:
     restoreProject: '$(project)'
 
-- task: CodeHubX.UWP@1
+- task: CodeHubX@1.0.0.0
+  inputs:
+    projectFile: '**/*CodeHubX.csproj'
+    configuration: '$(buildConfiguration)'
+- task: CodeHubX.UWP@1.0.0.0
   inputs:
     projectFile: '**/*UWP*.csproj'
     configuration: '$(buildConfiguration)'
-- task: CodeHubX.WPF@1
+- task: CodeHubX.WPF@1.0.0.0
   inputs:
     projectFile: '**/*WPF*.csproj'
     configuration: '$(buildConfiguration)'
