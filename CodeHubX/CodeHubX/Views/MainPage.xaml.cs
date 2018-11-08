@@ -1,4 +1,6 @@
-﻿using CodeHubX.Models;
+﻿using CodeHubX.Helpers;
+using CodeHubX.Models;
+using CodeHubX.Services;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -17,28 +19,17 @@ namespace CodeHubX.Views
 
 			MasterBehavior = MasterBehavior.Popover;
 
-			MenuPages.Add(0, (NavigationPage) Detail);
+			MenuService.Add(0, (NavigationPage) Detail);
+
+			GlobalHelper.MenuPages.ForEach((KeyValuePair<int, NavigationPage> mp)
+				=> MenuService.Add(mp.Key, mp.Value));			
 		}
 
 		public async Task NavigateFromMenu(int id)
 		{
-			if (!MenuPages.ContainsKey(id))
-			{
-				switch (id)
-				{
-					case (int) MenuItemType.Browse:
-						MenuPages.Add(id, new NavigationPage(new ItemsPage()));
-						break;
-					case (int) MenuItemType.About:
-						MenuPages.Add(id, new NavigationPage(new AboutPage()));
-						break;
-					case (int) MenuItemType.Feeds:
-						MenuPages.Add(id, new NavigationPage(new FeedsPage()));
-						break;
-				}
-			}
 
-			var newPage = MenuPages[id];
+			var newPageItem = MenuService.Get(id);
+			var newPage = newPageItem.Page;
 
 			if (newPage != null && Detail != newPage)
 			{
