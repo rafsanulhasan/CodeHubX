@@ -26,12 +26,11 @@
       <ExcludeAssets>Runtime</ExcludeAssets>
     </PackageReference>
     <PackageReference Include="Tizen.NET.Sdk" Version="1.0.1" />
-    <PackageReference Include="Tizen.TV.UIControls" Version="1.0.0" />
     <PackageReference Include="Xamarin.Forms" Version="3.3.0.967583" />
     <PackageReference Include="Xamarin.Forms.Platform.Tizen" Version="2.5.1.444934" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\CodeHubX\CodeHubX.csproj" />
+    <ProjectReference Include="..\..\..\..\CodeHubX\CodeHubX.csproj" />
   </ItemGroup>
 
 </Project>

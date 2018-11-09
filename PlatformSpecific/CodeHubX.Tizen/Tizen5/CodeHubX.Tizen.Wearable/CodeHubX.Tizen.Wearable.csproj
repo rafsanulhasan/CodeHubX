@@ -30,7 +30,7 @@
     <PackageReference Include="Xamarin.Forms.Platform.Tizen" Version="2.5.1.444934" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\CodeHubX\CodeHubX.csproj" />
+    <ProjectReference Include="..\..\..\..\CodeHubX\CodeHubX.csproj" />
   </ItemGroup>
 
 </Project>
