@@ -3,7 +3,7 @@
 using Foundation;
 using WatchKit;
 
-namespace CodeHubX.Apple.WatchOSExtension
+namespace CodeHubX.Apple.Wearable.Extension
 {
     public partial class InterfaceController : WKInterfaceController
     {

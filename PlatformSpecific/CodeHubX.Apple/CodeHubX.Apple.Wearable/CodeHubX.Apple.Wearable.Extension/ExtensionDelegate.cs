@@ -1,15 +1,12 @@
-﻿using System;
+﻿using WatchKit;
 
-using Foundation;
-using WatchKit;
-
-namespace CodeHubX.Apple.WatchOSExtension
+namespace CodeHubX.Apple.Wearable.Extension
 {
-    public class ExtensionDelegate : WKExtensionDelegate
-    {
-        public ExtensionDelegate()
-        {
-        }
-    }
+	public class ExtensionDelegate : WKExtensionDelegate
+	{
+		public ExtensionDelegate()
+		{
+		}
+	}
 }
 
