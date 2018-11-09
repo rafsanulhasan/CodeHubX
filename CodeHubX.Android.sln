@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeHubX", "CodeHubX\CodeHu
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PlatFormSpecific", "PlatFormSpecific", "{A04EA42C-32F4-4E0D-9B8F-B23ED69B22B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeHubX.Droid", "PlatformSpecific\CodeHubX.Linux\CodeHubX.Android\CodeHubX.Droid.csproj", "{E3DB0FA4-593E-4D30-AEAC-B4BE00DD97F8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeHubX.Droid.Phone", "PlatformSpecific\CodeHubX.Linux\Android\CodeHubX.Android.Phone\CodeHubX.Droid.Phone.csproj", "{E3DB0FA4-593E-4D30-AEAC-B4BE00DD97F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeHubX.Droid.Wearable", "PlatformSpecific\CodeHubX.Linux\CodeHubX.Droid.Wearable\CodeHubX.Droid.Wearable\CodeHubX.Droid.Wearable.csproj", "{382A4C99-54C9-44E1-A88F-5679D2EC4F3C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeHubX.Droid.Wearable", "PlatformSpecific\CodeHubX.Linux\Android\CodeHubX.Android.Wearable\CodeHubX.Droid.Wearable.csproj", "{382A4C99-54C9-44E1-A88F-5679D2EC4F3C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

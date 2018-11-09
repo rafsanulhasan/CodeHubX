@@ -1,15 +1,12 @@
-﻿using System;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Swashbuckle.AspNetCore.Swagger;
+using System.Threading.Tasks;
 
-using CodeHubX.Models;
-
-namespace CodeHubX.MobileAppService
+namespace CodeHubX.Web
 {
 	public class Startup
 	{
@@ -30,7 +27,6 @@ namespace CodeHubX.MobileAppService
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddMvc();
-			services.AddSingleton<IItemRepository, ItemRepository>();
 
 			services.AddSwaggerGen(c =>
 			{

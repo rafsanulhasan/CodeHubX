@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Builder;
+using System.IO;
 
-namespace CodeHubX.MobileAppService
+namespace CodeHubX.Web
 {
 	public class Program
 	{
