@@ -145,6 +145,9 @@
         <PackageReference Include="ExpandableView" Version="1.0.1" />
         <PackageReference Include="HtmlAgilityPack" Version="1.8.9" />
         <PackageReference Include="JetBrains.Annotations" Version="2018.2.1" />
+        <PackageReference Include="Microsoft.AppCenter.Analytics" Version="1.10.0" />
+        <PackageReference Include="Microsoft.AppCenter.Crashes" Version="1.10.0" />
+        <PackageReference Include="Microsoft.AppCenter.Push" Version="1.10.0" />
         <PackageReference Include="MvvmLightStd10" Version="5.4.1.2" />
         <PackageReference Include="Octokit" Version="0.32.0" />
         <PackageReference Include="SkiaSharp" Version="1.60.3" />
