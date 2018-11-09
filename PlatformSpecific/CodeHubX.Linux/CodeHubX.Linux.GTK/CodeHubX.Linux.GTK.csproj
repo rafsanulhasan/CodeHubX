@@ -6,8 +6,8 @@
     <ProjectGuid>{7FFE4849-6679-4062-9A07-71F4434D2D47}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CodeHubX.GTK</RootNamespace>
-    <AssemblyName>CodeHubX.GTK</AssemblyName>
+    <RootNamespace>CodeHubX.Linux</RootNamespace>
+    <AssemblyName>CodeHubX.Linux.GTK</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
