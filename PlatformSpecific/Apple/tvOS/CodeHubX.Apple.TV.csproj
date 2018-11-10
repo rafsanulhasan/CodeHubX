@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProjectGuid>{8F1AEAD1-CD2E-4EB2-836D-AE756FD7710A}</ProjectGuid>
+    <ProjectTypeGuids>{06FA79CB-D6CD-4721-BB4B-1BD202089C55};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TemplateGuid>{7845f015-8eef-4d78-9b76-cd51413557df}</TemplateGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>CodeHubX.Apple.TV</RootNamespace>
+    <AssemblyName>Synergy.GitHub.Apple</AssemblyName>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFastDev>true</MtouchFastDev>
+    <IOSDebuggerPort>33827</IOSDebuggerPort>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchUseLlvm>true</MtouchUseLlvm>
+    <MtouchFloat32>true</MtouchFloat32>
+    <MtouchEnableBitcode>true</MtouchEnableBitcode>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>ARM64</MtouchArch>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <DeviceSpecificBuild>true</DeviceSpecificBuild>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFastDev>true</MtouchFastDev>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <IOSDebuggerPort>26001</IOSDebuggerPort>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>ARM64</MtouchArch>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
+    <AppExtensionDebugBundleId />
+    <LaunchForBackgroundFetch>false</LaunchForBackgroundFetch>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Xamarin.Forms.3.3.0.967583\lib\netstandard2.0\Xamarin.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Xamarin.Forms.3.3.0.967583\lib\netstandard2.0\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Xamarin.Forms.3.3.0.967583\lib\netstandard2.0\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.TVOS" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\App Icon &amp; Top Shelf Image.brandassets\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\App Icon &amp; Top Shelf Image.brandassets\App Icon - Large.imagestack\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\App Icon &amp; Top Shelf Image.brandassets\App Icon - Large.imagestack\Back.imagestacklayer\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\App Icon &amp; Top Shelf Image.brandassets\App Icon - Large.imagestack\Back.imagestacklayer\Content.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\App Icon &amp; Top Shelf Image.brandassets\App Icon - Large.imagestack\Front.imagestacklayer\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\App Icon &amp; Top Shelf Image.brandassets\App Icon - Large.imagestack\Front.imagestacklayer\Content.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\App Icon &amp; Top Shelf Image.brandassets\App Icon - Large.imagestack\Middle.imagestacklayer\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\App Icon &amp; Top Shelf Image.brandassets\App Icon - Large.imagestack\Middle.imagestacklayer\Content.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\App Icon &amp; Top Shelf Image.brandassets\App Icon - Small.imagestack\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\App Icon &amp; Top Shelf Image.brandassets\App Icon - Small.imagestack\Back.imagestacklayer\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\App Icon &amp; Top Shelf Image.brandassets\App Icon - Small.imagestack\Back.imagestacklayer\Content.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\App Icon &amp; Top Shelf Image.brandassets\App Icon - Small.imagestack\Front.imagestacklayer\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\App Icon &amp; Top Shelf Image.brandassets\App Icon - Small.imagestack\Front.imagestacklayer\Content.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\App Icon &amp; Top Shelf Image.brandassets\App Icon - Small.imagestack\Middle.imagestacklayer\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\App Icon &amp; Top Shelf Image.brandassets\App Icon - Small.imagestack\Middle.imagestacklayer\Content.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\App Icon &amp; Top Shelf Image.brandassets\Top Shelf Image Wide.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\App Icon &amp; Top Shelf Image.brandassets\Top Shelf Image.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\LaunchImages.launchimage\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\CodeHubX\CodeHubX.csproj">
+      <Project>{f492c284-d573-4b7a-a18c-f9d24eb8d3a0}</Project>
+      <Name>CodeHubX</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Info.plist">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Entitlements.plist" />
+    <BundleResource Include="Resources\Base.lproj\InfoPList.strings">
+      <SubType>Designer</SubType>
+    </BundleResource>
+    <InterfaceDefinition Include="Resources\Base.lproj\LaunchScreen.storyboard" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="Services\StringLocalizer.cs" />
+    <Compile Include="ViewController.cs" />
+    <Compile Include="ViewController.designer.cs">
+      <DependentUpon>ViewController.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Main.storyboard" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Base.lproj\css\github-markdown.css" />
+    <BundleResource Include="Resources\Base.lproj\Images\appLogoPurple.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\flame.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\green.jpeg" />
+    <BundleResource Include="Resources\Base.lproj\Images\NewStoreLogo.scale-100.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\NewStoreLogo.scale-125.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\NewStoreLogo.scale-150.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\NewStoreLogo.scale-200.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\NewStoreLogo.scale-400.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Noise.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\oct-icons\comment-discussion.svg" />
+    <BundleResource Include="Resources\Base.lproj\Images\oct-icons\comment.svg" />
+    <BundleResource Include="Resources\Base.lproj\Images\oct-icons\commit.svg" />
+    <BundleResource Include="Resources\Base.lproj\Images\oct-icons\feed.svg" />
+    <BundleResource Include="Resources\Base.lproj\Images\oct-icons\issue-closed.svg" />
+    <BundleResource Include="Resources\Base.lproj\Images\oct-icons\issue-opened.svg" />
+    <BundleResource Include="Resources\Base.lproj\Images\oct-icons\issue-reopened.svg" />
+    <BundleResource Include="Resources\Base.lproj\Images\oct-icons\merge.svg" />
+    <BundleResource Include="Resources\Base.lproj\Images\oct-icons\pr.svg" />
+    <BundleResource Include="Resources\Base.lproj\Images\oct-icons\repo-force-push.svg" />
+    <BundleResource Include="Resources\Base.lproj\Images\oct-icons\repo-forked.svg" />
+    <BundleResource Include="Resources\Base.lproj\Images\oct-icons\repo-push.svg" />
+    <BundleResource Include="Resources\Base.lproj\Images\oct-icons\watch.svg" />
+    <BundleResource Include="Resources\Base.lproj\Images\placeholder.jpg" />
+    <BundleResource Include="Resources\Base.lproj\Images\profile-placeholder.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\SplashScreen.scale-100.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\SplashScreen.scale-125.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\SplashScreen.scale-150.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\SplashScreen.scale-200.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\SplashScreen.scale-400.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Square150x150Logo.scale-100.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Square150x150Logo.scale-125.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Square150x150Logo.scale-150.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Square150x150Logo.scale-200.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Square150x150Logo.scale-400.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Square310x310Logo.scale-100.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Square310x310Logo.scale-125.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Square310x310Logo.scale-150.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Square310x310Logo.scale-200.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Square310x310Logo.scale-400.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Square44x44Logo.scale-100.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Square44x44Logo.scale-125.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Square44x44Logo.scale-150.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Square44x44Logo.scale-200.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Square44x44Logo.scale-400.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Square44x44Logo.targetsize-16.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Square44x44Logo.targetsize-16_altform-unplated.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Square44x44Logo.targetsize-24.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Square44x44Logo.targetsize-256.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Square44x44Logo.targetsize-256_altform-unplated.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Square44x44Logo.targetsize-32.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Square44x44Logo.targetsize-32_altform-unplated.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Square44x44Logo.targetsize-48.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Square44x44Logo.targetsize-48_altform-unplated.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Square71x71Logo.scale-100.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Square71x71Logo.scale-125.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Square71x71Logo.scale-150.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Square71x71Logo.scale-200.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Square71x71Logo.scale-400.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\StoreLogo.scale-100.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\StoreLogo.scale-125.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\StoreLogo.scale-150.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\StoreLogo.scale-200.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\StoreLogo.scale-400.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\tab_about.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\tab_about%402x.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\tab_about%403x.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\tab_feed.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\tab_feed%402x.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\tab_feed%403x.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Target.scale-100.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Target.scale-150.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Target.scale-1600.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Target.scale-300.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\transparent.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Wide310x150Logo.scale-100.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Wide310x150Logo.scale-125.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Wide310x150Logo.scale-150.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Wide310x150Logo.scale-200.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\Wide310x150Logo.scale-400.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\xamarin_logo.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\xamarin_logo%402x.png" />
+    <BundleResource Include="Resources\Base.lproj\Images\xamarin_logo%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms">
+      <Version>3.3.0.967583</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\TVOS\Xamarin.TVOS.CSharp.targets" />
+</Project>

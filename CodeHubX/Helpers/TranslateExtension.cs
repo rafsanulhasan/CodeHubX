@@ -1,10 +1,8 @@
-﻿using CodeHubX.Converters;
-using CodeHubX.Services;
+﻿using CodeHubX.Services;
 using System;
 using System.Globalization;
 using System.Resources;
 using Xamarin.Forms;
-using Xamarin.Forms.Internals;
 using Xamarin.Forms.Xaml;
 
 namespace CodeHubX.Helpers

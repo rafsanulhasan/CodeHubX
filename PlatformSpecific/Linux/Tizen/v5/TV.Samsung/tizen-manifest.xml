@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest package="org.tizen.example.CodeHubX.Tizen5.TV.Samsung" version="1.0.0" api-version="4" xmlns="http://tizen.org/ns/packages">
+    <author email="sicstech@outlook.com">Symbiosis ICT Solutions</author>
+    <description>GitHub Client</description>
+    <profile name="tv" />
+    <ui-application appid="org.tizen.example.CodeHubX.Tizen5.TV.Samsung" exec="CodeHubX.Tizen5.TV.Samsung.dll" multiple="false" nodisplay="false" taskmanage="true" type="dotnet" launch_mode="single">
+        <label xml:lang="en-us">CodeHubX</label>
+        <label xml:lang="bn-bd">Bangla (Bangladesh)</label>
+        <label xml:lang="de-de">German</label>
+        <label xml:lang="es-es">Spanish (Spain)</label>
+        <label xml:lang="hu-hu">Hungarian</label>
+        <label xml:lang="fr-fr">French (France)</label>
+        <label xml:lang="el-gr">Greek</label>
+        <label xml:lang="it-it">Italian</label>
+        <label xml:lang="pt-pt">Portuguese (Portual)</label>
+        <label xml:lang="vi-vn">Vietnamese</label>
+        <label xml:lang="zh-cn">Simplified Chinese</label>
+        <label>CodeHubX</label>
+        <icon>Target.scale-1600.png</icon>
+        <metadata key="http://tizen.org/metadata/prefer_dotnet_aot" value="true" />
+        <splash-screens />
+    </ui-application>
+    <shortcut-list />
+    <privileges>
+        <privilege>http://tizen.org/privilege/internet</privilege>
+    </privileges>
+    <provides-appdefined-privileges />
+</manifest>

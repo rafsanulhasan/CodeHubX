@@ -1,7 +1,6 @@
 ﻿using Octokit;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using CodeHubX.Strings;
 
 namespace CodeHubX.Helpers

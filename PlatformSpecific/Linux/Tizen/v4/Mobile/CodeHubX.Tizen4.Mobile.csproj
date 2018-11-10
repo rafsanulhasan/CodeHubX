@@ -1,0 +1,194 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Property Group for Tizen40 Project -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>tizen40</TargetFramework>
+    <AssemblyName>Synergy.GitHub.Samsung</AssemblyName>
+    <RootNamespace>CodeHubX.Tizen4.Mobile</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>portable</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>None</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="shared\res\CodeHubX.Tizen.Mobile.png" />
+    <None Remove="shared\res\CodeHubX.Tizen4.Mobile.png" />
+    <None Remove="shared\res\flame.png" />
+    <None Remove="shared\res\Images\appLogoPurple.png" />
+    <None Remove="shared\res\Images\green.jpeg" />
+    <None Remove="shared\res\Images\placeholder.jpg" />
+    <None Remove="shared\res\NewStoreLogo.scale-100.png" />
+    <None Remove="shared\res\NewStoreLogo.scale-125.png" />
+    <None Remove="shared\res\NewStoreLogo.scale-150.png" />
+    <None Remove="shared\res\NewStoreLogo.scale-200.png" />
+    <None Remove="shared\res\NewStoreLogo.scale-400.png" />
+    <None Remove="shared\res\Noise.png" />
+    <None Remove="shared\res\oct-icons\comment-discussion.svg" />
+    <None Remove="shared\res\oct-icons\comment.svg" />
+    <None Remove="shared\res\oct-icons\commit.svg" />
+    <None Remove="shared\res\oct-icons\feed.svg" />
+    <None Remove="shared\res\oct-icons\issue-closed.svg" />
+    <None Remove="shared\res\oct-icons\issue-opened.svg" />
+    <None Remove="shared\res\oct-icons\issue-reopened.svg" />
+    <None Remove="shared\res\oct-icons\merge.svg" />
+    <None Remove="shared\res\oct-icons\pr.svg" />
+    <None Remove="shared\res\oct-icons\repo-force-push.svg" />
+    <None Remove="shared\res\oct-icons\repo-forked.svg" />
+    <None Remove="shared\res\oct-icons\repo-push.svg" />
+    <None Remove="shared\res\oct-icons\watch.svg" />
+    <None Remove="shared\res\profile-placeholder.png" />
+    <None Remove="shared\res\SplashScreen.scale-100.png" />
+    <None Remove="shared\res\SplashScreen.scale-125.png" />
+    <None Remove="shared\res\SplashScreen.scale-150.png" />
+    <None Remove="shared\res\SplashScreen.scale-200.png" />
+    <None Remove="shared\res\SplashScreen.scale-400.png" />
+    <None Remove="shared\res\Square150x150Logo.scale-100.png" />
+    <None Remove="shared\res\Square150x150Logo.scale-125.png" />
+    <None Remove="shared\res\Square150x150Logo.scale-150.png" />
+    <None Remove="shared\res\Square150x150Logo.scale-200.png" />
+    <None Remove="shared\res\Square150x150Logo.scale-400.png" />
+    <None Remove="shared\res\Square310x310Logo.scale-100.png" />
+    <None Remove="shared\res\Square310x310Logo.scale-125.png" />
+    <None Remove="shared\res\Square310x310Logo.scale-150.png" />
+    <None Remove="shared\res\Square310x310Logo.scale-200.png" />
+    <None Remove="shared\res\Square310x310Logo.scale-400.png" />
+    <None Remove="shared\res\Square44x44Logo.scale-100.png" />
+    <None Remove="shared\res\Square44x44Logo.scale-125.png" />
+    <None Remove="shared\res\Square44x44Logo.scale-150.png" />
+    <None Remove="shared\res\Square44x44Logo.scale-200.png" />
+    <None Remove="shared\res\Square44x44Logo.scale-400.png" />
+    <None Remove="shared\res\Square44x44Logo.targetsize-16.png" />
+    <None Remove="shared\res\Square44x44Logo.targetsize-16_altform-unplated.png" />
+    <None Remove="shared\res\Square44x44Logo.targetsize-24.png" />
+    <None Remove="shared\res\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <None Remove="shared\res\Square44x44Logo.targetsize-256.png" />
+    <None Remove="shared\res\Square44x44Logo.targetsize-256_altform-unplated.png" />
+    <None Remove="shared\res\Square44x44Logo.targetsize-32.png" />
+    <None Remove="shared\res\Square44x44Logo.targetsize-32_altform-unplated.png" />
+    <None Remove="shared\res\Square44x44Logo.targetsize-48.png" />
+    <None Remove="shared\res\Square44x44Logo.targetsize-48_altform-unplated.png" />
+    <None Remove="shared\res\Square71x71Logo.scale-100.png" />
+    <None Remove="shared\res\Square71x71Logo.scale-125.png" />
+    <None Remove="shared\res\Square71x71Logo.scale-150.png" />
+    <None Remove="shared\res\Square71x71Logo.scale-200.png" />
+    <None Remove="shared\res\Square71x71Logo.scale-400.png" />
+    <None Remove="shared\res\StoreLogo.scale-100.png" />
+    <None Remove="shared\res\StoreLogo.scale-125.png" />
+    <None Remove="shared\res\StoreLogo.scale-150.png" />
+    <None Remove="shared\res\StoreLogo.scale-200.png" />
+    <None Remove="shared\res\StoreLogo.scale-400.png" />
+    <None Remove="shared\res\Target.scale-100.png" />
+    <None Remove="shared\res\Target.scale-150.png" />
+    <None Remove="shared\res\Target.scale-1600.png" />
+    <None Remove="shared\res\Target.scale-300.png" />
+    <None Remove="shared\res\transparent.png" />
+    <None Remove="shared\res\Wide310x150Logo.scale-100.png" />
+    <None Remove="shared\res\Wide310x150Logo.scale-125.png" />
+    <None Remove="shared\res\Wide310x150Logo.scale-150.png" />
+    <None Remove="shared\res\Wide310x150Logo.scale-200.png" />
+    <None Remove="shared\res\Wide310x150Logo.scale-400.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="shared\res\CodeHubX.Tizen.Mobile.png" />
+    <EmbeddedResource Include="shared\res\CodeHubX.Tizen4.Mobile.png" />
+    <EmbeddedResource Include="shared\res\flame.png" />
+    <EmbeddedResource Include="shared\res\Images\appLogoPurple.png" />
+    <EmbeddedResource Include="shared\res\Images\green.jpeg" />
+    <EmbeddedResource Include="shared\res\Images\placeholder.jpg" />
+    <EmbeddedResource Include="shared\res\NewStoreLogo.scale-100.png" />
+    <EmbeddedResource Include="shared\res\NewStoreLogo.scale-125.png" />
+    <EmbeddedResource Include="shared\res\NewStoreLogo.scale-150.png" />
+    <EmbeddedResource Include="shared\res\NewStoreLogo.scale-200.png" />
+    <EmbeddedResource Include="shared\res\NewStoreLogo.scale-400.png" />
+    <EmbeddedResource Include="shared\res\Noise.png" />
+    <EmbeddedResource Include="shared\res\oct-icons\comment-discussion.svg" />
+    <EmbeddedResource Include="shared\res\oct-icons\comment.svg" />
+    <EmbeddedResource Include="shared\res\oct-icons\commit.svg" />
+    <EmbeddedResource Include="shared\res\oct-icons\feed.svg" />
+    <EmbeddedResource Include="shared\res\oct-icons\issue-closed.svg" />
+    <EmbeddedResource Include="shared\res\oct-icons\issue-opened.svg" />
+    <EmbeddedResource Include="shared\res\oct-icons\issue-reopened.svg" />
+    <EmbeddedResource Include="shared\res\oct-icons\merge.svg" />
+    <EmbeddedResource Include="shared\res\oct-icons\pr.svg" />
+    <EmbeddedResource Include="shared\res\oct-icons\repo-force-push.svg" />
+    <EmbeddedResource Include="shared\res\oct-icons\repo-forked.svg" />
+    <EmbeddedResource Include="shared\res\oct-icons\repo-push.svg" />
+    <EmbeddedResource Include="shared\res\oct-icons\watch.svg" />
+    <EmbeddedResource Include="shared\res\profile-placeholder.png" />
+    <EmbeddedResource Include="shared\res\SplashScreen.scale-100.png" />
+    <EmbeddedResource Include="shared\res\SplashScreen.scale-125.png" />
+    <EmbeddedResource Include="shared\res\SplashScreen.scale-150.png" />
+    <EmbeddedResource Include="shared\res\SplashScreen.scale-200.png" />
+    <EmbeddedResource Include="shared\res\SplashScreen.scale-400.png" />
+    <EmbeddedResource Include="shared\res\Square150x150Logo.scale-100.png" />
+    <EmbeddedResource Include="shared\res\Square150x150Logo.scale-125.png" />
+    <EmbeddedResource Include="shared\res\Square150x150Logo.scale-150.png" />
+    <EmbeddedResource Include="shared\res\Square150x150Logo.scale-200.png" />
+    <EmbeddedResource Include="shared\res\Square150x150Logo.scale-400.png" />
+    <EmbeddedResource Include="shared\res\Square310x310Logo.scale-100.png" />
+    <EmbeddedResource Include="shared\res\Square310x310Logo.scale-125.png" />
+    <EmbeddedResource Include="shared\res\Square310x310Logo.scale-150.png" />
+    <EmbeddedResource Include="shared\res\Square310x310Logo.scale-200.png" />
+    <EmbeddedResource Include="shared\res\Square310x310Logo.scale-400.png" />
+    <EmbeddedResource Include="shared\res\Square44x44Logo.scale-100.png" />
+    <EmbeddedResource Include="shared\res\Square44x44Logo.scale-125.png" />
+    <EmbeddedResource Include="shared\res\Square44x44Logo.scale-150.png" />
+    <EmbeddedResource Include="shared\res\Square44x44Logo.scale-200.png" />
+    <EmbeddedResource Include="shared\res\Square44x44Logo.scale-400.png" />
+    <EmbeddedResource Include="shared\res\Square44x44Logo.targetsize-16.png" />
+    <EmbeddedResource Include="shared\res\Square44x44Logo.targetsize-16_altform-unplated.png" />
+    <EmbeddedResource Include="shared\res\Square44x44Logo.targetsize-24.png" />
+    <EmbeddedResource Include="shared\res\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <EmbeddedResource Include="shared\res\Square44x44Logo.targetsize-256.png" />
+    <EmbeddedResource Include="shared\res\Square44x44Logo.targetsize-256_altform-unplated.png" />
+    <EmbeddedResource Include="shared\res\Square44x44Logo.targetsize-32.png" />
+    <EmbeddedResource Include="shared\res\Square44x44Logo.targetsize-32_altform-unplated.png" />
+    <EmbeddedResource Include="shared\res\Square44x44Logo.targetsize-48.png" />
+    <EmbeddedResource Include="shared\res\Square44x44Logo.targetsize-48_altform-unplated.png" />
+    <EmbeddedResource Include="shared\res\Square71x71Logo.scale-100.png" />
+    <EmbeddedResource Include="shared\res\Square71x71Logo.scale-125.png" />
+    <EmbeddedResource Include="shared\res\Square71x71Logo.scale-150.png" />
+    <EmbeddedResource Include="shared\res\Square71x71Logo.scale-200.png" />
+    <EmbeddedResource Include="shared\res\Square71x71Logo.scale-400.png" />
+    <EmbeddedResource Include="shared\res\StoreLogo.scale-100.png" />
+    <EmbeddedResource Include="shared\res\StoreLogo.scale-125.png" />
+    <EmbeddedResource Include="shared\res\StoreLogo.scale-150.png" />
+    <EmbeddedResource Include="shared\res\StoreLogo.scale-200.png" />
+    <EmbeddedResource Include="shared\res\StoreLogo.scale-400.png" />
+    <EmbeddedResource Include="shared\res\Target.scale-100.png" />
+    <EmbeddedResource Include="shared\res\Target.scale-150.png" />
+    <EmbeddedResource Include="shared\res\Target.scale-1600.png" />
+    <EmbeddedResource Include="shared\res\Target.scale-300.png" />
+    <EmbeddedResource Include="shared\res\transparent.png" />
+    <EmbeddedResource Include="shared\res\Wide310x150Logo.scale-100.png" />
+    <EmbeddedResource Include="shared\res\Wide310x150Logo.scale-125.png" />
+    <EmbeddedResource Include="shared\res\Wide310x150Logo.scale-150.png" />
+    <EmbeddedResource Include="shared\res\Wide310x150Logo.scale-200.png" />
+    <EmbeddedResource Include="shared\res\Wide310x150Logo.scale-400.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="lib\" />
+    <Folder Include="res\" />
+  </ItemGroup>
+
+  
+
+  <!-- Include Nuget Package for Tizen Project building -->
+  <ItemGroup>
+    <PackageReference Include="Tizen.NET" Version="4.0.0">
+      <ExcludeAssets>Runtime</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="Tizen.NET.Sdk" Version="1.0.1" />
+    <PackageReference Include="Xamarin.Forms" Version="3.3.0.967583" />
+    <PackageReference Include="Xamarin.Forms.Platform.Tizen" Version="2.5.1.444934" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Shared\CodeHubX.Shared.Tizen4.csproj" />
+  </ItemGroup>
+
+</Project>

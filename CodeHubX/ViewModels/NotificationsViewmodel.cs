@@ -1,5 +1,4 @@
 using CodeHubX.Services;
-using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Messaging;
 using Octokit;
 using System;
