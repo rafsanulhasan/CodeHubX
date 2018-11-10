@@ -161,7 +161,6 @@
         <PackageReference Include="Xamarin.Auth.XamarinForms" Version="1.6.0.3" />
         <PackageReference Include="Xamarin.Forms" Version="3.3.0.967583" />
         <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
-        <PackageReference Include="Xamarin.Forms.XAML.Utils.Converters" Version="1.1.2" />
     </ItemGroup>
 
     <ItemGroup>
