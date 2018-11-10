@@ -1,6 +1,8 @@
 ﻿using CodeHubX.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace CodeHubX.Models
 {
@@ -41,8 +43,8 @@ namespace CodeHubX.Models
 
 		partial void AddConditions(params object[] conditions);
 
-		public virtual ref readonly ICollection<object> GetConditions()
-			=> ref _Conditions;
+		public virtual IReadOnlyCollection<object> GetConditions()
+			=> new ReadOnlyCollection<object>(_Conditions.ToList());
 
 		partial void CombineConditions(params object[] conditions);
 

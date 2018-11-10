@@ -16,8 +16,8 @@ namespace CodeHubX.Controls
 			    "HtmlString",
 			    typeof(string),
 			    typeof(HtmlToRtfConverter),
-			    null, 
-			    defaultBindingMode: BindingMode.TwoWay,
+			    null,
+			    BindingMode.TwoWay,
 			    null,
 			    propertyChanged: (obj, oldValue, newValue) => OnHtmlChanged(obj, oldValue, newValue));
 
