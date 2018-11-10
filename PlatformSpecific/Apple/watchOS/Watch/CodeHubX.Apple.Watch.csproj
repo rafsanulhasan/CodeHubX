@@ -8,7 +8,7 @@
     <TemplateGuid>{baaaf399-9f1e-41ac-a256-56b2550b9b13}</TemplateGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>CodeHubX.Apple.Watch</RootNamespace>
-    <AssemblyName>Synergy.GitHub.Apple</AssemblyName>
+    <AssemblyName>Synergy.GitHub.Apple.watchOS</AssemblyName>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
     <NuGetPackageImportStamp>

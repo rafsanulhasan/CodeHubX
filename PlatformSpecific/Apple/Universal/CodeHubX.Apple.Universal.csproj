@@ -11,7 +11,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>CodeHubX.Apple.Mobile</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>Synergy.GitHub.Apple</AssemblyName>
+    <AssemblyName>Synergy.GitHub.Apple.Universal</AssemblyName>
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>

@@ -8,7 +8,7 @@
     <TemplateGuid>{7845f015-8eef-4d78-9b76-cd51413557df}</TemplateGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>CodeHubX.Apple.TV</RootNamespace>
-    <AssemblyName>Synergy.GitHub.Apple</AssemblyName>
+    <AssemblyName>Synergy.GitHub.Apple.tvOS</AssemblyName>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
     <NuGetPackageImportStamp>
