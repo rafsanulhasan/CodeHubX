@@ -70,7 +70,7 @@ jobs:
       restoreSolution: '**/*.sln'
   - task: XamarinAndroid@1
     inputs:
-      projectFile: '$()'
+      projectFile: '$(androidMobileProject)'
       outputDirectory: '$(outDir)'
       configuration: '$(BuildConfiguration)'
 
@@ -83,10 +83,10 @@ jobs:
   - task: NuGetToolInstaller@0
   - task: NuGetCommand@2
     inputs:
-      restoreSolution: '**/*.sln'
+      restoreSolution: '$(iosSolution)'
   - task: XamariniOS@2
     inputs:
-      solutionFile: '**/*.sln'
-      configuration: '$(buildConfiguration)'
+      solutionFile: '$(iosSolution)'
+      configuration: '$(BuildConfiguration)'
       buildForSimulator: true
       packageApp: false
