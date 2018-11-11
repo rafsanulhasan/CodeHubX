@@ -152,7 +152,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
-    <Content Include="Resources\Base.lproj\Images\css\github-markdown.css" />
+    <BundleResource Include="Resources\Base.lproj\Images\css\github-markdown.css" />
     <Content Include="Resources\Base.lproj\Images\flame.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
