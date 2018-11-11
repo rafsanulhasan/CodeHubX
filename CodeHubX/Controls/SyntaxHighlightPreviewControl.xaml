@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView x:Class="CodeHub.Controls.SyntaxHighlightPreviewControl"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DesignHeight="300"
+             d:DesignWidth="400"
+             mc:Ignorable="d">
+    <ContentView.Resources>
+        
+    </ContentView.Resources>
+    <StackLayout BackgroundColor="{Binding BackgroundColor}">
+
+        <Label Text="{Binding Name}"
+               Margin="8"
+               FontAttributes="Bold"
+               FontSize="16"/>
+
+        <Label Margin="8 8 0 0"
+               FontSize="12">
+            <!--<Run Foreground="{Binding ColorOne}" Text="using " />
+            <Run Foreground="{Binding ColorTwo}" Text="System;" />-->
+        </Label>
+        <Label Margin="8,8,8,0"
+               FontSize="12">
+            <!--<Run Text="namespace "
+                 Foreground="{Binding ColorOne}"/>
+            <Run Text="CodeHub"
+                 Foreground="{Binding ColorTwo}"/>-->
+        </Label>
+        <Label Margin="8,0,0,4"
+               FontSize="12"
+               TextColor="{Binding ColorTwo}">{</Label>
+        <Label Margin="24,0,0,0"
+               FontSize="12"
+               TextColor="{Binding ColorThree}"
+               Text="/// &lt;summary>"/>
+        <Label Margin="24,0,0,0"
+               FontSize="12"
+               TextColor="{Binding ColorThree}"
+               Text="/// A summary of the class"/>
+        <Label Margin="24,0,0,4"
+               FontSize="12"
+               TextColor="{Binding ColorThree}"
+               Text="/// &lt;/summary>"/>
+        <Label Margin="24,0,0,0"
+               FontSize="12">
+            <!--<Run Text="public static class "
+                 Foreground="{Binding ColorOne}"/>
+            <Run Text="ClassName"
+                 Foreground="{Binding ColorFour}"/>-->
+        </Label>
+        <Label Margin="24,0,0,8"
+               FontSize="12"
+               TextColor="{Binding ColorTwo}">{</Label>
+    </StackLayout>
+</ContentView>

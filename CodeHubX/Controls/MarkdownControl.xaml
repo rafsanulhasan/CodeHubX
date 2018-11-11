@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TabbedPage x:Class="CodeHubX.Controls.MarkdownControl"
+            xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:md="clr-namespace:ViewMarkdown.Forms.Plugin.Abstractions;assembly=ViewMarkdown.Forms.Plugin.Abstractions"
+            d:DesignHeight="300"
+            d:DesignWidth="400"
+            mc:Ignorable="d">
+    <ContentPage Title="Edit" x:Name="EditView">
+        <StackLayout Orientation="Vertical">
+            <ScrollView VerticalScrollBarVisibility="Always">
+                <Entry x:Name="entryMarkdownText" Text="{Binding MarkdownText}" TextChanged="MarkdownText_Changed" />
+            </ScrollView>
+        </StackLayout>        
+    </ContentPage>
+    <ContentPage Title="Preview" x:Name="PreviewView">
+        <StackLayout Orientation="Vertical">
+            <md:MarkdownView x:Name="markdownView" />
+        </StackLayout>
+    </ContentPage>
+</TabbedPage>

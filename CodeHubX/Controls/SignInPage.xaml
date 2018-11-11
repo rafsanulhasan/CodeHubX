@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView x:Class="CodeHubX.Controls.SignInPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DesignHeight="400"
+             d:DesignWidth="400"
+             mc:Ignorable="d">
+    <Grid BackgroundColor="{StaticResource AccentWindowAcrylicBrush}">
+        <StackLayout VerticalOptions="Center"
+                    BackgroundColor="Transparent"
+                    Orientation="Vertical">
+            <Image x:Name="AppLogoImage"
+                   Width="100"
+                   Height="100"
+                   Source="/Assets/Images/appLogoPurple.png" />
+            <Label Margin="0,0,0,8"
+                           FontSize="32"
+                           FontAttributes="Bold"
+                           TextColor="White"
+                           Text="CodeHub"
+                           HorizontalTextAlignment="Center" 
+                           VerticalTextAlignment="Center"/>
+
+            <Label Margin="0,0,0,30"
+                       FontSize="18"
+                       TextColor="White"
+                       Text="A Client for GitHub"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center" />
+
+            <Button x:Uid="signIn"
+                    Padding="8"
+                    WidthRequest="100"
+                    Margin="12 0 12 0"
+                    HorizontalOptions="Stretch"
+                    Command="{Binding SignInCommand}"
+                    FontSize="12"
+                    BackgroundColor="White"
+                    TextColor="Black"
+                    FontAttributes="Bold" />
+
+        </StackLayout>
+
+    </Grid>
+</ContentView>

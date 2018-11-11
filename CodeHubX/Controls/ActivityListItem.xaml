@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView x:Class="CodeHubX.Controls.ActivityListItem"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:CodeHubX.Controls"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:converters="clr-namespace:CodeHubX.Converters"
+             d:DesignHeight="300"
+             d:DesignWidth="400"
+             mc:Ignorable="d">
+    <ContentView.Resources>
+        <converters:TimeAgoConverter x:Key="TimeAgoConverter" x:Name="TimeAgoConverter" />
+        <converters:EventTypeToActionStringConverter x:Key="EventTypeToActionStringConverter" x:Name="EventTypeToActionStringConverter" />
+        <converters:EventTypeToSymbolConverter x:Key="EventTypeToSymbolConverter" x:Name="EventTypeToSymbolConverter" />
+    </ContentView.Resources>
+    <RelativeLayout              
+             Padding="8"
+             Margin="0 4 0 0">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="CommonStates">
+                
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <local:SvgIcon ResourceId="{Binding Type, Converter={StaticResource EventTypeToSymbolConverter}}" WidthRequest="300" HeightRequest="300" HorizontalOptions="Center" VerticalOptions="Center"/>
+        <Label x:Name="timeText"
+               Margin="8,12,0,0"
+               FontSize="12"
+               TextColor="Gray"
+               RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView,
+               ElementName=notifSymbol,Property=X,Factor=1,Constant=10}"                    
+               Text="{Binding CreatedAt, Converter={StaticResource TimeAgoConverter}}" />
+
+        <Label x:Name="userText"
+               Margin="4,12,4,4"
+               FontSize="13.5"
+               FontAttributes="Bold"
+               TextColor="{StaticResource ApplicationForegroundThemeBrush}"                   
+               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,
+                                               ElementName=timeText,Property=Y,Factor=1,Constant=10}"
+               RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView,
+                                               ElementName=notifSymbol,Property=X,Factor=1,Constant=10}"                    
+               Text="{Binding Actor.Login}" />
+
+        <Label x:Name="actionText"
+               Margin="0,12,0,4"
+               FontSize="13"       
+               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,
+                                               ElementName=timeText,Property=Y,Factor=1,Constant=10}"
+               RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView,
+                                               ElementName=userText,Property=X,Factor=1,Constant=10}" />
+
+        <Label x:Name="RepoText"
+                   Margin="4 8 0 4"
+                   FontSize="13.5"
+                   FontAttributes="Bold"
+                   TextColor="{StaticResource ApplicationForegroundThemeBrush}"
+                   Text="{Binding Repo.Name}" />
+
+    </RelativeLayout>
+</ContentView>
