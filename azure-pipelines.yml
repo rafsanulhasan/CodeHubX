@@ -1,26 +1,92 @@
-# Universal Windows Platform
-# Build a Universal Windows Platform application using Visual Studio.
-# Add steps that test and distribute the app, save build artifacts, and more:
-# https://aka.ms/yaml
+# https://docs.microsoft.com/vsts/pipelines/languages/xamarin
+jobs:
+- job: WindowsJobs
+  pool:
+    vmImage: 'vs2017-win2016'
+  variables:
+    BuildConfiguration: 'Release'
+    outDir: '$(build.binariesDirectory)/$(BuildConfiguration)'
+    androidMobileProject: '**Driod.Mobile.csproj'
+    androidMobileSolution: '**Android.sln'
+    iosUniversalProject: '**Universal.csproj'
+    iosUniversalSolution: '**Apple.sln'
+    sharedProject: '**/*CodeHubX.csproj'    
+    sharedTestProject: '**/[Tt]est[s]/CodeHubX[.Test].csproj'
+    testProjects: '**/[Tt]est[s]/*[.Test].csproj'
+    testWebProject: |
+      '**/*Web.csproj'
+      '**/[Tt]ests/*.Web[.Test].csproj'
+    uwpProject: '**UWP.csproj'
+    uwpSolution: '**UWP.sln'
+    webProject: '**Web.csproj'
+    webSolution: '**Web.sln'
+  steps:
+  - task: DotNetCoreCLI@2
+    displayName: 'Restore Shared Project'
+    inputs:
+      command: restore
+      projects: '$(sharedProject)'
 
-pool:
-  vmImage: 'VS2017-Win2016'
+  - task: DotNetCoreCLI@2
+    displayName: 'Build Shared Project'
+    inputs:
+      projects: '$(sharedProject)'
+      arguments: '--configuration $(BuildConfiguration)'
 
-variables:
-  solution: '**/*.sln'
-  project: '**/*UWP*.csptoj'
-  buildPlatform: 'x86|x64|ARM'
-  buildConfiguration: 'Release'
-  appxPackageDir: '$(build.artifactStagingDirectory)/AppxPackages/'
+  - task: DotNetCoreCLI@2
+    displayName: 'Test Shared Project'
+    inputs:
+      command: test
+      projects: '$(sharedTestProjects)'
+      arguments: '--configuration $(BuildConfiguration)'
+      enabled: false
 
-steps:
-- task: NuGetToolInstaller@0
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifact: drop'
+    inputs:
+      PathtoPublish: '$(build.artifactstagingdirectory)'
 
-- task: NuGetCommand@2
-  inputs:
-    restoreProject: '$(solution)'
+  - task: DotNetCoreCLI@2
+    displayName: 'Restore Web Project'
+    inputs:
+      command: restore
+      projects: '$(webProject)'
 
-- task: CodeHubX.UWP@2
-  inputs:
-    projectFile: '**/*UWP*.csproj'
-    configuration: '$(buildConfiguration)'
+  - task: DotNetCoreCLI@2
+    displayName: 'Build Web Project'
+    inputs:
+      command: build
+      projects: '$(webProject)'
+
+  - task: DotNetCoreCLI@2
+    displayName: 'Restore Web Project'
+    inputs:
+      command: restore
+      projects: '$(testWebProject)'
+
+  - task: NuGetToolInstaller@0
+  - task: NuGetCommand@2
+    inputs:
+      restoreSolution: '**/*.sln'
+  - task: XamarinAndroid@1
+    inputs:
+      projectFile: '$()'
+      outputDirectory: '$(outDir)'
+      configuration: '$(BuildConfiguration)'
+
+- job: iOS
+  pool:
+    vmImage: 'macOS-10.13'
+  variables:
+    buildConfiguration: 'Release'
+  steps:
+  - task: NuGetToolInstaller@0
+  - task: NuGetCommand@2
+    inputs:
+      restoreSolution: '**/*.sln'
+  - task: XamariniOS@2
+    inputs:
+      solutionFile: '**/*.sln'
+      configuration: '$(buildConfiguration)'
+      buildForSimulator: true
+      packageApp: false
