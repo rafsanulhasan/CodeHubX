@@ -1,5 +1,4 @@
-# CodeHubX [![Build Status](https://dev.azure.com/sicstechgithub/CodeHubX/_apis/build/status/Build)](https://dev.azure.com/sicstechgithub/CodeHubX/_build/latest?definitionId=2)
-<span class="badge-patreon"><a href="https://www.patreon.com/aalok05" title="Donate to this project using Patreon"><img src="https://img.shields.io/badge/patreon-donate-yellow.svg" alt="Patreon donate button" /></a></span>
+# CodeHubX
 [![Twitter URL](https://img.shields.io/badge/tweet-%40rafsanulhasan-blue.svg?style=social&style=flat-square)](https://twitter.com/rafsanulhasan)
 
 CodeHubX is an x-plat GitHub client that helps you keep up with the open source world.
@@ -22,8 +21,8 @@ CodeHubX is an x-plat GitHub client that helps you keep up with the open source 
     <tr>
         <td align='center'>Mobile</td>
         <td align='center'>Universal<sup>1</sup><br/><img src='https://dev.azure.com/sicstechgithub/CodeHubX/_apis/build/status/Windows.UWP'/></td>
-        <td align='center'>Universal<sup>2</sup><br/><img src='https://build.appcenter.ms/v0.1/apps/95af53c2-f347-483c-95a0-1f9c33fdb89d/branches/dev/badge'/></td>
-        <td align='center'>Android<br/><img src='https://build.appcenter.ms/v0.1/apps/7965f46a-842c-4cce-b0bc-4ba627837cc4/branches/dev/badge'/></td></td>
+        <td align='center'>iOS Universal<sup>2</sup><br/><img src='https://dev.azure.com/sicstechgithub/CodeHubX/_apis/build/status/Apple.iOS'/></td>
+        <td align='center'>Android<br/><img src='https://dev.azure.com/sicstechgithub/CodeHubX/_apis/build/status/Android'/></td></td>
     </tr>
     <tr>
         <td align='center'>Desktop</td>
@@ -41,7 +40,7 @@ CodeHubX is an x-plat GitHub client that helps you keep up with the open source 
         <td align='center'>Watch</td>
         <td align='center'>Coming soon</td>
         <td align='center'>Coming soon</td>
-        <td align='center'><img src='https://build.appcenter.ms/v0.1/apps/b2b123d2-65a1-4e0e-af48-6252bd4d335f/branches/dev/badge'/></td>
+        <td align='center'>Coming soon</td>
     </tr>
 </table>
 
