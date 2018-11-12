@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2050
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeHubX", "CodeHubX\CodeHubX.csproj", "{5950C741-6F1D-4EEE-A185-93006305BF28}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PlatformSpecific", "PlatformSpecific", "{1E000F21-765D-4DC0-B8CD-0FC4F4EE31AB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E60779C2-8DC1-42D7-A97A-77C80AB7C248}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		CODE_OF_CONDUCT.md = CODE_OF_CONDUCT.md
+		CONTRIBUTING.md = CONTRIBUTING.md
+		LICENSE.md = LICENSE.md
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeHubX.Windows.WPF", "PlatformSpecific\Windows\Desktop\CodeHubX.Windows.WPF.csproj", "{2D18DE1F-EFC4-43E7-A566-44E82EDE67C0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5950C741-6F1D-4EEE-A185-93006305BF28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5950C741-6F1D-4EEE-A185-93006305BF28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5950C741-6F1D-4EEE-A185-93006305BF28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5950C741-6F1D-4EEE-A185-93006305BF28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D18DE1F-EFC4-43E7-A566-44E82EDE67C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D18DE1F-EFC4-43E7-A566-44E82EDE67C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D18DE1F-EFC4-43E7-A566-44E82EDE67C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D18DE1F-EFC4-43E7-A566-44E82EDE67C0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2D18DE1F-EFC4-43E7-A566-44E82EDE67C0} = {1E000F21-765D-4DC0-B8CD-0FC4F4EE31AB}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4B8C2705-1D6B-4405-807E-5C47836D96D9}
+	EndGlobalSection
+EndGlobal
