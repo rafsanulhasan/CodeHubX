@@ -1,17 +1,13 @@
-﻿using System.Reflection;
-using Windows.ApplicationModel.Activation;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.UWP;
+﻿using Xamarin.Forms.Platform.UWP;
 
 namespace CodeHubX.UWP.Views
 {
 	public sealed partial class MainPage
 	{
-		public MainPage(IActivatedEventArgs args)
+		public MainPage()
 		{
 			InitializeComponent();
 
-			Forms.Init(args, new[] { Assembly.Load("CodeHubX") });
 			LoadApplication(new CodeHubX.App());
 		}
 	}

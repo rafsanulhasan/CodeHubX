@@ -98,7 +98,7 @@ I thank the makers of these libraries
 * [UWP-Animated-SplashScreen](https://github.com/XamlBrewer/UWP-Animated-SplashScreen)
 * [QueryString.Net](https://www.github.com/WindowsNotifications/QueryString.Net)
 * [Xamarin](https://visualstudio.microsoft.com/xamarin/)
-  - [SkiaSharp](https://github.com/mono/SkiaSharp)
+  - SkiaSharp   
 
 ## Gitter chat
 * https://gitter.im/SynergyCodeHubX/Bugs
