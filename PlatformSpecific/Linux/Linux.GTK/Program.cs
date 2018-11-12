@@ -4,7 +4,7 @@ using Xamarin.Forms.Platform.GTK;
 
 namespace CodeHubX.Linux
 {
-	internal class MainClass
+	public class MainClass
 	{
 		[STAThread]
 		public static void Main(string[] args)
