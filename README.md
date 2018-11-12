@@ -1,12 +1,53 @@
-# CodeHubX
+# CodeHubX [![Build Status](https://dev.azure.com/sicstechgithub/CodeHubX/_apis/build/status/Build)](https://dev.azure.com/sicstechgithub/CodeHubX/_build/latest?definitionId=2)
 <span class="badge-patreon"><a href="https://www.patreon.com/aalok05" title="Donate to this project using Patreon"><img src="https://img.shields.io/badge/patreon-donate-yellow.svg" alt="Patreon donate button" /></a></span>
 [![Twitter URL](https://img.shields.io/badge/tweet-%40rafsanulhasan-blue.svg?style=social&style=flat-square)](https://twitter.com/rafsanulhasan)
 
-[![Build Status](https://dev.azure.com/SymbiosisICTSolutions/CodeHubX/_apis/build/status/CodeHubX%20.NET%20Core%20CI)](https://dev.azure.com/SymbiosisICTSolutions/CodeHubX/_build/latest?definitionId=3)
-
 CodeHubX is an x-plat GitHub client that helps you keep up with the open source world.
 
-<p align="center"><a href="https://www.microsoft.com/store/apps/9nblggh52tbd?ocid=badge"><img src="https://assets.windowsphone.com/85864462-9c82-451e-9355-a3d5f874397a/English_get-it-from-MS_InvariantCulture_Default.png" alt="Get it from Microsoft" width='200' /></a></p>
+<p align="center">
+    <a href="https://www.microsoft.com/store/apps/9nblggh52tbd?ocid=badge"><img src="https://www.github.com/sics/codehubx/tree/dev/Codehubx/assets/images/unified storelogo.jpg" alt="Available at stores" width='200' /></a>
+</p>
+
+# Supported Platforms
+
+<table style='text-align:center'>
+    <thead>
+        <tr>
+            <td>Form-Factor/Platform</td>
+            <td>Windows</td>
+            <td>OSX</td>
+            <td>Linux</td>
+        </tr>
+    <thead>
+    <tr>
+        <td>Mobile</td>
+        <td>Universal*<br/><img src='https://build.appcenter.ms/v0.1/apps/b2b123d2-65a1-4e0e-af48-6252bd4d335f/branches/dev/badge'/></td>
+        <td>Universal*<br/><img src='https://build.appcenter.ms/v0.1/apps/95af53c2-f347-483c-95a0-1f9c33fdb89d/branches/dev/badge'/></td>
+        <td>Android<br/><img src='https://build.appcenter.ms/v0.1/apps/7965f46a-842c-4cce-b0bc-4ba627837cc4/branches/dev/badge'/></td></td>
+    </tr>
+    <tr>
+        <td>Desktop</td>
+        <td>WPF*</td>
+        <td>Coming soon</td>
+        <td>Desktop with GTK</td>
+    </tr>
+    <tr>
+        <td>TV</td>
+        <td>-</td>
+        <td>Coming soon</td>
+        <td>Coming Soon</td>
+    </tr>
+    <tr>
+        <td>Watch</td>
+        <td>Coming soon</td>
+        <td>Coming soon</td>
+        <td><img src='https://build.appcenter.ms/v0.1/apps/b2b123d2-65a1-4e0e-af48-6252bd4d335f/branches/dev/badge'/></td>
+    </tr>
+</table>
+
+* Universal* in Apple Platforms means App Store App for iOS, iPod & iPad
+* Universal* in Windows means Windows 10 Store App for Desktop, Mobile & Surface Book
+* WPF* in Windows supports desktops with Windows 10 and earlier with more low level API access
 
 ## Features
 * Trending repositories
@@ -57,6 +98,7 @@ I thank the makers of these libraries
 * [UWP-Animated-SplashScreen](https://github.com/XamlBrewer/UWP-Animated-SplashScreen)
 * [QueryString.Net](https://www.github.com/WindowsNotifications/QueryString.Net)
 * [Xamarin](https://visualstudio.microsoft.com/xamarin/)
+  - SkiaSharp   
 
 ## Gitter chat
 * https://gitter.im/SynergyCodeHubX/Bugs
