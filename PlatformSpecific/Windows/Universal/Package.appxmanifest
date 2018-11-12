@@ -32,9 +32,6 @@
         </uap:InitialRotationPreference>
       </uap:VisualElements>
       <Extensions>
-        <uap5:Extension Category="windows.startupTask" Executable="bin\x64\Debug\CodeHubX.exe" EntryPoint="CodeHubX.UWP.App">
-          <uap5:StartupTask TaskId="CodeHubStartupTask" Enabled="true" DisplayName="CodeHubX" />
-        </uap5:Extension>
         <uap:Extension Category="windows.protocol">
           <uap:Protocol Name="codehubx" DesiredView="default">
             <uap:DisplayName>CodeHubX: An x-plat Client For GitHub</uap:DisplayName>
