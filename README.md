@@ -21,15 +21,15 @@ CodeHubX is an x-plat GitHub client that helps you keep up with the open source 
     <thead>
     <tr>
         <td align='center'>Mobile</td>
-        <td align='center'>Universal*<br/><img src='https://dev.azure.com/sicstechgithub/CodeHubX/_apis/build/status/Windows.UWP'/></td>
-        <td align='center'>Universal*<br/><img src='https://build.appcenter.ms/v0.1/apps/95af53c2-f347-483c-95a0-1f9c33fdb89d/branches/dev/badge'/></td>
+        <td align='center'>Universal<sup>1</sup><br/><img src='https://dev.azure.com/sicstechgithub/CodeHubX/_apis/build/status/Windows.UWP'/></td>
+        <td align='center'>Universal<sup>2</sup><br/><img src='https://build.appcenter.ms/v0.1/apps/95af53c2-f347-483c-95a0-1f9c33fdb89d/branches/dev/badge'/></td>
         <td align='center'>Android<br/><img src='https://build.appcenter.ms/v0.1/apps/7965f46a-842c-4cce-b0bc-4ba627837cc4/branches/dev/badge'/></td></td>
     </tr>
     <tr>
         <td align='center'>Desktop</td>
-        <td align='center'>WPF*<br/><img src='https://dev.azure.com/sicstechgithub/CodeHubX/_apis/build/status/Windows.WPF'/></td>
+        <td align='center'>WPF<sup>3</sup><br/><img src='https://dev.azure.com/sicstechgithub/CodeHubX/_apis/build/status/Windows.WPF'/></td>
         <td align='center'>Coming soon</td>
-        <td align='center'>Desktop with GTK</td>
+        <td align='center'>Desktop<sup>4</sup><br/><img src='https://dev.azure.com/sicstechgithub/CodeHubX/_apis/build/status/Linux.Desktop'/></td>
     </tr>
     <tr>
         <td align='center'>TV</td>
@@ -45,9 +45,10 @@ CodeHubX is an x-plat GitHub client that helps you keep up with the open source 
     </tr>
 </table>
 
-* Universal* in Apple Platforms means App Store App for iOS, iPod & iPad
-* Universal* in Windows means Windows 10 Store App for Desktop, Mobile & Surface Book
-* WPF* in Windows supports desktops with Windows 10 and earlier with more low level API access
+1. Universal in Windows means Windows 10 Store App for Desktop, Mobile & Surface Book
+2. Universal in Apple Platforms means App Store App for i, iPod & iPad
+3. WPF in Windows supports desktops with Windows 10 and earlier with more low level API access
+4. Must have GTK 2.0 and GTK Sharp installed in Linux
 
 ## Features
 * Trending repositories
