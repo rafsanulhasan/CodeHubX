@@ -10,7 +10,7 @@ CodeHubX is an x-plat GitHub client that helps you keep up with the open source 
 
 # Supported Platforms
 
-<table style='text-align:center'>
+<table align='center' style='text-align:center'>
     <thead>
         <tr>
             <td>Form-Factor/Platform</td>
@@ -27,7 +27,7 @@ CodeHubX is an x-plat GitHub client that helps you keep up with the open source 
     </tr>
     <tr>
         <td>Desktop</td>
-        <td>WPF*</td>
+        <td>WPF*<br/><img src='https://dev.azure.com/sicstechgithub/CodeHubX/_apis/build/status/Windows.WPF'/></td>
         <td>Coming soon</td>
         <td>Desktop with GTK</td>
     </tr>
