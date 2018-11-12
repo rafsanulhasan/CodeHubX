@@ -199,7 +199,7 @@
   <data name="AppRestartTip.Text" xml:space="preserve">
     <value>L'application doit redémarrer pour prendre en compte les changements de thèmes</value>
   </data>
-  <data name="app_name" xml:space="preserve">
+  <data name="appName" xml:space="preserve">
     <value>CodeHubX</value>
   </data>
   <data name="aSecondAgo" xml:space="preserve">
