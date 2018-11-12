@@ -1,0 +1,147 @@
+﻿<TabbedPage x:Class="CodeHubX.Views.TrendingPage"
+            xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:converters="using:CodeHubX.Converters"
+            xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+            xmlns:i="using:Microsoft.Xaml.Interactivity"
+            xmlns:local="using:CodeHubX.Views"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:octo="clr-namespace:Octokit;assembly=Octokit"
+            xmlns:userControls="clr-namespace:CodeHubX.Controls"
+            xmlns:vm="clr-namespace:CodeHubX.ViewModels"
+            mc:Ignorable="d"
+            BackgroundColor="Transparent"
+            x:Name="TrendingView">
+    <TabbedPage.Resources>
+
+        <ResourceDictionary>
+            <Style x:Name="TriggerStyle" TargetType="TabbedPage">
+                <Style.Triggers>
+                    <EventTrigger Event="PagesChanged">
+                        <EventTrigger.BindingContext>
+                            <vm:TrendingViewmodel />
+                        </EventTrigger.BindingContext>
+                    </EventTrigger>
+                </Style.Triggers>
+            </Style>
+            <Style TargetType="TabbedPage" />
+        </ResourceDictionary>
+
+    </TabbedPage.Resources>
+    <ContentPage Padding="0" x:Name="TodayTrendingPage">
+        <ScrollView>
+            <Grid>
+                <Label x:Uid="today"
+                   FontSize="15" />
+                <ListView x:Name="todayListView"                             
+                          ItemsSource="{Binding ViewModel.TrendingReposToday, Mode=OneWay}"                      
+                          IsPullToRefreshEnabled="True">
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="vm:TrendingViewmodel">
+                            <StackLayout>
+                                <userControls:FirstTrendingRepoControl Repository="{Binding FirstTrendingReposToday, Mode=OneWay}"
+                                                                       IsVisible="{Binding ZeroTodayCount, Mode=OneWay}" />
+                                <userControls:RepoListItem />
+                            </StackLayout>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <ProgressBar WidthRequest="2000"
+                             HeightRequest="5"
+                             Margin="0,0,0,10"
+                             HorizontalOptions="CenterAndExpand"
+                             VerticalOptions="EndAndExpand"
+                             ProgressColor="{StaticResource SystemControlBackgroundAccentBrush}"
+                             IsVisible="{Binding ViewModel.IsIncrementalLoadingToday, Mode=OneWay}" />
+
+                <Label x:Uid="trendingUpdatePlaceholder"
+                       Style="{StaticResource ZeroItemsTextBoxStyle}"
+                       IsVisible="{Binding ViewModel.ZeroTodayCount, Mode=OneWay}" />
+
+                <ProgressBar Width="40"
+                             Height="40"
+                             ProgressColor="{StaticResource SystemControlBackgroundAccentBrush}"
+                             IsVisible="{Binding ViewModel.IsLoadingToday, Mode=OneWay}" />
+
+            </Grid>
+        </ScrollView>
+    </ContentPage>
+    <ContentPage Padding="0" x:Name="WeeklyTrendingPage">
+        <ScrollView>
+            <Grid>
+                <Label x:Uid="thisWeek"
+                       FontSize="15" />
+                <ListView x:Name="weekListView"
+                          ItemsSource="{Binding ViewModel.TrendingReposWeek, Mode=OneWay}"
+                          IsPullToRefreshEnabled="true">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="vm:TrendingViewmodel">
+                            <StackLayout>
+                                <userControls:FirstTrendingRepoControl Repository="{Binding FirstTrendingReposWeek,Mode=OneWay}"
+                                                                       IsVisible="{Binding ZeroWeeklyCount, Mode=OneWay}" />
+
+                                <userControls:RepoListItem />
+                            </StackLayout>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <ProgressBar WidthRequest="2000"
+                             HeightRequest="5"
+                             Margin="0,0,0,10"
+                             HorizontalOptions="CenterAndExpand"
+                             VerticalOptions="EndAndExpand"
+                             ProgressColor="{StaticResource SystemControlBackgroundAccentBrush}"
+                             IsVisible="{Binding ViewModel.IsIncrementalLoadingWeek, Mode=OneWay}" />
+
+                <Label x:Uid="trendingUpdatePlaceholder"
+                       Style="{StaticResource ZeroItemsTextBoxStyle}"
+                       IsVisible="{Binding ViewModel.ZeroWeeklyCount, Mode=OneWay}" />
+                <ProgressBar Width="40"
+                             Height="40"
+                             ProgressColor="{StaticResource SystemControlBackgroundAccentBrush}"
+                             IsVisible="{Binding ViewModel.IsLoadingWeek, Mode=OneWay}" />
+            </Grid>
+        </ScrollView>
+    </ContentPage>
+    <ContentPage Padding="0" x:Name="MonthlyTrendingPage">
+        <ScrollView>
+            <Grid>
+                <Label x:Uid="thisMonth"
+                       FontSize="15" />
+                <ListView x:Name="monthListView"
+                          ItemsSource="{Binding ViewModel.TrendingReposMonth, Mode=OneWay}"
+                          IsPullToRefreshEnabled="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="vm:TrendingViewmodel">
+                            <StackLayout>
+                                <userControls:FirstTrendingRepoControl Repository="{Binding FirstTrendingReposMonth, Mode=OneWay}"
+                                                                   IsVisible="{Binding ZeroMonthlyCount, Mode=OneWay}" />
+                                <userControls:RepoListItem />
+                            </StackLayout>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <ProgressBar WidthRequest="800"
+                             HeightRequest="5"
+                             Margin="0,0,0,10"
+                             HorizontalOptions="CenterAndExpand"
+                             VerticalOptions="EndAndExpand"
+                             ProgressColor="{StaticResource SystemControlBackgroundAccentBrush}"
+                             IsVisible="{Binding ViewModel.IsIncrementalLoadingMonth, Mode=OneWay}" />
+
+                <Label x:Uid="trendingUpdatePlaceholder"
+                       IsVisible="{Binding ViewModel.ZeroMonthlyCount, Mode=OneWay}" />
+
+                <ProgressBar Width="40"
+                             Height="40"
+                             ProgressColor="Green"
+                             IsVisible="{Binding ViewModel.IsLoadingMonth, Mode=OneWay}" />
+            </Grid>
+        </ScrollView>
+    </ContentPage>
+</TabbedPage>
