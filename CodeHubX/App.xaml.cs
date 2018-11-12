@@ -39,7 +39,7 @@ namespace CodeHubX
 		protected override void OnStart()
 		{
 			// Handle when your app starts
-			AppCenter.Start("ios=c20d4e47-733f-4f27-b676-c2966d62ecff;android=2bc5d588-4a3a-4582-8f2f-70c0f164514e;uwp=b6e5e4b3-c59a-470c-92a3-ad0f10567687", typeof(Push), typeof(Analytics), typeof(Crashes));
+			AppCenter.Start("ios=0d2abada-0d0b-43c3-a500-832f8016b21d;android=b6f7aef7-c910-4c0e-a302-61b1f8095e9d;uwp=70adf665-fc63-4a9c-880f-b390818e93b5", typeof(Push), typeof(Analytics), typeof(Crashes));
 		}
 
 		protected override void OnSleep()

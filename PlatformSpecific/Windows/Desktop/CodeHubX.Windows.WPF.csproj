@@ -95,9 +95,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\..\CodeHubX\CodeHubX.csproj">
       <Project>{30ed1be7-938d-433b-b864-79f001f5bd55}</Project>
       <Name>CodeHubX</Name>

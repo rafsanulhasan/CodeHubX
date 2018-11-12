@@ -1,12 +1,53 @@
 # CodeHubX
-<span class="badge-patreon"><a href="https://www.patreon.com/aalok05" title="Donate to this project using Patreon"><img src="https://img.shields.io/badge/patreon-donate-yellow.svg" alt="Patreon donate button" /></a></span>
 [![Twitter URL](https://img.shields.io/badge/tweet-%40rafsanulhasan-blue.svg?style=social&style=flat-square)](https://twitter.com/rafsanulhasan)
-
-[![Build Status](https://dev.azure.com/SymbiosisICTSolutions/CodeHubX/_apis/build/status/CodeHubX%20.NET%20Core%20CI)](https://dev.azure.com/SymbiosisICTSolutions/CodeHubX/_build/latest?definitionId=3)
 
 CodeHubX is an x-plat GitHub client that helps you keep up with the open source world.
 
-<p align="center"><a href="https://www.microsoft.com/store/apps/9nblggh52tbd?ocid=badge"><img src="https://assets.windowsphone.com/85864462-9c82-451e-9355-a3d5f874397a/English_get-it-from-MS_InvariantCulture_Default.png" alt="Get it from Microsoft" width='200' /></a></p>
+<p align="center">
+    <a href="https://www.microsoft.com/store/apps/9nblggh52tbd?ocid=badge"><img src="https://www.github.com/sics/codehubx/tree/dev/Codehubx/assets/images/unified storelogo.jpg" alt="Available at stores" width='200' /></a>
+</p>
+
+# Supported Platforms
+
+<table>
+    <thead>
+        <tr>
+            <td align='center'>Form-Factor / Platform</td>
+            <td align='center'>Windows</td>
+            <td align='center'>OSX</td>
+            <td align='center'>Linux</td>
+        </tr>
+    <thead>
+    <tr>
+        <td align='center'>Mobile</td>
+        <td align='center'>Universal<sup>1</sup><br/><img src='https://dev.azure.com/sicstechgithub/CodeHubX/_apis/build/status/Windows.UWP'/></td>
+        <td align='center'>iOS Universal<sup>2</sup><br/><img src='https://dev.azure.com/sicstechgithub/CodeHubX/_apis/build/status/Apple.iOS'/></td>
+        <td align='center'>Android<br/><img src='https://dev.azure.com/sicstechgithub/CodeHubX/_apis/build/status/Android'/></td></td>
+    </tr>
+    <tr>
+        <td align='center'>Desktop</td>
+        <td align='center'>WPF<sup>3</sup><br/><img src='https://dev.azure.com/sicstechgithub/CodeHubX/_apis/build/status/Windows.WPF'/></td>
+        <td align='center'>Coming soon</td>
+        <td align='center'>Desktop<sup>4</sup><br/><img src='https://dev.azure.com/sicstechgithub/CodeHubX/_apis/build/status/Linux.Desktop'/></td>
+    </tr>
+    <tr>
+        <td align='center'>TV</td>
+        <td align='center'>-</td>
+        <td align='center'>Coming soon</td>
+        <td align='center'>Coming Soon</td>
+    </tr>
+    <tr>
+        <td align='center'>Watch</td>
+        <td align='center'>Coming soon</td>
+        <td align='center'>Coming soon</td>
+        <td align='center'>Coming soon</td>
+    </tr>
+</table>
+
+1. Universal in Windows means Windows 10 Store App for Desktop, Mobile & Surface Book
+2. Universal in Apple Platforms means App Store App for i, iPod & iPad
+3. WPF in Windows supports desktops with Windows 10 and earlier with more low level API access
+4. Must have GTK 2.0 and GTK Sharp installed in Linux
 
 ## Features
 * Trending repositories
@@ -57,6 +98,7 @@ I thank the makers of these libraries
 * [UWP-Animated-SplashScreen](https://github.com/XamlBrewer/UWP-Animated-SplashScreen)
 * [QueryString.Net](https://www.github.com/WindowsNotifications/QueryString.Net)
 * [Xamarin](https://visualstudio.microsoft.com/xamarin/)
+  - SkiaSharp   
 
 ## Gitter chat
 * https://gitter.im/SynergyCodeHubX/Bugs

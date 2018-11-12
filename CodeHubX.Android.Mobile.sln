@@ -5,15 +5,19 @@ VisualStudioVersion = 15.0.28010.2050
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeHubX", "CodeHubX\CodeHubX.csproj", "{919E3DFA-F036-4407-9496-BD49F789C9E1}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PlatFormSpecific", "PlatFormSpecific", "{A04EA42C-32F4-4E0D-9B8F-B23ED69B22B1}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeHubX.Droid.Mobile", "PlatformSpecific\Linux\Android\Mobile\CodeHubX.Droid.Mobile.csproj", "{2033C2B9-2B2D-47E5-BDD8-17F72983B129}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{201DD616-4A27-4730-A68E-677BDC818533}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		CODE_OF_CONDUCT.md = CODE_OF_CONDUCT.md
+		CONTRIBUTING.md = CONTRIBUTING.md
+		LICENSE.md = LICENSE.md
 		NuGet.Config = NuGet.Config
+		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PlatformSpecific", "PlatformSpecific", "{4615181F-3634-42AA-8B01-3E0548D6D87D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -168,7 +172,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{2033C2B9-2B2D-47E5-BDD8-17F72983B129} = {A04EA42C-32F4-4E0D-9B8F-B23ED69B22B1}
+		{2033C2B9-2B2D-47E5-BDD8-17F72983B129} = {4615181F-3634-42AA-8B01-3E0548D6D87D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7960C896-0164-4B3D-9FE6-99703D98822E}
