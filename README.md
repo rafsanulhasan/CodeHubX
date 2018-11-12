@@ -10,38 +10,38 @@ CodeHubX is an x-plat GitHub client that helps you keep up with the open source 
 
 # Supported Platforms
 
-<table align='center' style='text-align:center'>
+<table>
     <thead>
         <tr>
-            <td>Form-Factor/Platform</td>
-            <td>Windows</td>
-            <td>OSX</td>
-            <td>Linux</td>
+            <td align='center'>Form-Factor / Platform</td>
+            <td align='center'>Windows</td>
+            <td align='center'>OSX</td>
+            <td align='center'>Linux</td>
         </tr>
     <thead>
     <tr>
-        <td>Mobile</td>
-        <td>Universal*<br/><img src='https://dev.azure.com/sicstechgithub/CodeHubX/_apis/build/status/Windows.UWP'/></td>
-        <td>Universal*<br/><img src='https://build.appcenter.ms/v0.1/apps/95af53c2-f347-483c-95a0-1f9c33fdb89d/branches/dev/badge'/></td>
-        <td>Android<br/><img src='https://build.appcenter.ms/v0.1/apps/7965f46a-842c-4cce-b0bc-4ba627837cc4/branches/dev/badge'/></td></td>
+        <td align='center'>Mobile</td>
+        <td align='center'>Universal*<br/><img src='https://dev.azure.com/sicstechgithub/CodeHubX/_apis/build/status/Windows.UWP'/></td>
+        <td align='center'>Universal*<br/><img src='https://build.appcenter.ms/v0.1/apps/95af53c2-f347-483c-95a0-1f9c33fdb89d/branches/dev/badge'/></td>
+        <td align='center'>Android<br/><img src='https://build.appcenter.ms/v0.1/apps/7965f46a-842c-4cce-b0bc-4ba627837cc4/branches/dev/badge'/></td></td>
     </tr>
     <tr>
-        <td>Desktop</td>
-        <td>WPF*<br/><img src='https://dev.azure.com/sicstechgithub/CodeHubX/_apis/build/status/Windows.WPF'/></td>
-        <td>Coming soon</td>
-        <td>Desktop with GTK</td>
+        <td align='center'>Desktop</td>
+        <td align='center'>WPF*<br/><img src='https://dev.azure.com/sicstechgithub/CodeHubX/_apis/build/status/Windows.WPF'/></td>
+        <td align='center'>Coming soon</td>
+        <td align='center'>Desktop with GTK</td>
     </tr>
     <tr>
-        <td>TV</td>
-        <td>-</td>
-        <td>Coming soon</td>
-        <td>Coming Soon</td>
+        <td align='center'>TV</td>
+        <td align='center'>-</td>
+        <td align='center'>Coming soon</td>
+        <td align='center'>Coming Soon</td>
     </tr>
     <tr>
-        <td>Watch</td>
-        <td>Coming soon</td>
-        <td>Coming soon</td>
-        <td><img src='https://build.appcenter.ms/v0.1/apps/b2b123d2-65a1-4e0e-af48-6252bd4d335f/branches/dev/badge'/></td>
+        <td align='center'>Watch</td>
+        <td align='center'>Coming soon</td>
+        <td align='center'>Coming soon</td>
+        <td align='center'><img src='https://build.appcenter.ms/v0.1/apps/b2b123d2-65a1-4e0e-af48-6252bd4d335f/branches/dev/badge'/></td>
     </tr>
 </table>
 
