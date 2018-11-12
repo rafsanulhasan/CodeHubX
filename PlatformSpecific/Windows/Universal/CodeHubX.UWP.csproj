@@ -230,7 +230,7 @@
         </SDKReference>
     </ItemGroup>
     <ItemGroup>
-    <PackageReference Include="Microsoft.Advertising.XAML" Version="10.1805.7001" />
+    <PackageReference Include="Microsoft.Advertising.XAML" Version="10.1705.7001" />
     <PackageReference Include="Microsoft.Services.Store.SDK" Version="10.1705.16001" />
     <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications" Version="5.0.0" />
     <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls" Version="5.0.0" />
