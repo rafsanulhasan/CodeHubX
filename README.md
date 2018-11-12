@@ -22,7 +22,7 @@ CodeHubX is an x-plat GitHub client that helps you keep up with the open source 
         <td align='center'>Mobile</td>
         <td align='center'>Universal<sup>1</sup><br/><img src='https://dev.azure.com/sicstechgithub/CodeHubX/_apis/build/status/Windows.UWP'/></td>
         <td align='center'>iOS Universal<sup>2</sup><br/><img src='https://dev.azure.com/sicstechgithub/CodeHubX/_apis/build/status/Apple.iOS'/></td>
-        <td align='center'>Android<br/><img src='https://dev.azure.com/sicstechgithub/CodeHubX/_apis/build/status/Android'/></td></td>
+        <td align='center'>Android</br>Mobile &amp; Tablet<br/><img src='https://dev.azure.com/sicstechgithub/CodeHubX/_apis/build/status/Android'/></td></td>
     </tr>
     <tr>
         <td align='center'>Desktop</td>
