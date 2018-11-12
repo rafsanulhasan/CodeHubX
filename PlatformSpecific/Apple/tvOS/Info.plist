@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>UIDeviceFamily</key>
+	<array>
+		<integer>3</integer>
+	</array>
+	<key>MinimumOSVersion</key>
+	<string>10.2</string>
+	<key>CFBundleDisplayName</key>
+	<string>CodeHubX</string>
+	<key>CFBundleName</key>
+	<string>CodeHubX.Apple.TV</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.synergy.CodeHubX</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	<key>UIMainStoryboardFile</key>
+	<string>Main</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>arm64</string>
+	</array>
+	<key>XSAppIconAssets</key>
+	<string>Assets.xcassets/AppIcons.appiconset</string>
+	<key>XSLaunchImageAssets</key>
+	<string>Assets.xcassets/LaunchImages.launchimage</string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeName</key>
+			<string>Document Type 1</string>
+		</dict>
+	</array>
+    <key>CFBundleLocalizations</key>
+    <array>
+        <string>bn-BD</string>
+        <string>de</string>
+        <string>el</string>
+        <string>en-US</string>
+        <string>es</string>
+        <string>fr</string>
+        <string>hu-HU</string>
+        <string>it</string>
+        <string>pt</string>
+        <!-- Brazil -->
+        <string>zh-Hans</string>
+    </array>
+    <key>CFBundleDevelopmentRegion</key>
+    <string>en-US</string>
+</dict>
+</plist>
