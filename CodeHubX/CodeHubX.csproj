@@ -130,6 +130,7 @@
         <Compile Include="ViewModels\ItemDetailViewModel.cs" />
         <Compile Include="ViewModels\ItemsViewModel.cs" />
         <Compile Include="ViewModels\NotificationsViewmodel.cs" />
+        <Compile Include="ViewModels\TrendingViewmodel.cs" />
         <Compile Include="Views\AboutPage.xaml.cs" />
         <Compile Include="Views\FeedsPage.xaml.cs" />
         <Compile Include="Views\ItemDetailPage.xaml.cs" />
