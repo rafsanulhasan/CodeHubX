@@ -4,7 +4,7 @@
              x:Class="CodeHubX.Views.MainPage"
              xmlns:views="clr-namespace:CodeHubX.Views">
     <MasterDetailPage.Master>
-        <views:MenuPage />
+        <views:MenuPage IsVisible="{Binding IsConnected}" />
     </MasterDetailPage.Master>
 
     <MasterDetailPage.Detail>
@@ -15,7 +15,7 @@
                 </OnPlatform>
             </NavigationPage.Icon>
             <x:Arguments>
-                <views:ItemsPage />
+                <views:ItemsPage IsVisible="{Binding IsConnected}" />
             </x:Arguments>
         </NavigationPage>
     </MasterDetailPage.Detail>

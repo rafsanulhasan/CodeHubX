@@ -122,7 +122,7 @@ namespace CodeHubX.Helpers
 		/// Determines if internet connection is available to device
 		/// </summary>
 		/// <returns></returns>
-		public static bool IsConnected { get; } = CrossConnectivity.Current.IsConnected;
+		public static bool IsConnected { get; set;} = CrossConnectivity.Current.IsConnected;
 
 		/// <summary>
 		/// Converts a Hex string to corresponding SolidColorBrush

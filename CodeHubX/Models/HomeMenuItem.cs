@@ -5,6 +5,7 @@
 		Browse,
 		About,
 		Feeds,
+		NoNetwork
 	}
 	public class HomeMenuItem
 	{
