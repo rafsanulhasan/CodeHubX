@@ -12,6 +12,9 @@ namespace CodeHubX.Views
 	{
 		public static BindableProperty IsConnectedProperty = BindableProperty.Create(nameof(IsConnected), typeof(bool), typeof(MainPage), false);
 
+		private NavigationPage generatedNavPage;
+		private Page noNetworkPage = new NoNetworkPage();
+
 		private IDictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
 
 		public bool IsConnected
@@ -29,10 +32,24 @@ namespace CodeHubX.Views
 			MenuPages.Add(0, (NavigationPage) Detail);
 
 			CrossConnectivity.Current.ConnectivityChanged += Current_ConnectivityChanged;
+			generatedNavPage = navPage;
 		}
 
-		private void Current_ConnectivityChanged(object sender, Plugin.Connectivity.Abstractions.ConnectivityChangedEventArgs e) 
-			=> IsConnected = CrossConnectivity.IsSupported && e.IsConnected;
+		private void Current_ConnectivityChanged(object sender, Plugin.Connectivity.Abstractions.ConnectivityChangedEventArgs e)
+		{
+			IsConnected = CrossConnectivity.IsSupported && e.IsConnected;
+
+			if (IsConnected)
+			{
+				if (navPage.CurrentPage == noNetworkPage)
+					Navigation.PopAsync();
+			}
+			else
+			{
+				if (navPage.CurrentPage != noNetworkPage)
+					Navigation.PushAsync(noNetworkPage);
+			}
+		}
 
 		protected override void OnDisappearing()
 			=> CrossConnectivity.Current.Dispose();
