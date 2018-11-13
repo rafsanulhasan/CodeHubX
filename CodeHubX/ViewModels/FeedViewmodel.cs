@@ -40,7 +40,7 @@ namespace CodeHubX.ViewModels
 			=> _loadCommand
 			?? (_loadCommand = new RelayCommand(async () =>
 						    {
-							    if (GlobalHelper.IsInternet())
+							    if (GlobalHelper.IsConnected)
 							    {
 								    if (Events == null)
 								    {
@@ -52,7 +52,7 @@ namespace CodeHubX.ViewModels
 						    }));
 		public async void RefreshCommand(object sender, EventArgs e)
 		{
-			if (!GlobalHelper.IsInternet())
+			if (!GlobalHelper.IsConnected)
 				//Sending NoInternet message to all viewModels
 				//Messenger.Default.Send(new GlobalHelper.NoInternet().SendMessage());
 				MessagingCenter.Instance.Send(this, null, new GlobalHelper.NoInternet().SendMessage());

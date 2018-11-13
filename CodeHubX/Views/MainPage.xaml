@@ -15,7 +15,8 @@
                 </OnPlatform>
             </NavigationPage.Icon>
             <x:Arguments>
-                <views:ItemsPage />
+                <views:ItemsPage IsVisible="{Binding IsConnected, Mode=OneWay}" />
+                <views:NoNetworkPage IsVisible="{Binding !IsConnected, Mode=OneWay}" />
             </x:Arguments>
         </NavigationPage>
     </MasterDetailPage.Detail>

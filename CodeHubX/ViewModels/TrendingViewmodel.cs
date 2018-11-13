@@ -181,7 +181,7 @@ namespace CodeHubX.ViewModels
 			=> _loadCommand
 			?? (_loadCommand = new RelayCommand(async () =>
 										{
-											if (GlobalHelper.IsInternet())
+											if (GlobalHelper.IsConnected)
 												if (TrendingReposToday == null)
 													await LoadTrendingRepos(TimeRange.TODAY);
 
@@ -189,7 +189,7 @@ namespace CodeHubX.ViewModels
 
 		public async void RefreshTodayCommand(object sender, EventArgs e)
 		{
-			if (!GlobalHelper.IsInternet())
+			if (!GlobalHelper.IsConnected)
 				//Sending NoInternet message to all viewModels
 				Messenger.Default.Send(new GlobalHelper.NoInternet().SendMessage());
 			else
@@ -201,7 +201,7 @@ namespace CodeHubX.ViewModels
 		}
 		public async void RefreshWeekCommand(object sender, EventArgs e)
 		{
-			if (!GlobalHelper.IsInternet())
+			if (!GlobalHelper.IsConnected)
 				//Sending NoInternet message to all viewModels
 				Messenger.Default.Send(new GlobalHelper.NoInternet().SendMessage());
 			else
@@ -214,7 +214,7 @@ namespace CodeHubX.ViewModels
 		}
 		public async void RefreshMonthCommand(object sender, EventArgs e)
 		{
-			if (!GlobalHelper.IsInternet())
+			if (!GlobalHelper.IsConnected)
 				//Sending NoInternet message to all viewModels
 				Messenger.Default.Send(new GlobalHelper.NoInternet().SendMessage());
 			else

@@ -1,4 +1,5 @@
 ﻿using CodeHubX.Models;
+using Plugin.Connectivity;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -9,7 +10,15 @@ namespace CodeHubX.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class MainPage : MasterDetailPage
 	{
+		public static BindableProperty IsConnectedProperty = BindableProperty.Create(nameof(IsConnected), typeof(bool), typeof(MainPage), false);
+
 		private IDictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
+
+		public bool IsConnected
+		{
+			get => (bool) GetValue(IsConnectedProperty);
+			private set => SetValue(IsConnectedProperty, value);
+		}
 
 		public MainPage()
 		{
@@ -18,7 +27,15 @@ namespace CodeHubX.Views
 			MasterBehavior = MasterBehavior.Popover;
 
 			MenuPages.Add(0, (NavigationPage) Detail);
+
+			CrossConnectivity.Current.ConnectivityChanged += Current_ConnectivityChanged;
 		}
+
+		private void Current_ConnectivityChanged(object sender, Plugin.Connectivity.Abstractions.ConnectivityChangedEventArgs e) 
+			=> IsConnected = CrossConnectivity.IsSupported && e.IsConnected;
+
+		protected override void OnDisappearing()
+			=> CrossConnectivity.Current.Dispose();
 
 		public async Task NavigateFromMenu(int id)
 		{
