@@ -1,7 +1,10 @@
-﻿using Octokit;
+﻿using CodeHubX.Services;
+using CodeHubX.Strings;
+using Octokit;
+using Plugin.Connectivity;
 using System;
 using System.Collections.Generic;
-using CodeHubX.Strings;
+using Xamarin.Forms;
 
 namespace CodeHubX.Helpers
 {
@@ -34,8 +37,8 @@ namespace CodeHubX.Helpers
 		public partial class NoInternet
 			: MessageTypeBase
 		{
-			public LocalNotificationMessageType SendMessage() 
-				=>new LocalNotificationMessageType()
+			public LocalNotificationMessageType SendMessage()
+				=> new LocalNotificationMessageType()
 				{
 					Message = LangResource.notification_NoInternetConnection,
 					Glyph = "\uE704",
@@ -121,7 +124,7 @@ namespace CodeHubX.Helpers
 		/// Determines if internet connection is available to device
 		/// </summary>
 		/// <returns></returns>
-		public static Func<bool> IsInternet { get; set; }
+		public static bool IsConnected { get; set;} = DependencyService.Get<INetworkService>().IsConnected;
 
 		/// <summary>
 		/// Converts a Hex string to corresponding SolidColorBrush
@@ -147,7 +150,7 @@ namespace CodeHubX.Helpers
 		{
 			var ts = new TimeSpan(DateTime.Now.Ticks - dt.Ticks);
 			var delta = Math.Abs(ts.TotalSeconds);
-			
+
 			if (delta < 60)
 			{
 				if (ts.Seconds == 1)

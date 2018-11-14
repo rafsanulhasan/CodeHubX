@@ -67,7 +67,7 @@ namespace CodeHubX.ViewModels
 
 		public async Task Load()
 		{
-			if (!IsInternet())
+			if (!IsConnected)
 			{
 				//Sending NoInternet message to all viewModels
 				//Messenger.Default.Send(new NoInternet().SendMessage());
@@ -89,7 +89,7 @@ namespace CodeHubX.ViewModels
 
 		public async void RefreshAll()
 		{
-			if (!IsInternet())
+			if (!IsConnected)
 			{
 				//Sending NoInternet message to all viewModels
 				//Messenger.Default.Send(new NoInternet().SendMessage());
@@ -104,7 +104,7 @@ namespace CodeHubX.ViewModels
 		}
 		public async void RefreshUnread()
 		{
-			if (!IsInternet())
+			if (!IsConnected)
 			{
 				//Sending NoInternet message to all viewModels
 				//Messenger.Default.Send(new NoInternet().SendMessage());
@@ -120,7 +120,7 @@ namespace CodeHubX.ViewModels
 		public async void RefreshParticipating()
 		{
 
-			if (!IsInternet())
+			if (!IsConnected)
 			{
 				//Sending NoInternet message to all viewModels
 				//Messenger.Default.Send(new NoInternet().SendMessage());
@@ -136,7 +136,7 @@ namespace CodeHubX.ViewModels
 
 		public async void MarkAllNotificationsAsRead()
 		{
-			if (!IsInternet())
+			if (!IsConnected)
 			{
 				//Sending NoInternet message to all viewModels
 				//Messenger.Default.Send(new NoInternet().SendMessage());

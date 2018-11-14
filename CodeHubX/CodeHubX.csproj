@@ -78,6 +78,9 @@
         <Compile Include="Converters\RepositoryCreationTimeConverter.cs" />
         <Compile Include="Converters\TimeAgoConverter.cs" />
         <Compile Include="Helpers\CollectionHelper.cs" />
+        <Compile Include="Services\CustomDependencyService.cs" />
+        <Compile Include="Helpers\DictionaryHelper.cs" />
+        <Compile Include="Helpers\EnumerableHelper.cs" />
         <Compile Include="Helpers\Extensions.cs" />
         <Compile Include="Helpers\GlobalHelper.cs" />
         <Compile Include="Helpers\OctokitNotificationHelper.cs" />
@@ -90,7 +93,7 @@
         <Compile Include="Models\BackgroundTaskArgument.cs" />
         <Compile Include="Models\BackgroundTaskBuilderModel.cs" />
         <Compile Include="Models\BackgroundTaskType.cs" />
-        <Compile Include="Models\HomeMenuItem.cs" />
+        <Compile Include="Models\MenuItem.cs" />
         <Compile Include="Models\Item.cs" />
         <Compile Include="Models\LocalizedResourceModel.cs" />
         <Compile Include="Models\RepositoryContentWithCommitInfo.cs" />
@@ -109,6 +112,9 @@
         <Compile Include="Services\IBacktoundTaskService.cs" />
         <Compile Include="Services\IDataStore.cs" />
         <Compile Include="Services\ILocalizer.cs" />
+        <Compile Include="Services\MenuService.cs" />
+        <Compile Include="Services\NavigationService.cs" />
+        <Compile Include="Services\INetworkService.cs" />
         <Compile Include="Services\IssueUtility.cs" />
         <Compile Include="Services\L10n.cs" />
         <Compile Include="Services\MockDataStore.cs" />
@@ -140,6 +146,7 @@
         <Compile Include="Views\MainPage.xaml.cs" />
         <Compile Include="Views\MenuPage.xaml.cs" />
         <Compile Include="Views\NewItemPage.xaml.cs" />
+        <Compile Include="Views\NoNetworkPage.xaml.cs" />
     </ItemGroup>
 
     <ItemGroup>
@@ -158,6 +165,7 @@
         <PackageReference Include="SkiaSharp.Svg" Version="1.60.0" />
         <PackageReference Include="SkiaSharp.Views.Forms" Version="1.60.3" />
         <PackageReference Include="System.Numerics.Vectors" Version="4.5.0" />
+        <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
         <PackageReference Include="Xam.Plugins.Forms.MarkdownView" Version="1.0.1-beta" />
         <PackageReference Include="Xamarin.Forms" Version="3.3.0.967583" />
         <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
@@ -257,6 +265,9 @@
         </EmbeddedResource>
         <EmbeddedResource Update="Views\MainPage.xaml">
             <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Views\NoNetworkPage.xaml">
+          <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
         </EmbeddedResource>
     </ItemGroup>
 </Project>

@@ -15,9 +15,7 @@ namespace CodeHubX.Services
 	/// </summary>
 	public static class NavigationService
 	{
-		private static readonly IDictionary<int, (NavigationPage Page, string Title, bool? WillAnimate)> NavigationStack
-			= new Dictionary<int, (NavigationPage Page, string Title, bool? WillAnimate)>();
-
+		#region Fields & Properties
 		private static MainPage _RootPage
 			= Application.Current.MainPage as MainPage;
 
@@ -27,116 +25,85 @@ namespace CodeHubX.Services
 		private static readonly SemaphoreSlim NavigationSemaphore
 			= new SemaphoreSlim(1);
 
-		public static NavigationPage CurrentSourcePage
-		{
-			get => _RootPage.Detail as NavigationPage;
-			private set => Task.WhenAll(NavigateFromMenu(MenuService.Get(value).Id));
-		}
+		public static Page CurrentSourcePage
+			=> _RootPage.Detail;
 
 		public static int CurrentSourcePageId
-		{
-			get => MenuService.Get(CurrentSourcePage).Id;
-			private set => Task.WhenAll(NavigateFromMenu(value));
-		}
+			=> MenuService.Get(CurrentSourcePage);
+		#endregion
 
-		private static async Task NavigateFromMenu(int id, bool animated = false)
+		private static async Task<Page> NavigateFromMenu(NavigationPage page, bool animated = true)
 		{
-			var newPageItem = MenuService.Get(id);
-			var newPage = newPageItem.Page;
 
-			if (newPage != null && CurrentSourcePage != newPage)
+			if (!animated)
+				await NavigationSemaphore.WaitAsync();
+
+			if (page != null && _RootPage.Detail != page)
 			{
-				await CurrentSourcePage.Navigation.PushAsync(newPage, animated);
+				_RootPage.Detail = page;
 
 				if (Device.RuntimePlatform == Device.Android)
 					await Task.Delay(100);
 
 				_RootPage.IsPresented = false;
 			}
+
+			if (!animated)
+				NavigationSemaphore.Release();
+
+			return page;
 		}
 
-		private static void SetupPage(CustomContentPage page, ObservableObject viewModel = null, string title = null)
+		private static void SetupPage(NavigationPage page, string title = null, ViewModelBase viewModel = null)
 		{
 			if (viewModel != null)
-				page.ViewModel = viewModel;
+				page.BindingContext = viewModel;
 
 			page.Title = StringHelper.IsNullOrEmptyOrWhiteSpace(title)
-				      ? ChoosePageTitleByPage(page)
+					 ? ChoosePageTitleByPage(page)
 					 : page.Resources[title] as string;
 		}
 
-		private static void SetupPage<TViewModel>(CustomContentPage<TViewModel> page, TViewModel viewModel = null, string title = null)
-			where TViewModel : ObservableObject, new()
+		public static Task<Page> NavigateAsync(int pageId, string title = null, ViewModelBase viewModel = null, bool animated = true)
+			=> NavigateAsync(MenuService.Get(pageId), title, viewModel, animated);
+
+		public static Task<Page> NavigateAsync(NavigationPage page, string title = null, ViewModelBase viewModel = null, bool animated = true)
 		{
-			if (viewModel != null)
-				page.ViewModel = viewModel;
+			SetupPage(page, title, viewModel);
 
-			page.Title = StringHelper.IsNullOrEmptyOrWhiteSpace(title)
-				      ? ChoosePageTitleByPage(page)
-					 : page.Resources[title] as string;
-		}
-
-		public static Task NavigateAsync(CustomContentPage page, ObservableObject viewModel = null, string title = null)
-		{
-			SetupPage(page, viewModel, title);
-
-			return NavigateFromMenu(MenuService.Get(page).Id, true);
-		}
-
-		public static Task NavigateAsync<TViewModel>(CustomContentPage<TViewModel> page, TViewModel viewModel = null, string title = null)
-			where TViewModel : ObservableObject, new()
-		{
-			SetupPage(page, viewModel, title);
-
-			return NavigateFromMenu(MenuService.Get(page).Id, true);
-		}
-
-		public static async void NavigateWithoutAnimationsAsync(CustomContentPage page, ObservableObject viewModel = null, string title = null)
-		{
-			await NavigationSemaphore.WaitAsync();
-
-			SetupPage(page, viewModel, title);
-			await NavigateFromMenu(MenuService.Get(page).Id, true);
-
-			NavigationSemaphore.Release();
-		}
-
-		// Navigation with parameters without animations
-		public static async void NavigateWithoutAnimationsAsync<TViewModel>(CustomContentPage<TViewModel> page, ObservableObject viewModel = null, string title = null)
-			where TViewModel : ObservableObject, new()
-		{
-			await NavigationSemaphore.WaitAsync();
-
-			SetupPage(page, viewModel, title);
-			await NavigateFromMenu(MenuService.Get(page).Id);
-
-			NavigationSemaphore.Release();
+			return NavigateFromMenu(page, animated);
 		}
 
 		// Checks if the app can navigate back
-		public static bool CanGoBackAsync()
-			=> CurrentSourcePage.Navigation.NavigationStack.Count > 0 || _RootPage.Navigation.NavigationStack.Count > 0;
+		public static bool CanGoBack()
+			=> _RootPage.Navigation.NavigationStack.Count > 0;
 
 		// Tries to navigate back
 		public static async Task<bool> GoBackAsync()
 		{
 			await NavigationSemaphore.WaitAsync();
 
-			var stackCount = CurrentSourcePage?.Navigation.NavigationStack.Count ?? _RootPage.Navigation.NavigationStack.Count;
+			NavigationPage currentPage;
 
 			bool result;
-			if (stackCount > 0)
+			try
 			{
-				var currentPage = await CurrentSourcePage?.Navigation.PopAsync();
+				currentPage = (NavigationPage)await _RootPage.Navigation.PopAsync();
+				currentPage = (NavigationPage)await NavigateAsync(currentPage);
 				MessagingCenter.Instance.Send(currentPage, null, new GlobalHelper.SetHeaderTextMessageType { PageName = currentPage.Title });
 				result = true;
 			}
-			else
+			catch
+			{
 				result = false;
+			}
 
 			NavigationSemaphore.Release();
 			return result;
 		}
+
+		public static async Task<bool> GotoHomePage()
+			=> (await NavigateAsync(new NavigationPage( new FeedsPage()))) != null;
 
 		/// <summary>
 		/// Search for the Page Title with the given Menu type
@@ -173,7 +140,7 @@ namespace CodeHubX.Services
 				title = SearchView.Title = LangResource.pageTitle_SearchView;
 			else if (page is ContentPage SettingsView)
 				title = SettingsView.Title = LangResource.pageTitle_SettingsView;
-			else if (page is TrendingPage trendingPage)
+			else if (page is ContentPage trendingPage)
 				title = trendingPage.Title = LangResource.pageTitle_TrendingView;
 			else if (page is ContentPage GeneralSettingsView)
 				title = GeneralSettingsView.Title = "General";
