@@ -1,8 +1,10 @@
-﻿using CodeHubX.Strings;
+﻿using CodeHubX.Services;
+using CodeHubX.Strings;
 using Octokit;
 using Plugin.Connectivity;
 using System;
 using System.Collections.Generic;
+using Xamarin.Forms;
 
 namespace CodeHubX.Helpers
 {
@@ -122,7 +124,7 @@ namespace CodeHubX.Helpers
 		/// Determines if internet connection is available to device
 		/// </summary>
 		/// <returns></returns>
-		public static bool IsConnected { get; set;} = CrossConnectivity.Current.IsConnected;
+		public static bool IsConnected { get; set;} = DependencyService.Get<INetworkService>().IsConnected;
 
 		/// <summary>
 		/// Converts a Hex string to corresponding SolidColorBrush
