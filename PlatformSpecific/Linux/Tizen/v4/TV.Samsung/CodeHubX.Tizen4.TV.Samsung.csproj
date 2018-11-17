@@ -26,6 +26,8 @@
 
   <!-- Include Nuget Package for Tizen Project building -->
   <ItemGroup>
+    <PackageReference Include="Prism.Forms" Version="7.1.0.431" />
+    <PackageReference Include="Prism.Plugin.Popups" Version="2.1.0.228" />
     <PackageReference Include="Tizen.NET" Version="4.0.0">
       <ExcludeAssets>Runtime</ExcludeAssets>
     </PackageReference>
@@ -33,6 +35,7 @@
     <PackageReference Include="Tizen.NET.TV" Version="4.4.0.1341">
       <ExcludeAssets>Runtime</ExcludeAssets>
     </PackageReference>
+    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
     <PackageReference Include="Xamarin.Forms.Platform.Tizen" Version="2.5.1.444934" />
   </ItemGroup>
   <ItemGroup>
