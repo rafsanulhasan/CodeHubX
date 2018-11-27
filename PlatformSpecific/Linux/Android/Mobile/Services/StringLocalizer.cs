@@ -1,13 +1,10 @@
 ﻿using CodeHubX.Helpers;
-using CodeHubX.Services;
 using System.Globalization;
-using Xamarin.Forms;
 using Thread = System.Threading.Thread;
 
-[assembly: Dependency(typeof(Localizer))]
 namespace CodeHubX.Services
 {
-	public class Localizer : ILocalizer
+	public class StringLocalizer : ILocalizer
 	{
 		public void SetLocale(CultureInfo ci)
 		{
