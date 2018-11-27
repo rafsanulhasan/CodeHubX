@@ -1,4 +1,6 @@
 ﻿using CodeHubX.Services;
+using Prism;
+using Prism.Ioc;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.WPF;
 
@@ -14,8 +16,16 @@ namespace CodeHubX.WPF
 		{
 			InitializeComponent();
 			Forms.Init();
-			LoadApplication(new CodeHubX.App());
-			Title = L10n.Localize("appName");
+			LoadApplication(new CodeHubX.App(new WpfInitializer()));
+			//Title = Localization.Localize("appName");
+			Title = "CodeHubX";
 		}
+	}
+
+	public class WpfInitializer : IPlatformInitializer
+	{
+		public void RegisterTypes(IContainerRegistry containerRegistry) =>
+			// Register any platform specific implementations
+			containerRegistry.Register<ILocalizer, StringLocalizer>();
 	}
 }

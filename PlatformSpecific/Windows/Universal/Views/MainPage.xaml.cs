@@ -1,4 +1,6 @@
-﻿using Xamarin.Forms.Platform.UWP;
+﻿using CodeHubX.Services;
+using Prism;
+using Prism.Ioc;
 
 namespace CodeHubX.UWP.Views
 {
@@ -8,7 +10,16 @@ namespace CodeHubX.UWP.Views
 		{
 			InitializeComponent();
 
-			LoadApplication(new CodeHubX.App());
+			LoadApplication(new CodeHubX.App(new UwpInitializer()));
+		}
+
+		public class UwpInitializer : IPlatformInitializer
+		{
+			public void RegisterTypes(IContainerRegistry containerRegistry)
+			{ 
+				// Register any platform specific implementations
+				containerRegistry.Register<ILocalizer, StringLocalizer>();
+			}
 		}
 	}
 }

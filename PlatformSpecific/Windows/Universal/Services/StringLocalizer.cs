@@ -1,12 +1,8 @@
-﻿using CodeHubX.Services;
-using CodeHubX.UWP.Services;
-using System.Globalization;
-using Xamarin.Forms;
+﻿using System.Globalization;
 
-[assembly: Dependency(typeof(Localizer))]
-namespace CodeHubX.UWP.Services
+namespace CodeHubX.Services
 {
-	public class Localizer : ILocalizer
+	public class StringLocalizer : ILocalizer
 	{
 		public CultureInfo GetCurrentCultureInfo()
 			=> new CultureInfo(
