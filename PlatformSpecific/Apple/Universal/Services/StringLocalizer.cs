@@ -1,14 +1,12 @@
 ﻿using CodeHubX.Helpers;
-using CodeHubX.Services;
 using Foundation;
 using System.Globalization;
-using Xamarin.Forms;
 using Thread = System.Threading.Thread;
 
-[assembly: Dependency(typeof(CodeHubX.iOS.Services.Localizer))]
-namespace CodeHubX.iOS.Services
+namespace CodeHubX.Services
 {
-	public class Localizer : ILocalizer
+	public class StringLocalizer 
+		: ILocalizer
 	{
 		public void SetLocale(CultureInfo ci)
 		{

@@ -1,5 +1,8 @@
 ﻿
+using CodeHubX.Services;
 using Foundation;
+using Prism;
+using Prism.Ioc;
 using UIKit;
 
 namespace CodeHubX.Apple.Mobile
@@ -20,9 +23,19 @@ namespace CodeHubX.Apple.Mobile
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
 			Xamarin.Forms.Forms.Init();
-			LoadApplication(new App());
+			LoadApplication(new App(new UniversaliOSInitializer()));
 
 			return base.FinishedLaunching(app, options);
+		}
+	}
+
+	public class UniversaliOSInitializer
+		: IPlatformInitializer
+	{
+		public void RegisterTypes(IContainerRegistry containerRegistry)
+		{
+			// Register any platform specific implementations
+			containerRegistry.Register<ILocalizer, StringLocalizer>();
 		}
 	}
 }
