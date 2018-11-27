@@ -1,86 +1,52 @@
 ﻿using CodeHubX.Helpers;
 using CodeHubX.Models;
-using CodeHubX.Views;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using Xamarin.Forms;
 
 namespace CodeHubX.Services
 {
-	public static class MenuService
+	public class MenuService
+		: IMenuService
 	{
-		private static readonly IDictionary<int, NavigationPage> _MenuPages = _MenuPages ??
-			new Dictionary<int, NavigationPage>();
+		private readonly ICollection<NavMenuItem> _Menus;
 
-		public static IReadOnlyDictionary<int, NavigationPage> MenuPages
-			=> _MenuPages.ToReadOnlyDictionary();
+		private const string AboutTitle = "About";
+		private const string AboutKey = "About";
+		private const string HomeTitle = "Home";
+		private const string HomeKey = "Home?selectedTab=Feeds";
 
-		public static void Add(KeyValuePair<int, NavigationPage> pageItem)
+		public IReadOnlyList<NavMenuItem> Menus
+			=> _Menus.ToReadOnlyList();
+
+		public NavMenuItem SelectedMenu { get; private set; }
+
+		public MenuService()
 		{
-			if (!_MenuPages.ContainsKey(pageItem.Key))
-				_MenuPages.Add(pageItem);
+			_Menus = _Menus
+				 ?? new List<NavMenuItem>()
+				    {
+						new NavMenuItem{ MenuTitle = HomeTitle, PageKey = HomeKey },
+						new NavMenuItem{ MenuTitle = AboutTitle, PageKey = AboutKey },
+				    };
+			SelectedMenu = SelectedMenu ?? _Menus.First();
 		}
 
-		public static void Add(Tuple<int, NavigationPage> pageItem)
-			=> Add(new KeyValuePair<int, NavigationPage>(pageItem.Item1, pageItem.Item2));
-
-		public static void Add((int Id, NavigationPage Page) pageItem)
-			=> Add(new KeyValuePair<int, NavigationPage>(pageItem.Id, pageItem.Page));
-
-		public static void Add(int id, NavigationPage page)
-			=> Add((id, page));
-
-		public static void Clear()
-			=> _MenuPages.Clear();
-
-		public static bool ContainsKey(int id)
-			=> _MenuPages.ContainsKey(id);
-
-		public static bool ContainsPage(NavigationPage page)
-			=> _MenuPages?.Values?.Single(t => t == page) != null;
-
-		public static bool ContainsValue(NavigationPage page)
-			=> _MenuPages?.Values?.Contains(page) ?? false;
-
-		public static NavigationPage Get(int id)
+		public void Add(NavMenuItem pageItem)
 		{
-			switch (id)
-			{
-				case (int) MenuItemType.About:
-					return new NavigationPage(new AboutPage());
-				case (int) MenuItemType.Feeds:
-					return new NavigationPage(new FeedsPage());
-				default:
-					return new NavigationPage(new ItemsPage());
-			}
+			if (!_Menus.Contains(pageItem))
+				_Menus.Add(pageItem);
 		}
 
-		public static int Get<TPage>(TPage page)
-			where TPage : Page
-		{
-			if (typeof(TPage) == typeof(AboutPage))
-				return (int) MenuItemType.About;
-			if (typeof(TPage) == typeof(FeedsPage))
-				return (int) MenuItemType.About;
-			return (int) MenuItemType.Browse;
-		}
+		public void Clear()
+			=> _Menus.Clear();
 
-		public static void Remove(KeyValuePair<int, NavigationPage> pageItem)
-			=> _MenuPages.Remove(pageItem);
+		public bool Contains(NavMenuItem menuItem)
+			=> _Menus.Contains(menuItem);
 
-		public static void Remove(Tuple<int, NavigationPage> pageItem)
-			=> _MenuPages.Remove(new KeyValuePair<int, NavigationPage>(pageItem.Item1, pageItem.Item2));
+		public void Remove(NavMenuItem pageItem)
+			=> _Menus.Remove(pageItem);
 
-		public static void Remove((int id, NavigationPage page) pageItem)
-			=> _MenuPages.Remove(new KeyValuePair<int, NavigationPage>(pageItem.id, pageItem.page));
-
-		public static void Remove(int key, NavigationPage page = null)
-		{
-			if (page is null)
-				_MenuPages.Remove(key);
-			else
-				Remove((key, page));
-		}
+		public void SetSelectedMenu(NavMenuItem toBeSelected)
+			=> SelectedMenu = toBeSelected;
 	}
 }

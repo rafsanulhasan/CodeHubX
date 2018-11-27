@@ -1,19 +1,24 @@
-﻿using System;
-using System.Windows.Input;
+﻿
+using Prism.Commands;
+using Prism.Navigation;
+using Prism.Services;
+using System;
 
 using Xamarin.Forms;
 
 namespace CodeHubX.ViewModels
 {
-	public class AboutViewModel : BaseViewModel
+	public class AboutViewModel : ViewModelBase
 	{
-		public AboutViewModel()
+		public DelegateCommand OpenWebCommand { get; set; }
+
+		public AboutViewModel(INavigationService navigationService, IPageDialogService pageDialogService)
+			: base(navigationService, pageDialogService)
 		{
 			Title = "About";
 
-			OpenWebCommand = new Command(() => Device.OpenUri(new Uri("https://xamarin.com/platform")));
+			OpenWebCommand = new DelegateCommand(()
+				=> Device.OpenUri(new Uri("https://xamarin.com/platform")));
 		}
-
-		public ICommand OpenWebCommand { get; }
 	}
 }

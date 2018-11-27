@@ -1,7 +1,7 @@
 ﻿using CodeHubX.Helpers;
 using CodeHubX.Services;
-using GalaSoft.MvvmLight.Command;
 using Octokit;
+using Prism.Commands;
 using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
@@ -9,13 +9,13 @@ using Xamarin.Forms;
 
 namespace CodeHubX.ViewModels
 {
-	public class FeedViewmodel : AppViewmodel
+	public class FeedsViewModel : ViewModelBase
 	{
 		private ObservableCollection<Activity> _events;
 		public ObservableCollection<Activity> Events
 		{
 			get => _events;
-			set => Set(() => Events, ref _events, value);
+			set => SetProperty(ref _events, value);
 		}
 
 		public int PaginationIndex { get; set; }
@@ -25,67 +25,66 @@ namespace CodeHubX.ViewModels
 		public bool ZeroEventCount
 		{
 			get => _zeroEventCount;
-			set => Set(() => ZeroEventCount, ref _zeroEventCount, value);
+			set => SetProperty(ref _zeroEventCount, value);
 		}
 
 		private bool _isIncrementalLoading;
 		public bool IsIncrementalLoading
 		{
 			get => _isIncrementalLoading;
-			set => Set(() => IsIncrementalLoading, ref _isIncrementalLoading, value);
+			set => SetProperty(ref _isIncrementalLoading, value);
 		}
 
-		private RelayCommand _loadCommand;
-		public RelayCommand LoadCommand
-			=> _loadCommand
-			?? (_loadCommand = new RelayCommand(async () =>
-						    {
-							    if (GlobalHelper.IsConnected)
-							    {
-								    if (Events == null)
-								    {
-									    IsLoading = true;
-									    await LoadEvents();
-									    IsLoading = false;
-								    }
-							    }
-						    }));
+		public DelegateCommand LoadCommand { get; set; }
+		public async void Load()
+		{
+			if (GlobalHelper.IsConnected)
+			{
+				if (Events == null)
+				{
+					//IsLoading = true;
+					await LoadEvents();
+					//IsLoading = false;
+				}
+			}
+
+
+		}
 		public async void RefreshCommand(object sender, EventArgs e)
 		{
-			if (!GlobalHelper.IsConnected)
-				//Sending NoInternet message to all viewModels
-				//Messenger.Default.Send(new GlobalHelper.NoInternet().SendMessage());
-				MessagingCenter.Instance.Send(this, null, new GlobalHelper.NoInternet().SendMessage());
-			else
-			{
-				MessagingCenter.Instance.Send(this, null, new GlobalHelper.HasInternetMessageType()); //Sending Internet available message to all viewModels
-				IsLoading = true;
+			//if (!GlobalHelper.IsConnected)
+			//	//Sending NoInternet message to all viewModels
+			//	//Messenger.Default.Send(new GlobalHelper.NoInternet().SendMessage());
+			//	MessagingCenter.Instance.Send(this, null, new GlobalHelper.NoInternet().SendMessage());
+			//else
+			//{
+			//	MessagingCenter.Instance.Send(this, null, new GlobalHelper.HasInternetMessageType()); //Sending Internet available message to all viewModels
+			//IsLoading = true;
 
-				PaginationIndex = 0;
-				await LoadEvents();
-				MaxScrollViewerOffset = 0;
+			PaginationIndex = 0;
+			await LoadEvents();
+			MaxScrollViewerOffset = 0;
 
-				IsLoading = false;
-			}
+			//IsLoading = false;
+			//}
 		}
 
-		public void RecieveSignOutMessage(GlobalHelper.SignOutMessageType empty)
-		{
-			IsLoggedin = false;
-			User = null;
+		public void RecieveSignOutMessage(GlobalHelper.SignOutMessageType empty) =>
+			//IsLoggedin = false;
+			//User = null;
 			Events = null;
-		}
+
 		public async void RecieveSignInMessage(User user)
 		{
-			IsLoading = true;
+			//IsLoading = true;
 			if (user != null)
 			{
-				IsLoggedin = true;
-				User = user;
+				//IsLoggedin = true;
+				//User = user;
 				PaginationIndex = 0;
 				await LoadEvents();
 			}
-			IsLoading = false;
+			//IsLoading = false;
 		}
 
 		public async Task LoadEvents()
@@ -168,6 +167,13 @@ namespace CodeHubX.ViewModels
 					//.NavigateAsync(typeof(RepoDetailView), activity.Repo);
 					break;
 			}
+		}
+
+		public FeedsViewModel(Prism.Navigation.INavigationService navigationService)
+			: base(navigationService)
+		{
+			LoadCommand = new DelegateCommand(Load);
+			Title = "Feeds";
 		}
 	}
 }

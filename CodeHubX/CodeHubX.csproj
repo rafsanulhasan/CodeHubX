@@ -36,13 +36,17 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Compile Include="App.xaml.cs" />
+        <Compile Include="App.xaml.cs">
+            <DependentUpon>App.xaml</DependentUpon>
+        </Compile>
         <Compile Include="Controls\ActivityListItem.xaml.cs" />
         <Compile Include="Controls\BusyScreen.xaml.cs" />
         <Compile Include="Controls\CodeListItem.xaml.cs" />
         <Compile Include="Controls\CommentListItem.xaml.cs" />
         <Compile Include="Controls\CommitFileListItem.xaml.cs" />
         <Compile Include="Controls\CommitListItem.xaml.cs" />
+        <Compile Include="Controls\CustomTabbedPage.cs" />
+        <Compile Include="Controls\CustomContentPage.cs" />
         <Compile Include="Controls\CustomFrame.cs" />
         <Compile Include="Controls\FirstTrendingRepoControl.xaml.cs" />
         <Compile Include="Controls\HamMenuListItem.xaml.cs" />
@@ -78,7 +82,6 @@
         <Compile Include="Converters\RepositoryCreationTimeConverter.cs" />
         <Compile Include="Converters\TimeAgoConverter.cs" />
         <Compile Include="Helpers\CollectionHelper.cs" />
-        <Compile Include="Services\CustomDependencyService.cs" />
         <Compile Include="Helpers\DictionaryHelper.cs" />
         <Compile Include="Helpers\EnumerableHelper.cs" />
         <Compile Include="Helpers\Extensions.cs" />
@@ -93,7 +96,7 @@
         <Compile Include="Models\BackgroundTaskArgument.cs" />
         <Compile Include="Models\BackgroundTaskBuilderModel.cs" />
         <Compile Include="Models\BackgroundTaskType.cs" />
-        <Compile Include="Models\MenuItem.cs" />
+        <Compile Include="Models\NavMenuItem.cs" />
         <Compile Include="Models\Item.cs" />
         <Compile Include="Models\LocalizedResourceModel.cs" />
         <Compile Include="Models\RepositoryContentWithCommitInfo.cs" />
@@ -108,15 +111,15 @@
         <Compile Include="Services\GistUtility.cs" />
         <Compile Include="Services\Hilite-me\SyntaxHighlightStyle.cs" />
         <Compile Include="Services\HtmlParseService.cs" />
-        <Compile Include="Services\IAsyncNavigationService.cs" />
         <Compile Include="Services\IBacktoundTaskService.cs" />
         <Compile Include="Services\IDataStore.cs" />
+        <Compile Include="Services\ILocalization.cs" />
         <Compile Include="Services\ILocalizer.cs" />
+        <Compile Include="Services\IMenuService.cs" />
         <Compile Include="Services\MenuService.cs" />
-        <Compile Include="Services\NavigationService.cs" />
         <Compile Include="Services\INetworkService.cs" />
         <Compile Include="Services\IssueUtility.cs" />
-        <Compile Include="Services\L10n.cs" />
+        <Compile Include="Services\Localization.cs" />
         <Compile Include="Services\MockDataStore.cs" />
         <Compile Include="Services\NotificationsService.cs" />
         <Compile Include="Services\OrganizationsUtility.cs" />
@@ -132,36 +135,44 @@
           <DependentUpon>LangResource.resx</DependentUpon>
         </Compile>
         <Compile Include="ViewModels\AboutViewModel.cs" />
-        <Compile Include="ViewModels\AppViewmodel.cs" />
-        <Compile Include="ViewModels\BaseViewModel.cs" />
-        <Compile Include="ViewModels\FeedViewmodel.cs" />
-        <Compile Include="ViewModels\ItemDetailViewModel.cs" />
-        <Compile Include="ViewModels\ItemsViewModel.cs" />
-        <Compile Include="ViewModels\NotificationsViewmodel.cs" />
-        <Compile Include="ViewModels\TrendingViewmodel.cs" />
-        <Compile Include="Views\AboutPage.xaml.cs" />
-        <Compile Include="Views\FeedsPage.xaml.cs" />
-        <Compile Include="Views\ItemDetailPage.xaml.cs" />
-        <Compile Include="Views\ItemsPage.xaml.cs" />
-        <Compile Include="Views\MainPage.xaml.cs" />
-        <Compile Include="Views\MenuPage.xaml.cs" />
-        <Compile Include="Views\NewItemPage.xaml.cs" />
-        <Compile Include="Views\NoNetworkPage.xaml.cs" />
+        <Compile Include="ViewModels\FeedsViewModel.cs" />
+        <Compile Include="ViewModels\HomeViewModel.cs" />
+        <Compile Include="ViewModels\MainLayoutViewModel.cs" />
+        <Compile Include="ViewModels\NavigationViewModel.cs" />
+        <Compile Include="ViewModels\NotificationsViewModel.cs" />
+        <Compile Include="ViewModels\ViewModelBase.cs" />
+        <Compile Include="ViewModels\TrendingViewModel.cs" />
+        <Compile Include="Views\About.xaml.cs">
+            <DependentUpon>About.xaml</DependentUpon>
+        </Compile>        
+        <Compile Include="Views\Feeds.xaml.cs">
+          <DependentUpon>Feeds.xaml</DependentUpon>
+        </Compile>        
+        <Compile Include="Views\Home.xaml.cs" />
+        <Compile Include="Views\MainLayout.xaml.cs">
+          <DependentUpon>MainLayout.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Views\Navigation.xaml.cs" />
+        <Compile Include="Views\NoNetwork.xaml.cs">
+          <DependentUpon>NoNetwork.xaml</DependentUpon>
+        </Compile>
     </ItemGroup>
 
     <ItemGroup>
         <PackageReference Include="CaveBirdLabs.Xamarin.Essentials" Version="1.0.2" />
         <PackageReference Include="CommonMark.NET" Version="0.15.1" />
-        <PackageReference Include="ExpandableView" Version="1.0.1" />
+        <PackageReference Include="ExpandableView" Version="1.0.2" />
         <PackageReference Include="HtmlAgilityPack" Version="1.8.10" />
         <PackageReference Include="JetBrains.Annotations" Version="2018.2.1" />
-        <PackageReference Include="Microsoft.AppCenter.Analytics" Version="1.10.0" />
-        <PackageReference Include="Microsoft.AppCenter.Crashes" Version="1.10.0" />
-        <PackageReference Include="Microsoft.AppCenter.Push" Version="1.10.0" />
+        <PackageReference Include="Microsoft.AppCenter.Analytics" Version="1.7.0" />
+        <PackageReference Include="Microsoft.AppCenter.Crashes" Version="1.7.0" />
+        <PackageReference Include="Microsoft.AppCenter.Push" Version="1.7.0" />
         <PackageReference Include="MvvmLightStd10" Version="5.4.1.2" />
         <PackageReference Include="Octokit" Version="0.32.0" />
+        <PackageReference Include="Prism.Core" Version="7.1.0.431" />
         <PackageReference Include="Prism.Forms" Version="7.1.0.431" />
         <PackageReference Include="Prism.Plugin.Popups" Version="2.1.0.228" />
+        <PackageReference Include="Prism.Unity.Forms" Version="7.1.0.431" />
         <PackageReference Include="SkiaSharp" Version="1.60.3" />
         <PackageReference Include="SkiaSharp.Extended" Version="1.60.0" />
         <PackageReference Include="SkiaSharp.Svg" Version="1.60.0" />
@@ -262,13 +273,22 @@
           <Generator>PublicResXFileCodeGenerator</Generator>
           <LastGenOutput>LangResource.Designer.cs</LastGenOutput>
         </EmbeddedResource>
-        <EmbeddedResource Update="Views\FeedsPage.xaml">
-          <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-        </EmbeddedResource>
-        <EmbeddedResource Update="Views\MainPage.xaml">
+        <EmbeddedResource Update="Views\About.xaml">
             <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
         </EmbeddedResource>
-        <EmbeddedResource Update="Views\NoNetworkPage.xaml">
+        <EmbeddedResource Update="Views\Feeds.xaml">
+          <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Views\Home.xaml">
+          <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Views\MainLayout.xaml">
+            <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Views\Navigation.xaml">
+          <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Views\NoNetwork.xaml">
           <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
         </EmbeddedResource>
     </ItemGroup>

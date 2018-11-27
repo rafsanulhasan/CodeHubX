@@ -10,7 +10,7 @@ using Task = System.Threading.Tasks.Task;
 
 namespace CodeHubX.ViewModels
 {
-	public class NotificationsViewmodel : AppViewmodel
+	public class NotificationsViewModel : ViewModelBase
 	{
 		#region properties
 		public static ObservableCollection<Notification> AllNotifications { get; set; }
@@ -21,46 +21,47 @@ namespace CodeHubX.ViewModels
 		public bool ZeroAllCount
 		{
 			get => _ZeroAllCount;
-			set => Set(() => ZeroAllCount, ref _ZeroAllCount, value);
+			set => SetProperty(ref _ZeroAllCount, value);
 		}
 		public bool _ZeroUnreadCount;
 		public bool ZeroUnreadCount
 		{
 			get => _ZeroUnreadCount;
-			set => Set(() => ZeroUnreadCount, ref _ZeroUnreadCount, value);
+			set => SetProperty(ref _ZeroUnreadCount, value);
 		}
 		public bool _ZeroParticipatingCount;
 		public bool ZeroParticipatingCount
 		{
 			get => _ZeroParticipatingCount;
-			set => Set(() => ZeroParticipatingCount, ref _ZeroParticipatingCount, value);
+			set => SetProperty(ref _ZeroParticipatingCount, value);
 		}
 
 		public bool _isloadingAll;
 		public bool IsLoadingAll
 		{
 			get => _isloadingAll;
-			set => Set(() => IsLoadingAll, ref _isloadingAll, value);
+			set => SetProperty(ref _isloadingAll, value);
 		}
 
 		public bool _isloadingUnread;
 		public bool IsLoadingUnread
 		{
 			get => _isloadingUnread;
-			set => Set(() => IsLoadingUnread, ref _isloadingUnread, value);
+			set => SetProperty(ref _isloadingUnread, value);
 		}
 
 		public bool _isloadingParticipating;
 		public bool IsloadingParticipating
 		{
 			get => _isloadingParticipating;
-			set => Set(() => IsloadingParticipating, ref _isloadingParticipating, value);
+			set => SetProperty(ref _isloadingParticipating, value);
 		}
 		#endregion
 
-		public NotificationsViewmodel()
+		public NotificationsViewModel(Prism.Navigation.INavigationService navigationService)
+			: base(navigationService)
 		{
-			UnreadNotifications = UnreadNotifications ?? new ObservableCollection<Notification>();
+			//UnreadNotifications = UnreadNotifications ?? new ObservableCollection<Notification>();
 			AllNotifications = AllNotifications ?? new ObservableCollection<Notification>();
 			ParticipatingNotifications = ParticipatingNotifications ?? new ObservableCollection<Notification>();
 		}
@@ -76,7 +77,7 @@ namespace CodeHubX.ViewModels
 			else
 			{
 				IsLoadingUnread = true;
-				await LoadUnreadNotifications();
+				//await LoadUnreadNotifications();
 				IsLoadingUnread = false;
 				IsLoadingAll = true;
 				await LoadAllNotifications();
@@ -102,7 +103,7 @@ namespace CodeHubX.ViewModels
 				IsLoadingAll = false;
 			}
 		}
-		public async void RefreshUnread()
+		public void RefreshUnread()
 		{
 			if (!IsConnected)
 			{
@@ -113,7 +114,7 @@ namespace CodeHubX.ViewModels
 			else
 			{
 				IsLoadingUnread = true;
-				await LoadUnreadNotifications();
+				//await LoadUnreadNotifications();
 				IsLoadingUnread = false;
 			}
 		}
@@ -124,7 +125,7 @@ namespace CodeHubX.ViewModels
 			{
 				//Sending NoInternet message to all viewModels
 				//Messenger.Default.Send(new NoInternet().SendMessage());
-				MessagingCenter.Instance.Send(this, null, new NoInternet().SendMessage());
+				//MessagingCenter.Instance.Send(this, null, new NoInternet ().SendMessage());
 			}
 			else
 			{
@@ -140,7 +141,7 @@ namespace CodeHubX.ViewModels
 			{
 				//Sending NoInternet message to all viewModels
 				//Messenger.Default.Send(new NoInternet().SendMessage());
-				MessagingCenter.Instance.Send(this, null, new NoInternet().SendMessage());
+				//MessagingCenter.Instance.Send(this, null, new NoInternet().SendMessage());
 			}
 			else
 			{
@@ -156,17 +157,17 @@ namespace CodeHubX.ViewModels
 
 		public void RecieveSignOutMessage(SignOutMessageType empty)
 		{
-			IsLoggedin = false;
-			User = null;
-			AllNotifications = UnreadNotifications = ParticipatingNotifications = null;
+			//IsLoggedin = false;
+			//User = null;
+			//AllNotifications = UnreadNotifications = ParticipatingNotifications = null;
 		}
 
 		public async void RecieveSignInMessage(User user)
 		{
 			if (user != null)
 			{
-				IsLoggedin = true;
-				User = user;
+				//IsLoggedin = true;
+				//User = user;
 				await Load();
 			}
 		}
@@ -174,13 +175,14 @@ namespace CodeHubX.ViewModels
 		private async Task LoadAllNotifications()
 			=> AllNotifications = await NotificationsService.GetAllNotificationsForCurrentUser(true, false);
 
-		private async Task LoadUnreadNotifications()
-			=> UnreadNotifications = await NotificationsService.GetAllNotificationsForCurrentUser(false, false);
+		//private Task LoadUnreadNotifications()
+		//{ //UnreadNotifications = await NotificationsService.GetAllNotificationsForCurrentUser(false, false);
+		//}
 
 		private async Task LoadParticipatingNotifications()
 			=> ParticipatingNotifications = await NotificationsService.GetAllNotificationsForCurrentUser(false, true);
 
-		public async void Pivot_SelectionChanged(object sender, EventHandler e)
+		public void Pivot_SelectionChanged(object sender, EventHandler e)
 		{
 			//if (p.SelectedItem == typeof(Unread))
 			//{

@@ -8,14 +8,21 @@ namespace CodeHubX.Converters
 	public class L10nConverter
 		 : IValueConverter
 	{
+		private ILocalization _Localization;
+
+		public L10nConverter(ILocalization localization)
+		{
+			_Localization = localization;
+		}
+
 		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
 		{
 			if (targetType == typeof(string))
 			{
 				if (parameter is string param)
-					return L10n.Localize(value as string, param);
+					return _Localization.Localize(value as string, param);
 				else
-					return L10n.Localize(value as string, "");
+					return _Localization.Localize(value as string, "");
 			}
 			return null;
 		}

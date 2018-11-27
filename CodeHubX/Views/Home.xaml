@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<controls:CustomTabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+                           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                           xmlns:controls="clr-namespace:CodeHubX.Controls"
+                           xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+                           prism:ViewModelLocator.AutowireViewModel="True"
+                           x:Class="CodeHubX.Views.Home"
+                           ItemsSource="{Binding Tabs}"                           
+                           SelectedItem="{Binding SelectedTab, Mode=TwoWay}"
+                           Title="{Binding Title}">
+
+    <TabbedPage.ItemTemplate>
+        <DataTemplate x:DataType="ContentPage">
+            <CarouselPage Title="{Binding Title}">
+
+            </CarouselPage>
+        </DataTemplate>
+    </TabbedPage.ItemTemplate>
+
+</controls:CustomTabbedPage>

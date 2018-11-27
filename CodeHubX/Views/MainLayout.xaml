@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"             
+                  xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:models="clr-namespace:CodeHubX.Models"
+                  xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+                  xmlns:views="clr-namespace:CodeHubX.Views"
+                  prism:ViewModelLocator.AutowireViewModel="True"
+                  x:Class="CodeHubX.Views.MainLayout"
+                  Title="{Binding Title}">
+    <MasterDetailPage.Master>
+        <ContentPage Title="Menu" Icon="hamburger.png">
+            <StackLayout>
+                <ListView x:Name="menuList"
+                          ItemsSource="{Binding Items}"
+                          IsPullToRefreshEnabled="True"
+                          HasUnevenRows="True"
+                          SelectedItem="{Binding SelectedItem, Mode=OneWay}">
+
+                    <ListView.Behaviors>
+                        <b:EventToCommandBehavior 
+                             EventName="ItemSelected"
+                             Command="{Binding NavigateCommand}" 
+                             EventArgsParameterPath="SelectedItem" />
+                    </ListView.Behaviors>
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="models:NavMenuItem">
+                            <ViewCell>
+                                <Grid Padding="10">
+                                    <Label Text="{Binding MenuTitle}" />
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ContentPage>
+    </MasterDetailPage.Master>
+
+    <MasterDetailPage.Detail>
+        <views:Home>
+            <views:Home.Resources>
+                <Style TargetType="views:Home">
+                    <Setter Property="IsVisible" Value="{Binding IsUWP}" />
+                    <Setter Property="NavigationPage.HasNavigationBar" Value="{Binding IsAndroid}" />
+                </Style>
+            </views:Home.Resources>
+        </views:Home>
+        <!--<views:Home />-->
+    </MasterDetailPage.Detail>
+
+</MasterDetailPage>

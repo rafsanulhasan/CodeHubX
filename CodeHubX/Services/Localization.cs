@@ -8,30 +8,38 @@ using Xamarin.Forms;
 
 namespace CodeHubX.Services
 {
-	public class L10n
+	public class Localization
+		: ILocalization
 	{
 		private const string ResourceId = "CodeHubX.Strings.LangResource";
-		private static readonly Lazy<ResourceManager> ResMgr
+		private readonly Lazy<ResourceManager> ResMgr
 			= new Lazy<ResourceManager>(() =>
-				new ResourceManager(ResourceId, IntrospectionExtensions.GetTypeInfo(typeof(L10n)).Assembly));
+				new ResourceManager(ResourceId, IntrospectionExtensions.GetTypeInfo(typeof(Localization)).Assembly));
 
-		public static void SetLocale(CultureInfo ci)
-			=> DependencyService.Get<ILocalizer>().SetLocale(ci);
+		private ILocalizer _Localizer;
+
+		public Localization(ILocalizer localizer)
+		{
+			_Localizer=localizer;
+		}
+
+		public void SetLocale(CultureInfo ci)
+			=> _Localizer.SetLocale(ci);
 
 		/// <remarks>
 		/// Maybe we can cache this info rather than querying every time
 		/// </remarks>
 		[Obsolete]
-		public static string Locale()
-			=> DependencyService.Get<ILocalizer>().GetCurrentCultureInfo().ToString();
+		public string Locale()
+			=> _Localizer.GetCurrentCultureInfo().ToString();
 
-		public static string Localize(string key, string comment = "")
+		public string Localize(string key, string comment = "")
 		{
 			//var netLanguage = Locale ();
 
 			// Platform-specific
 			Debug.WriteLine("Localize " + key);
-			var result = ResMgr.Value.GetString(key, DependencyService.Get<ILocalizer>().GetCurrentCultureInfo());
+			var result = ResMgr.Value.GetString(key, _Localizer.GetCurrentCultureInfo());
 
 			if (StringHelper.IsNullOrEmptyOrWhiteSpace(result))
 			{
@@ -40,7 +48,7 @@ namespace CodeHubX.Services
 			return result;
 		}
 
-		public static ResourceDictionary LocalizeResource(ResourceDictionary resources, params string[] keys)
+		public ResourceDictionary LocalizeResource(ResourceDictionary resources, params string[] keys)
 		{
 
 			var dic = new ResourceDictionary();
@@ -60,7 +68,7 @@ namespace CodeHubX.Services
 			return dic;
 		}
 
-		public static void LocalizeResource(ResourceDictionary dic, string key, string comment = null)
+		public void LocalizeResource(ResourceDictionary dic, string key, string comment = null)
 			=> dic[key] = Localize(key, comment);
 	}
 }

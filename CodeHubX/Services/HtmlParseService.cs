@@ -3,7 +3,7 @@ using HtmlAgilityPack;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using static CodeHubX.ViewModels.TrendingViewmodel;
+using static CodeHubX.ViewModels.TrendingViewModel;
 
 namespace CodeHubX.Services
 {

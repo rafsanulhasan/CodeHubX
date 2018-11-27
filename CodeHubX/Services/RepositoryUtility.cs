@@ -13,7 +13,7 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using static CodeHubX.ViewModels.TrendingViewmodel;
+using static CodeHubX.ViewModels.TrendingViewModel;
 
 namespace CodeHubX.Services
 {

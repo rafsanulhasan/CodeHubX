@@ -23,13 +23,19 @@ namespace CodeHubX.Helpers
 		private static readonly Lazy<ResourceManager> ResMgr = new Lazy<ResourceManager>(
 		  () => new ResourceManager(ResourceId, typeof(TranslateExtension).Assembly));
 
+		private ILocalization _Localization;
+
 		public string Text { get; set; }
 		public string ResourceName { get; set; }
 		public string Comment { get; set; }
 
 
-		public TranslateExtension()
-			=> ci = DependencyService.Get<ILocalizer>().GetCurrentCultureInfo();
+		public TranslateExtension(ILocalization localization, ILocalizer localizer)
+		{
+			_Localization = localization;
+			ci = localizer.GetCurrentCultureInfo();
+
+		}
 
 		public string ProvideValue(IServiceProvider serviceProvider)
 		{
@@ -38,9 +44,9 @@ namespace CodeHubX.Helpers
 				if (StringHelper.IsNullOrEmptyOrWhiteSpace(resourceName))
 					throw new ArgumentNullException(nameof(resourceName));
 				if (StringHelper.IsNullOrEmptyOrWhiteSpace(comment))
-					return L10n.Localize(resourceName, "");
+					return _Localization.Localize(resourceName, "");
 				else
-					return L10n.Localize(resourceName, comment);
+					return _Localization.Localize(resourceName, comment);
 			}
 
 			var translation = string.Empty;

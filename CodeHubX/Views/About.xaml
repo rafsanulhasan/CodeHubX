@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<controls:CustomContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                            xmlns:controls="clr-namespace:CodeHubX.Controls"
+                            xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+                            prism:ViewModelLocator.AutowireViewModel="True"
+                            x:Class="CodeHubX.Views.About"
+                            Title="{Binding Title}">
+    <StackLayout Orientation="Vertical">
+        <Label Text="About Page" HorizontalOptions="Center" VerticalOptions="Center"/>
+    </StackLayout>
+
+</controls:CustomContentPage>

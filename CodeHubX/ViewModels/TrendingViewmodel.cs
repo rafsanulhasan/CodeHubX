@@ -1,8 +1,8 @@
 ﻿using CodeHubX.Helpers;
 using CodeHubX.Services;
-using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using Octokit;
+using Prism.Commands;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
@@ -11,7 +11,7 @@ using Xamarin.Forms;
 
 namespace CodeHubX.ViewModels
 {
-	public class TrendingViewmodel : AppViewmodel
+	public class TrendingViewModel : ViewModelBase
 	{
 		#region properties
 		public enum TimeRange
@@ -26,7 +26,7 @@ namespace CodeHubX.ViewModels
 		public bool ZeroTodayCount
 		{
 			get => _zeroTodayCount;
-			set => Set(() => ZeroTodayCount, ref _zeroTodayCount, value);
+			set => SetProperty(ref _zeroTodayCount, value);
 		}
 		public bool _zeroWeeklyCount;
 		/// <summary>
@@ -35,7 +35,7 @@ namespace CodeHubX.ViewModels
 		public bool ZeroWeeklyCount
 		{
 			get => _zeroWeeklyCount;
-			set => Set(() => ZeroWeeklyCount, ref _zeroWeeklyCount, value);
+			set => SetProperty(ref _zeroWeeklyCount, value);
 		}
 		public bool _zeroMonthlyCount;
 		/// <summary>
@@ -44,54 +44,54 @@ namespace CodeHubX.ViewModels
 		public bool ZeroMonthlyCount
 		{
 			get => _zeroMonthlyCount;
-			set => Set(() => ZeroMonthlyCount, ref _zeroMonthlyCount, value);
+			set => SetProperty(ref _zeroMonthlyCount, value);
 		}
 		public bool _CanLoadMoreToday;
 
 		public bool CanLoadMoreToday
 		{
 			get => _CanLoadMoreToday;
-			set => Set(() => CanLoadMoreToday, ref _CanLoadMoreToday, value);
+			set => SetProperty(ref _CanLoadMoreToday, value);
 		}
 		public bool _CanLoadMoreWeek;
 
 		public bool CanLoadMoreWeek
 		{
 			get => _CanLoadMoreWeek;
-			set => Set(() => CanLoadMoreWeek, ref _CanLoadMoreWeek, value);
+			set => SetProperty(ref _CanLoadMoreWeek, value);
 		}
 		public bool _CanLoadMoreMonth;
 
 		public bool CanLoadMoreMonth
 		{
 			get => _CanLoadMoreMonth;
-			set => Set(() => CanLoadMoreMonth, ref _CanLoadMoreMonth, value);
+			set => SetProperty(ref _CanLoadMoreMonth, value);
 		}
 
 		public Repository _firstTrendingReposToday;
 		public Repository FirstTrendingReposToday
 		{
 			get => _firstTrendingReposToday;
-			set => Set(() => FirstTrendingReposToday, ref _firstTrendingReposToday, value);
+			set => SetProperty(ref _firstTrendingReposToday, value);
 		}
 		public Repository _firstTrendingReposWeek;
 		public Repository FirstTrendingReposWeek
 		{
 			get => _firstTrendingReposWeek;
-			set => Set(() => FirstTrendingReposWeek, ref _firstTrendingReposWeek, value);
+			set => SetProperty(ref _firstTrendingReposWeek, value);
 		}
 		public Repository _firstTrendingReposMonth;
 		public Repository FirstTrendingReposMonth
 		{
 			get => _firstTrendingReposMonth;
-			set => Set(() => FirstTrendingReposMonth, ref _firstTrendingReposMonth, value);
+			set => SetProperty(ref _firstTrendingReposMonth, value);
 		}
 
 		public ObservableCollection<Repository> _trendingReposToday;
 		public ObservableCollection<Repository> TrendingReposToday
 		{
 			get => _trendingReposToday;
-			set => Set(() => TrendingReposToday, ref _trendingReposToday, value);
+			set => SetProperty(ref _trendingReposToday, value);
 
 		}
 
@@ -99,7 +99,7 @@ namespace CodeHubX.ViewModels
 		public ObservableCollection<Repository> TrendingReposWeek
 		{
 			get => _trendingReposWeek;
-			set => Set(() => TrendingReposWeek, ref _trendingReposWeek, value);
+			set => SetProperty(ref _trendingReposWeek, value);
 
 		}
 
@@ -107,7 +107,7 @@ namespace CodeHubX.ViewModels
 		public ObservableCollection<Repository> TrendingReposMonth
 		{
 			get => _trendingReposMonth;
-			set => Set(() => TrendingReposMonth, ref _trendingReposMonth, value);
+			set => SetProperty(ref _trendingReposMonth, value);
 
 		}
 
@@ -119,7 +119,7 @@ namespace CodeHubX.ViewModels
 		public bool IsIncrementalLoadingToday
 		{
 			get => _isIncrementalLoadingToday;
-			set => Set(() => IsIncrementalLoadingToday, ref _isIncrementalLoadingToday, value);
+			set => SetProperty(ref _isIncrementalLoadingToday, value);
 		}
 		public bool _isIncrementalLoadingWeek;
 
@@ -129,7 +129,7 @@ namespace CodeHubX.ViewModels
 		public bool IsIncrementalLoadingWeek
 		{
 			get => _isIncrementalLoadingWeek;
-			set => Set(() => IsIncrementalLoadingWeek, ref _isIncrementalLoadingWeek, value);
+			set => SetProperty(ref _isIncrementalLoadingWeek, value);
 		}
 		public bool _isIncrementalLoadingMonth;
 
@@ -139,7 +139,7 @@ namespace CodeHubX.ViewModels
 		public bool IsIncrementalLoadingMonth
 		{
 			get => _isIncrementalLoadingMonth;
-			set => Set(() => IsIncrementalLoadingMonth, ref _isIncrementalLoadingMonth, value);
+			set => SetProperty(ref _isIncrementalLoadingMonth, value);
 		}
 		public bool _isloadingToday;
 
@@ -149,7 +149,7 @@ namespace CodeHubX.ViewModels
 		public bool IsLoadingToday
 		{
 			get => _isloadingToday;
-			set => Set(() => IsLoadingToday, ref _isloadingToday, value);
+			set => SetProperty(ref _isloadingToday, value);
 		}
 		public bool _isloadingWeek;
 
@@ -159,7 +159,7 @@ namespace CodeHubX.ViewModels
 		public bool IsLoadingWeek
 		{
 			get => _isloadingWeek;
-			set => Set(() => IsLoadingWeek, ref _isloadingWeek, value);
+			set => SetProperty(ref _isloadingWeek, value);
 		}
 		public bool _isloadingMonth;
 
@@ -169,23 +169,21 @@ namespace CodeHubX.ViewModels
 		public bool IsLoadingMonth
 		{
 			get => _isloadingMonth;
-			set => Set(() => IsLoadingMonth, ref _isloadingMonth, value);
+			set => SetProperty(ref _isloadingMonth, value);
 		}
 
 		public ContentPage TrendingReposWeekPage { get; set; }
 		public ContentPage TrendingReposMonthPage { get; set; }
 		#endregion
 
-		public RelayCommand _loadCommand;
-		public RelayCommand LoadCommand
-			=> _loadCommand
-			?? (_loadCommand = new RelayCommand(async () =>
-										{
-											if (GlobalHelper.IsConnected)
-												if (TrendingReposToday == null)
-													await LoadTrendingRepos(TimeRange.TODAY);
+		public DelegateCommand LoadCommand;
+		private async void Load()
+		{
+			if (GlobalHelper.IsConnected)
+				if (TrendingReposToday == null)
+					await LoadTrendingRepos(TimeRange.TODAY);
 
-										}));
+		}
 
 		public async void RefreshTodayCommand(object sender, EventArgs e)
 		{
@@ -310,6 +308,13 @@ namespace CodeHubX.ViewModels
 			}
 
 		}
+
+		public TrendingViewModel(Prism.Navigation.INavigationService navigationService)
+			: base(navigationService)
+		{
+
+		}
+
 		public async Task TodayIncrementalLoad()
 		{
 			IsIncrementalLoadingToday = true;
