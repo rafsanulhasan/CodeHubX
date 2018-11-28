@@ -81,6 +81,7 @@
         <Compile Include="Converters\RepositoryContentToFileIconConverter.cs" />
         <Compile Include="Converters\RepositoryCreationTimeConverter.cs" />
         <Compile Include="Converters\TimeAgoConverter.cs" />
+        <Compile Include="Helpers\ArrayHelper.cs" />
         <Compile Include="Helpers\CollectionHelper.cs" />
         <Compile Include="Helpers\DictionaryHelper.cs" />
         <Compile Include="Helpers\EnumerableHelper.cs" />
@@ -113,6 +114,7 @@
         <Compile Include="Services\HtmlParseService.cs" />
         <Compile Include="Services\IBacktoundTaskService.cs" />
         <Compile Include="Services\IDataStore.cs" />
+        <Compile Include="Services\IFileStorage.cs" />
         <Compile Include="Services\ILocalization.cs" />
         <Compile Include="Services\ILocalizer.cs" />
         <Compile Include="Services\IMenuService.cs" />

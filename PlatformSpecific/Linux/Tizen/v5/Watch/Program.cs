@@ -6,7 +6,7 @@ namespace CodeHubX.Tizen.Watch
 		{
 			base.OnCreate();
 
-			LoadApplication(new App());
+			LoadApplication(new App(new TizenInitializer()));
 		}
 
 		static void Main(string[] args)

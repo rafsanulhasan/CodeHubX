@@ -1,11 +1,11 @@
-﻿namespace CodeHubX.Tizen5.TV.Samsung
+﻿namespace CodeHubX.Tizen.TV.Samsung
 {
 	class Program : Xamarin.Forms.Platform.Tizen.FormsApplication
 	{
 		protected override void OnCreate()
 		{
 			base.OnCreate();
-			LoadApplication(new App());
+			LoadApplication(new App(new TizenInitializer()));
 		}
 
 		static void Main(string[] args)

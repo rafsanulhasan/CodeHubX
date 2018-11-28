@@ -18,7 +18,8 @@ namespace CodeHubX.UWP.Views
 			public void RegisterTypes(IContainerRegistry containerRegistry)
 			{ 
 				// Register any platform specific implementations
-				containerRegistry.Register<ILocalizer, StringLocalizer>();
+				containerRegistry.RegisterSingleton<IFileStorage, FileStorage>();
+				containerRegistry.RegisterSingleton<ILocalizer, StringLocalizer>();
 			}
 		}
 	}

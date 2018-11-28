@@ -1,26 +1,43 @@
 ﻿using AppKit;
+using CodeHubX.Services;
 using Foundation;
+using Prism;
+using Prism.Ioc;
 
 namespace CodeHubX.Apple.OSX
 {
-    [Register("AppDelegate")]
-    public class AppDelegate : NSApplicationDelegate
+    [Register(nameof(AppDelegate))]
+    public class AppDelegate 
+		//: NSApplicationDelegate
+		: Xamarin.Forms.Platform.MacOS.FormsApplicationDelegate
     {
-        MainWindowController mainWindowController;
+		public override NSWindow MainWindow { get; }
 
-        public AppDelegate()
-        {
-        }
+		//
+		// This method is invoked when the application has loaded and is ready to run. In this 
+		// method you should instantiate the window, load the UI into it and then make the window
+		// visible.
+		//
+		// You have 17 seconds to return from this method, or iOS will terminate your application.
+		//
 
-        public override void DidFinishLaunching(NSNotification notification)
-        {
-            mainWindowController = new MainWindowController();
-            mainWindowController.Window.MakeKeyAndOrderFront(this);
-        }
+		public override void DidFinishLaunching(NSNotification notification)
+		{ 
+			Xamarin.Forms.Forms.Init();
+			LoadApplication(new App(new MacOSInitializer()));
 
-        public override void WillTerminate(NSNotification notification)
-        {
-            // Insert code here to tear down your application
-        }
-    }
+			base.DidFinishLaunching(notification);
+		}
+	}
+
+	public class MacOSInitializer
+		: IPlatformInitializer
+	{
+		public void RegisterTypes(IContainerRegistry containerRegistry)
+		{
+			// Register any platform specific implementations
+			containerRegistry.RegisterSingleton<IFileStorage, FileStorage>();
+			containerRegistry.RegisterSingleton<ILocalizer, StringLocalizer>();
+		}
+	}
 }

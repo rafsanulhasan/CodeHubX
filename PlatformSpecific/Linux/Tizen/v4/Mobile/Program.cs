@@ -1,4 +1,4 @@
-namespace CodeHubX.Tizen4.Mobile
+namespace CodeHubX.Tizen.Mobile
 {
 	internal class Program : Xamarin.Forms.Platform.Tizen.FormsApplication
 	{
@@ -6,7 +6,7 @@ namespace CodeHubX.Tizen4.Mobile
 		{
 			base.OnCreate();
 
-			LoadApplication(new App());
+			LoadApplication(new App(new TizenInitializer()));
 		}
 
 		private static void Main(string[] args)

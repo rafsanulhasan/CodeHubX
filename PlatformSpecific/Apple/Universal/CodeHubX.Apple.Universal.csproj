@@ -73,6 +73,7 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Services\FileStrorage.cs" />
     <Compile Include="Services\StringLocalizer.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist">

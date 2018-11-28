@@ -65,8 +65,8 @@
     <Reference Include="Prism.Unity.Forms, Version=7.1.0.431, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Prism.Unity.Forms.7.1.0.431\lib\netstandard2.0\Prism.Unity.Forms.dll</HintPath>
     </Reference>
-    <Reference Include="Rg.Plugins.Popup, Version=1.1.4.168, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Rg.Plugins.Popup.1.1.4.168\lib\netstandard1.0\Rg.Plugins.Popup.dll</HintPath>
+    <Reference Include="Rg.Plugins.Popup, Version=1.1.5.180, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Rg.Plugins.Popup.1.1.5.180\lib\netstandard1.0\Rg.Plugins.Popup.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -119,6 +119,8 @@
       <DependentUpon>MainWindowController.cs</DependentUpon>
     </Compile>
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Services\FileStrorage.cs" />
+    <Compile Include="Services\StringLocalizer.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainMenu.xib" />

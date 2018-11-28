@@ -6,7 +6,7 @@ namespace CodeHubX.Tizen.TV
 		{
 			base.OnCreate();
 
-			LoadApplication(new App());
+			LoadApplication(new App(new TizenInitializer()));
 		}
 
 		private static void Main(string[] args)

@@ -169,6 +169,7 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Services\FileStrorage.cs" />
     <Compile Include="Services\StringLocalizer.cs" />
     <Compile Include="ViewController.cs" />
     <Compile Include="ViewController.designer.cs">

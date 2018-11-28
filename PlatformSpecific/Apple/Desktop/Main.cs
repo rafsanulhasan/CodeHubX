@@ -1,4 +1,5 @@
 ﻿using AppKit;
+using MacOS=Xamarin.Forms.Platform.MacOS;
 
 namespace CodeHubX.Apple.OSX
 {

@@ -59,7 +59,7 @@ namespace CodeHubX.ViewModels
 			//_FileStorage = fileStorage;
 			_PageDialogSvc = pageDialogService;
 			Items = _MenuSvc.Menus;
-			SelectedItem = _MenuSvc.SelectedMenu;
+			SelectedItem = Items.First();
 			Title = SelectedItem.MenuTitle;
 		}
 

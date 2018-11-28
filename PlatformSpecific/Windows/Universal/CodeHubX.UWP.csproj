@@ -108,6 +108,7 @@
     </Compile>
     <Compile Include="Controls\AnimatedComboBox.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\FileStorage.cs" />
     <Compile Include="Services\StringLocalizer.cs" />
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
