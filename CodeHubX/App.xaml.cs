@@ -77,7 +77,7 @@ namespace CodeHubX
 			else
 				containerRegistry.Register<AzureDataStore>();
 
-			containerRegistry.RegisterSingleton<IMenuService, MenuService>();
+			containerRegistry.Register<IMenuService, MenuService>();
 			containerRegistry.Register<ILocalization, Localization>();
 			containerRegistry.Register<INetworkService, NetworkService>();
 		}

@@ -18,8 +18,6 @@ namespace CodeHubX.Services
 		public IReadOnlyList<NavMenuItem> Menus
 			=> _Menus.ToReadOnlyList();
 
-		public NavMenuItem SelectedMenu { get; private set; }
-
 		public MenuService()
 		{
 			_Menus = _Menus
@@ -28,7 +26,6 @@ namespace CodeHubX.Services
 						new NavMenuItem{ MenuTitle = HomeTitle, PageKey = HomeKey },
 						new NavMenuItem{ MenuTitle = AboutTitle, PageKey = AboutKey },
 				    };
-			SelectedMenu = SelectedMenu ?? _Menus.First();
 		}
 
 		public void Add(NavMenuItem pageItem)
@@ -45,8 +42,5 @@ namespace CodeHubX.Services
 
 		public void Remove(NavMenuItem pageItem)
 			=> _Menus.Remove(pageItem);
-
-		public void SetSelectedMenu(NavMenuItem toBeSelected)
-			=> SelectedMenu = toBeSelected;
 	}
 }

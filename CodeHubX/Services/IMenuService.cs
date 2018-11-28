@@ -6,7 +6,6 @@ namespace CodeHubX.Services
 	public interface IMenuService
 	{
 		IReadOnlyList<NavMenuItem> Menus { get; }
-		NavMenuItem SelectedMenu { get; }
 
 		void Add(NavMenuItem pageItem);
 
@@ -15,7 +14,5 @@ namespace CodeHubX.Services
 		bool Contains(NavMenuItem menuItem);
 
 		void Remove(NavMenuItem pageItem);
-
-		void SetSelectedMenu(NavMenuItem toBeSelected);
 	}
 }

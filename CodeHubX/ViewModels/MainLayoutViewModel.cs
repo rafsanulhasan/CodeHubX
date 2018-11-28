@@ -70,8 +70,6 @@ namespace CodeHubX.ViewModels
 		{
 			if (e is NavMenuItem menu)
 			{
-				//_NavSvc.NavigateAsync(menu.Param);
-				//await NavigationService.GoBackAsync();
 				var uri = $"MainLayout?selectedMenu={menu.MenuTitle}";
 				if (_DeviceService.DeviceRuntimePlatform == Device.UWP)
 				{
@@ -83,24 +81,20 @@ namespace CodeHubX.ViewModels
 				}
 				uri += $"{menu.PageKey}";
 				await NavigationService.NavigateAsync(uri, parameters: new NavigationParameters { { "currentPage", menu } }, useModalNavigation: false);
-				//await NavigationService.GoBackAsync();
-				//await _PageDialogSvc.DisplayAlertAsync("nav", $"Navigated to {menu.MenuTitle}", "Ok", "Close");
-				_MenuSvc.SetSelectedMenu(menu);
-				//_NavSvc.NavigateAsync("MainPage/NavP/Menu");			
 			}
 		}
 
 		public override void OnNavigatingTo(INavigationParameters parameters)
 		{
-			_CurrentUrl = NavigationService.GetNavigationUriPath().Skip(0).ToString();
 			if (parameters.ContainsKey("selectedMenu"))
-				_MenuSvc.SetSelectedMenu(_MenuSvc.Menus.SingleOrDefault(m => m.MenuTitle == (string)parameters["selectedMenu"]));
+				SelectedItem = Items.SingleOrDefault(m => m.MenuTitle == (string)parameters["selectedMenu"]) 
+					       ?? Items.First();
 			else
 			{
-				var paths = _CurrentUrl.Split('/');
-				_MenuSvc.SetSelectedMenu(Items.SingleOrDefault(i => i.PageKey == paths.Last()) ?? Items.First());
+				var paths = NavigationService.GetNavigationUriPath().Skip(1).ToString().Split('/');
+				SelectedItem = Items.SingleOrDefault(i => i.PageKey == paths.Last()) 
+					       ?? Items.First();
 			}
-			SelectedItem = _MenuSvc.SelectedMenu ?? Items.First();
 			//try
 			//{
 			//	await BuildConfig(_FileStorage);
