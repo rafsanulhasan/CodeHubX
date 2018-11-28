@@ -1,4 +1,5 @@
 ﻿using CodeHubX.Helpers;
+using CodeHubX.Models;
 using CodeHubX.Services;
 using CodeHubX.Strings;
 using CodeHubX.ViewModels;
@@ -103,6 +104,7 @@ namespace CodeHubX
 			_Localizer = Container.Resolve<ILocalizer>();
 			_NetworkSvc = Container.Resolve<INetworkService>();
 			var deviceSvc = Container.Resolve<IDeviceService>();
+			var fileStorage = Container.Resolve<IFileStorage>();
 
 			_NetworkSvc.ConnectivityChanged += ConnectivityChanged;
 			GlobalHelper.IsConnected = _NetworkSvc.IsConnected;
@@ -114,8 +116,10 @@ namespace CodeHubX
 			Resources[L10Resources.AppDisplayName] = "CodeHub";
 			Resources = localization.LocalizeResource(Resources);
 
+			var appCenterConfiguration = await ConfigurationFactory.GetAppCenterConfiguration(fileStorage, deviceSvc);
+			
 			// Handle when your app starts
-			AppCenter.Start("ios=0d2abada-0d0b-43c3-a500-832f8016b21d;android=b6f7aef7-c910-4c0e-a302-61b1f8095e9d;uwp=70adf665-fc63-4a9c-880f-b390818e93b5", typeof(Push), typeof(Analytics), typeof(Crashes));
+			AppCenter.Start(appCenterConfiguration.ToString(deviceSvc), typeof(Push), typeof(Analytics), typeof(Crashes));
 
 			var navigateToUrl = "MainLayout?selectedMenu=Home/";
 			if (deviceSvc.DeviceRuntimePlatform == Xamarin.Forms.Device.Android)
