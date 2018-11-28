@@ -133,6 +133,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <BundleResource Include="Assets\config.json" />
     <None Include="Info.plist">
       <SubType>Designer</SubType>
     </None>

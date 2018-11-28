@@ -98,6 +98,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <BundleResource Include="Assets\config.json" />
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
     <BundleResource Include="Resources\Base.lproj\InfoPList.strings">

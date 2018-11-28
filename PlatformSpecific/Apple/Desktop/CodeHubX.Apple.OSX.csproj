@@ -105,6 +105,7 @@
     <ImageAsset Include="Assets.xcassets\Contents.json" />
   </ItemGroup>
   <ItemGroup>
+    <BundleResource Include="Assets\config.json" />
     <None Include="Info.plist" />
     <None Include="packages.config" />
   </ItemGroup>

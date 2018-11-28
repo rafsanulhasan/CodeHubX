@@ -1,0 +1,18 @@
+﻿{
+    "appCenter": {
+        "settings": {
+            "android": {
+                "mobile": "b6f7aef7-c910-4c0e-a302-61b1f8095e9d",
+                "watchOS": "c16a9d8d-cd90-4772-b1c7-32f0fc5a336c"
+            },
+            "macOS": "0d2abada-0d0b-43c3-a500-832f8016b21d",
+            "uwp": "70adf665-fc63-4a9c-880f-b390818e93b5"
+        }
+    },
+    "gitHub": {
+        "settings": {
+            "appId": "1fb6956a480b4d0125b3",
+            "appSecret": "7f1061a51090c58f24a95fe302a699bb6ed6f12c"
+        }
+    }
+}

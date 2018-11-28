@@ -75,6 +75,7 @@
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Services\FileStrorage.cs" />
     <Compile Include="Services\StringLocalizer.cs" />
+    <BundleResource Include="Assets\config.json" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist">
       <SubType>Designer</SubType>

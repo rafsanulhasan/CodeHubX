@@ -15,6 +15,7 @@
     <DebugType>None</DebugType>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Assets\config.json" />
     <None Remove="shared\res\CodeHubX.Tizen.Mobile.png" />
     <None Remove="shared\res\CodeHubX.Tizen4.Mobile.png" />
     <None Remove="shared\res\flame.png" />
@@ -91,6 +92,9 @@
     <None Remove="shared\res\Wide310x150Logo.scale-150.png" />
     <None Remove="shared\res\Wide310x150Logo.scale-200.png" />
     <None Remove="shared\res\Wide310x150Logo.scale-400.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\config.json" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="shared\res\CodeHubX.Tizen.Mobile.png" />
