@@ -17,8 +17,8 @@ namespace CodeHubX.Services
 
 		public async Task<byte[]> ReadAsBytes(string filename)
 		{
-			var folderStructure = "Assets/";
-			var file = await StorageFile.GetFileFromApplicationUriAsync(new Uri($"ms-appx:///{folderStructure}{filename}"));
+			//var folderStructure = "Assets/";
+			var file = await StorageFile.GetFileFromApplicationUriAsync(new Uri($"ms-appx:///{filename}"));
 
 			var buffer = await FileIO.ReadBufferAsync(file);
 			using (var dataReader = Windows.Storage.Streams.DataReader.FromBuffer(buffer))
